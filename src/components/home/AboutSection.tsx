@@ -2,10 +2,8 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Target, Eye, Lightbulb, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import aboutCampus from "@/assets/about-campus.jpg";
-
 const AboutSection = () => {
-  return (
-    <section className="utt-section bg-background">
+  return <section className="utt-section bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -13,9 +11,7 @@ const AboutSection = () => {
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary uppercase tracking-wide">
             TRƯỜNG ĐẠI HỌC CÔNG NGHỆ GIAO THÔNG VẬN TẢI
           </h2>
-          <p className="text-muted-foreground mt-4 text-base">
-            Đào tạo nhân lực chất lượng cao: Ứng dụng • Đa ngành • Đa lĩnh vực
-          </p>
+          
         </div>
 
         {/* Two Column Layout */}
@@ -27,25 +23,15 @@ const AboutSection = () => {
             
             {/* Organic blob shape container */}
             <div className="relative">
-              <div 
-                className="w-[320px] h-[320px] md:w-[400px] md:h-[400px] overflow-hidden shadow-2xl"
-                style={{
-                  borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
-                }}
-              >
-                <img 
-                  src={aboutCampus} 
-                  alt="Khuôn viên ĐH Công nghệ GTVT" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-[320px] h-[320px] md:w-[400px] md:h-[400px] overflow-hidden shadow-2xl" style={{
+              borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%"
+            }}>
+                <img src={aboutCampus} alt="Khuôn viên ĐH Công nghệ GTVT" className="w-full h-full object-cover" />
               </div>
               {/* Border accent */}
-              <div 
-                className="absolute inset-0 border-4 border-primary/30"
-                style={{
-                  borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
-                }}
-              />
+              <div className="absolute inset-0 border-4 border-primary/30" style={{
+              borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%"
+            }} />
             </div>
 
             {/* Logo & Name Badge */}
@@ -143,8 +129,6 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
