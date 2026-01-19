@@ -41,61 +41,64 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative">
-      <div className="flex flex-col lg:flex-row">
-        {/* Image Carousel */}
-        <div className="relative lg:w-2/3 h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden">
-          {slides.map((slide, index) => (
-            <div
-              key={slide.id}
-              className={`absolute inset-0 transition-opacity duration-700 ${
-                index === currentSlide ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <img 
-                src={slide.image} 
-                alt={slide.alt} 
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
-          
-          {/* Carousel Controls */}
-          <button 
-            onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/80 rounded-full flex items-center justify-center hover:bg-background transition-colors z-10"
+    <section className="relative w-full h-[400px] md:h-[500px] lg:h-[550px]">
+      {/* Full-width Image Carousel */}
+      <div className="absolute inset-0 overflow-hidden">
+        {slides.map((slide, index) => (
+          <div
+            key={slide.id}
+            className={`absolute inset-0 transition-opacity duration-700 ${
+              index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
           >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button 
-            onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/80 rounded-full flex items-center justify-center hover:bg-background transition-colors z-10"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-
-          {/* Dots */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-            {slides.map((_, index) => (
-              <button 
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                  index === currentSlide ? "bg-primary" : "bg-background/60 hover:bg-background/80"
-                }`}
-              />
-            ))}
+            <img 
+              src={slide.image} 
+              alt={slide.alt} 
+              className="w-full h-full object-cover"
+            />
           </div>
-        </div>
+        ))}
+        
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/10" />
+      </div>
+      
+      {/* Carousel Controls */}
+      <button 
+        onClick={prevSlide}
+        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/80 rounded-full flex items-center justify-center hover:bg-background transition-colors z-20"
+      >
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+      <button 
+        onClick={nextSlide}
+        className="absolute right-4 lg:right-[calc(33.333%+1rem)] top-1/2 -translate-y-1/2 w-10 h-10 bg-background/80 rounded-full flex items-center justify-center hover:bg-background transition-colors z-20"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
 
-        {/* Search Panel */}
-        <div className="lg:w-1/3 bg-background p-6 lg:p-8 flex flex-col justify-center">
+      {/* Dots - positioned at bottom left of slide area */}
+      <div className="absolute bottom-4 left-1/2 lg:left-1/3 -translate-x-1/2 flex gap-2 z-20">
+        {slides.map((_, index) => (
+          <button 
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`w-2.5 h-2.5 rounded-full transition-colors ${
+              index === currentSlide ? "bg-primary" : "bg-background/60 hover:bg-background/80"
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* Search Panel Card - Overlay on right side */}
+      <div className="absolute right-0 top-0 bottom-0 w-full lg:w-1/3 flex items-center justify-center p-4 lg:p-0 z-10">
+        <div className="bg-background/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-border/50 p-6 lg:p-8 w-full max-w-md lg:max-w-none lg:mx-6 lg:my-8">
           <div className="inline-flex items-center gap-2 mb-4">
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
             <span className="text-sm text-muted-foreground">Hơn 500 việc làm đang tuyển</span>
           </div>
 
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
+          <h1 className="text-2xl md:text-3xl lg:text-3xl font-bold mb-2">
             <span className="text-primary">Kết nối </span>
             <span className="text-foreground">Tài năng với </span>
             <span className="text-primary">Cơ hội</span>
@@ -131,7 +134,7 @@ const HeroSection = () => {
               {quickSearchTags.map((tag) => (
                 <button 
                   key={tag}
-                  className="px-4 py-1.5 text-sm border border-border rounded-full hover:border-primary hover:text-primary transition-colors"
+                  className="px-4 py-1.5 text-sm border border-border rounded-full hover:border-primary hover:text-primary transition-colors bg-background"
                 >
                   {tag}
                 </button>
