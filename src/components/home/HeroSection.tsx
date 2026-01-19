@@ -41,7 +41,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative w-full h-[400px] md:h-[500px] lg:h-[550px]">
+    <section className="relative w-full h-[300px] md:h-[380px] lg:h-[420px]">
       {/* Full-width Image Carousel */}
       <div className="absolute inset-0 overflow-hidden">
         {slides.map((slide, index) => (
