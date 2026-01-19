@@ -65,16 +65,18 @@ const Header = () => {
       </div>
 
       {/* Navigation Bar */}
-      <nav className="bg-primary">
+      <nav className="bg-primary border-b-2 border-primary">
         <div className="container mx-auto px-4">
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center justify-center">
+          <div className="hidden md:flex items-center justify-center gap-2">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`utt-nav-link ${
-                  location.pathname === link.path ? "active bg-primary-foreground/10" : ""
+                className={`relative px-6 py-4 text-sm font-medium tracking-wide transition-all duration-200 ${
+                  location.pathname === link.path 
+                    ? "text-primary-foreground after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-primary-foreground" 
+                    : "text-primary-foreground/80 hover:text-primary-foreground"
                 }`}
               >
                 {link.name}
@@ -84,15 +86,15 @@ const Header = () => {
 
           {/* Mobile Nav */}
           {isMenuOpen && (
-            <div className="md:hidden py-4 space-y-2">
+            <div className="md:hidden py-4 space-y-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`block px-4 py-3 text-primary-foreground rounded-lg transition-colors ${
+                  className={`block px-4 py-3 text-sm font-medium tracking-wide rounded-lg transition-colors ${
                     location.pathname === link.path 
-                      ? "bg-primary-foreground/20" 
-                      : "hover:bg-primary-foreground/10"
+                      ? "text-primary-foreground bg-primary-foreground/10 border-l-4 border-primary-foreground" 
+                      : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/5"
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -100,7 +102,7 @@ const Header = () => {
                 </Link>
               ))}
               <div className="pt-4 border-t border-primary-foreground/20">
-                <Button className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+                <Button className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-medium">
                   Đăng nhập
                 </Button>
               </div>
