@@ -1,40 +1,87 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import heroCampus from "@/assets/hero-campus.jpg";
+import slideTalkshow from "@/assets/slide-talkshow.jpg";
+import slideStudents from "@/assets/slide-students.jpg";
+import slideCampus from "@/assets/slide-campus.jpg";
 
 const quickSearchTags = ["Kỹ sư", "IT", "Xây dựng", "Kinh tế", "Logistics"];
 
+const slides = [
+  { id: 0, image: heroCampus, alt: "UTT Campus" },
+  { id: 1, image: slideTalkshow, alt: "Talkshow du học Pháp" },
+  { id: 2, image: slideStudents, alt: "Sinh viên UTT" },
+  { id: 3, image: slideCampus, alt: "Khuôn viên trường" },
+];
+
 const HeroSection = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Auto-play carousel
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
 
   return (
     <section className="relative">
       <div className="flex flex-col lg:flex-row">
         {/* Image Carousel */}
-        <div className="relative lg:w-2/3 h-[300px] md:h-[400px] lg:h-[500px]">
-          <img 
-            src={heroCampus} 
-            alt="UTT Campus" 
-            className="w-full h-full object-cover"
-          />
+        <div className="relative lg:w-2/3 h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden">
+          {slides.map((slide, index) => (
+            <div
+              key={slide.id}
+              className={`absolute inset-0 transition-opacity duration-700 ${
+                index === currentSlide ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <img 
+                src={slide.image} 
+                alt={slide.alt} 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
           
           {/* Carousel Controls */}
-          <button className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/80 rounded-full flex items-center justify-center hover:bg-background transition-colors">
+          <button 
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/80 rounded-full flex items-center justify-center hover:bg-background transition-colors z-10"
+          >
             <ChevronLeft className="w-6 h-6" />
           </button>
-          <button className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/80 rounded-full flex items-center justify-center hover:bg-background transition-colors">
+          <button 
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/80 rounded-full flex items-center justify-center hover:bg-background transition-colors z-10"
+          >
             <ChevronRight className="w-6 h-6" />
           </button>
 
           {/* Dots */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-            {[0, 1, 2, 3].map((i) => (
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+            {slides.map((_, index) => (
               <button 
-                key={i}
+                key={index}
+                onClick={() => goToSlide(index)}
                 className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                  i === 0 ? "bg-primary" : "bg-background/60"
+                  index === currentSlide ? "bg-primary" : "bg-background/60 hover:bg-background/80"
                 }`}
               />
             ))}
