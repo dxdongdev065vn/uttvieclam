@@ -1,5 +1,8 @@
 import { User, GraduationCap, Calendar, BookOpen, Award, Heart, MapPin, DollarSign, Clock, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import candidate1 from "@/assets/candidate-1.jpg";
+import candidate2 from "@/assets/candidate-2.jpg";
+import candidate3 from "@/assets/candidate-3.jpg";
 
 const candidates = [
   {
@@ -8,7 +11,7 @@ const candidates = [
     birthYear: 2004,
     major: "Công nghệ thông tin",
     graduationType: "Giỏi",
-    avatar: "/placeholder.svg",
+    avatar: candidate1,
     desires: {
       position: "Lập trình viên Backend",
       location: "Hà Nội",
@@ -22,7 +25,7 @@ const candidates = [
     birthYear: 2003,
     major: "Kỹ thuật Cầu đường",
     graduationType: "Xuất sắc",
-    avatar: "/placeholder.svg",
+    avatar: candidate2,
     desires: {
       position: "Kỹ sư thiết kế cầu",
       location: "Vĩnh Phúc",
@@ -36,7 +39,7 @@ const candidates = [
     birthYear: 2004,
     major: "Logistics và Quản lý chuỗi cung ứng",
     graduationType: "Khá",
-    avatar: "/placeholder.svg",
+    avatar: candidate3,
     desires: {
       position: "Chuyên viên Logistics",
       location: "Thái Nguyên",
@@ -79,8 +82,12 @@ const CandidatesSection = () => {
                   </h3>
                   
                   <div className="flex flex-col items-center mb-6">
-                    <div className="w-32 h-32 rounded-full bg-muted border-4 border-primary/20 flex items-center justify-center mb-4 overflow-hidden">
-                      <User className="w-16 h-16 text-muted-foreground" />
+                    <div className="w-32 h-32 rounded-full border-4 border-primary/20 mb-4 overflow-hidden">
+                      <img 
+                        src={candidate.avatar} 
+                        alt={candidate.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </div>
 

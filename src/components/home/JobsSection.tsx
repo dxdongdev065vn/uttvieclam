@@ -2,6 +2,8 @@ import { useState } from "react";
 import { MapPin, Globe, Briefcase, Gift, FileText, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import slideCampus from "@/assets/slide-campus.jpg";
+import company1 from "@/assets/company-1.jpg";
+import company2 from "@/assets/company-2.jpg";
 
 type Location = "hanoi" | "vinhphuc" | "thainguyen";
 
@@ -28,6 +30,7 @@ const companiesByLocation: Record<Location, Company[]> = {
       salary: "15.000.000 - 20.000.000 VNĐ",
       benefits: ["Bảo hiểm đầy đủ", "Du lịch hàng năm", "Thưởng Tết"],
       description: "Yêu cầu kinh nghiệm 1 năm trong lĩnh vực xây dựng cầu đường. Ưu tiên ứng viên tốt nghiệp từ các trường kỹ thuật.",
+      logo: company1,
     },
     {
       id: 2,
@@ -38,6 +41,7 @@ const companiesByLocation: Record<Location, Company[]> = {
       salary: "12.000.000 - 18.000.000 VNĐ",
       benefits: ["Bảo hiểm", "Xe đưa đón", "Thưởng KPI"],
       description: "Tìm kiếm ứng viên năng động, có khả năng làm việc dưới áp lực cao.",
+      logo: company2,
     },
   ],
   vinhphuc: [
@@ -50,6 +54,7 @@ const companiesByLocation: Record<Location, Company[]> = {
       salary: "18.000.000 - 25.000.000 VNĐ",
       benefits: ["Nhà ở miễn phí", "Bảo hiểm", "Thưởng năng suất"],
       description: "Cần tuyển kỹ sư có kinh nghiệm vận hành máy CNC, đọc hiểu bản vẽ kỹ thuật.",
+      logo: company2,
     },
   ],
   thainguyen: [
@@ -62,6 +67,7 @@ const companiesByLocation: Record<Location, Company[]> = {
       salary: "20.000.000 - 30.000.000 VNĐ",
       benefits: ["Phụ cấp độc hại", "Bảo hiểm cao cấp", "Thưởng dự án"],
       description: "Tuyển kỹ sư địa chất, mỏ có kinh nghiệm làm việc tại mỏ lộ thiên.",
+      logo: company1,
     },
   ],
 };
@@ -160,12 +166,19 @@ const JobsSection = () => {
                     </div>
                   </div>
                   
-                  {/* Company Representative Image Placeholder */}
-                  <div className="w-full h-40 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl flex items-center justify-center">
-                    <div className="text-center text-muted-foreground">
-                      <Building2 className="w-12 h-12 mx-auto mb-2 opacity-50" />
-                      <p className="text-sm">Hình ảnh công ty</p>
-                    </div>
+                  {/* Company Image */}
+                  <div className="w-full h-40 rounded-xl overflow-hidden">
+                    {company.logo ? (
+                      <img 
+                        src={company.logo} 
+                        alt={company.name}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                        <Building2 className="w-12 h-12 text-muted-foreground opacity-50" />
+                      </div>
+                    )}
                   </div>
                 </div>
 
