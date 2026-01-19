@@ -44,7 +44,7 @@ const HeroSection = () => {
   const nextSlide = () => {
     setCurrentSlide(prev => (prev + 1) % slides.length);
   };
-  return <section className="relative w-full h-[400px] md:h-[500px] lg:h-[550px]">
+  return <section className="relative w-full h-[320px] md:h-[400px] lg:h-[450px]">
       {/* Full-width Image Carousel */}
       <div className="absolute inset-0 overflow-hidden">
         {slides.map((slide, index) => <div key={slide.id} className={`absolute inset-0 transition-opacity duration-700 ${index === currentSlide ? "opacity-100" : "opacity-0"}`}>
