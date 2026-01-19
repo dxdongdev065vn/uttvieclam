@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MapPin, Globe, Briefcase, Gift, FileText, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import slideCampus from "@/assets/slide-campus.jpg";
+
 import company1 from "@/assets/company-1.jpg";
 import company2 from "@/assets/company-2.jpg";
 
@@ -96,46 +96,24 @@ const JobsSection = () => {
           </p>
         </div>
 
-        {/* A. Location Selection - Split Layout */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-12">
-          {/* Left: Animated Campus Image */}
-          <div className="relative overflow-hidden rounded-2xl h-64 lg:h-80">
-            <img
-              src={slideCampus}
-              alt="Cơ sở đào tạo"
-              className="w-full h-full object-cover animate-[pulse_4s_ease-in-out_infinite] hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-            <div className="absolute bottom-4 left-4 text-white">
-              <p className="text-lg font-semibold">Cơ sở đào tạo</p>
-              <p className="text-sm opacity-80">Trường Đại học Công nghệ GTVT</p>
-            </div>
-          </div>
-
-          {/* Right: Location Tabs */}
-          <div className="flex flex-col justify-center">
-            <h3 className="text-xl font-semibold mb-6 text-foreground">Chọn khu vực tuyển dụng:</h3>
-            <div className="flex flex-col gap-4">
-              {locations.map((loc) => (
-                <button
-                  key={loc.key}
-                  onClick={() => setSelectedLocation(loc.key)}
-                  className={`flex items-center gap-3 px-6 py-4 rounded-xl border-2 transition-all duration-300 text-left ${
-                    selectedLocation === loc.key
-                      ? "border-primary bg-primary/10 text-primary shadow-lg"
-                      : "border-border bg-card text-foreground hover:border-primary/50 hover:bg-muted"
-                  }`}
-                >
-                  <span className="text-2xl">{loc.icon}</span>
-                  <span className="font-semibold text-lg">{loc.label}</span>
-                  {selectedLocation === loc.key && (
-                    <span className="ml-auto text-sm bg-primary text-primary-foreground px-3 py-1 rounded-full">
-                      Đang chọn
-                    </span>
-                  )}
-                </button>
-              ))}
-            </div>
+        {/* Location Selection */}
+        <div className="max-w-3xl mx-auto mb-12">
+          <h3 className="text-xl font-semibold mb-6 text-foreground text-center">Chọn khu vực tuyển dụng:</h3>
+          <div className="flex flex-wrap justify-center gap-4">
+            {locations.map((loc) => (
+              <button
+                key={loc.key}
+                onClick={() => setSelectedLocation(loc.key)}
+                className={`flex items-center gap-3 px-6 py-4 rounded-xl border-2 transition-all duration-300 ${
+                  selectedLocation === loc.key
+                    ? "border-primary bg-primary/10 text-primary shadow-lg"
+                    : "border-border bg-card text-foreground hover:border-primary/50 hover:bg-muted"
+                }`}
+              >
+                <span className="text-2xl">{loc.icon}</span>
+                <span className="font-semibold text-lg">{loc.label}</span>
+              </button>
+            ))}
           </div>
         </div>
 
