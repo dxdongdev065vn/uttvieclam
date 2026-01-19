@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Search, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { Search, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import heroCampus from "@/assets/hero-campus.jpg";
@@ -63,19 +63,6 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/10" />
       </div>
       
-      {/* Carousel Controls */}
-      <button 
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/80 rounded-full flex items-center justify-center hover:bg-background transition-colors z-20"
-      >
-        <ChevronLeft className="w-6 h-6" />
-      </button>
-      <button 
-        onClick={nextSlide}
-        className="absolute right-4 lg:right-[calc(33.333%+1rem)] top-1/2 -translate-y-1/2 w-10 h-10 bg-background/80 rounded-full flex items-center justify-center hover:bg-background transition-colors z-20"
-      >
-        <ChevronRight className="w-6 h-6" />
-      </button>
 
       {/* Dots - positioned at bottom left of slide area */}
       <div className="absolute bottom-4 left-1/2 lg:left-1/3 -translate-x-1/2 flex gap-2 z-20">
