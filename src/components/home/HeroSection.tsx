@@ -2,15 +2,14 @@ import { useState, useEffect } from "react";
 import { Search, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import heroCampus from "@/assets/hero-campus.jpg";
 import slideTalkshow from "@/assets/slide-talkshow.jpg";
 import slideStudents from "@/assets/slide-students.jpg";
 import slideCampus from "@/assets/slide-campus.jpg";
 const quickSearchTags = ["Kỹ sư", "IT", "Xây dựng", "Kinh tế", "Logistics"];
 const slides = [{
   id: 0,
-  image: heroCampus,
-  alt: "UTT Campus"
+  image: slideTalkshow,
+  alt: "Talkshow du học Pháp"
 }, {
   id: 1,
   image: slideTalkshow,
