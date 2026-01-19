@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { User, Globe, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import uttLogo from "@/assets/utt-logo.png";
 
 const navLinks = [
   { name: "Trang Chủ", path: "/" },
@@ -22,15 +23,12 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">UTT</span>
-            </div>
-            <div className="hidden sm:block">
-              <p className="text-[10px] text-muted-foreground uppercase tracking-wide">Bộ Giao Thông Vận Tải</p>
-              <p className="text-sm md:text-base font-bold text-foreground leading-tight">TRƯỜNG ĐẠI HỌC CÔNG NGHỆ GTVT</p>
-              <p className="text-[10px] text-muted-foreground">UNIVERSITY OF TRANSPORT TECHNOLOGY</p>
-            </div>
+          <Link to="/" className="flex items-center">
+            <img 
+              src={uttLogo} 
+              alt="Trường Đại học Công nghệ GTVT" 
+              className="h-12 md:h-16 w-auto"
+            />
           </Link>
 
           {/* Right Actions */}
