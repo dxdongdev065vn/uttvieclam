@@ -34,12 +34,14 @@ const articles = [
 
 const ArticlesSection = () => {
   return (
-    <section className="utt-section bg-utt-gray">
+    <section className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <span className="utt-badge mb-4">CẨM NANG NGHỀ NGHIỆP</span>
-          <h2 className="text-3xl md:text-4xl font-bold">
+          <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+            BÀI VIẾT
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Bài viết <span className="text-primary">hữu ích</span>
           </h2>
           <p className="text-muted-foreground mt-3">
