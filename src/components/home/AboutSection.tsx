@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Target, Eye, Lightbulb, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import aboutStudents from "@/assets/about-students.jpg";
+import aboutCampus from "@/assets/about-campus.jpg";
 
 const AboutSection = () => {
   return (
@@ -34,8 +34,8 @@ const AboutSection = () => {
                 }}
               >
                 <img 
-                  src={aboutStudents} 
-                  alt="Sinh viên UTT" 
+                  src={aboutCampus} 
+                  alt="Khuôn viên ĐH Công nghệ GTVT" 
                   className="w-full h-full object-cover"
                 />
               </div>
