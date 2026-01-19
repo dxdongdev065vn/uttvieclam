@@ -78,8 +78,8 @@ const HeroSection = () => {
       </div>
 
       {/* Search Panel Card - Overlay on right side */}
-      <div className="absolute right-0 top-0 bottom-0 w-full lg:w-1/3 flex items-center justify-center p-4 lg:p-0 z-10">
-        <div className="bg-background/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-border/50 p-6 lg:p-8 w-full max-w-md lg:max-w-none lg:mx-6 lg:my-8">
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full lg:w-1/3 flex items-center justify-center p-4 lg:p-0 z-10">
+        <div className="bg-background/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-border/50 p-5 lg:p-6 w-full max-w-md lg:max-w-none lg:mx-6">
           <div className="inline-flex items-center gap-2 mb-4">
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
             <span className="text-sm text-muted-foreground">Hơn 500 việc làm đang tuyển</span>
