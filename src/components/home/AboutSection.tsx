@@ -10,10 +10,10 @@ const AboutSection = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <span className="utt-badge mb-4">VỀ CHÚNG TÔI</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Trường Đại học <span className="text-primary">Công nghệ GTVT</span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary uppercase tracking-wide">
+            TRƯỜNG ĐẠI HỌC CÔNG NGHỆ GIAO THÔNG VẬN TẢI
           </h2>
-          <p className="text-muted-foreground mt-3">
+          <p className="text-muted-foreground mt-4 text-base">
             Đào tạo nhân lực chất lượng cao: Ứng dụng • Đa ngành • Đa lĩnh vực
           </p>
         </div>
