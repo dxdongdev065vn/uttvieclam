@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { User, Globe, Menu, X, Briefcase, Users, BookOpen, Newspaper, Phone, Home } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import uttLogo from "@/assets/utt-logo.png";
+import uttLogo from "@/assets/utt-logo-new.png";
 
 const navLinks = [
   { name: "Trang Chủ", path: "/", icon: Home },
