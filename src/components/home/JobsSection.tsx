@@ -29,7 +29,7 @@ const companiesByLocation: Record<Location, Company[]> = {
       position: "Kỹ sư Cầu đường / IT / Logistics",
       salary: "15.000.000 - 20.000.000 VNĐ",
       benefits: ["Bảo hiểm đầy đủ", "Du lịch hàng năm", "Thưởng Tết"],
-      description: "Yêu cầu kinh nghiệm 1 năm trong lĩnh vực xây dựng cầu đường. Ưu tiên ứng viên tốt nghiệp từ các trường kỹ thuật.",
+      description: "Yêu cầu kinh nghiệm 1 năm trong lĩnh vực xây dựng cầu đường.",
       logo: company1,
     },
     {
@@ -43,23 +43,89 @@ const companiesByLocation: Record<Location, Company[]> = {
       description: "Tìm kiếm ứng viên năng động, có khả năng làm việc dưới áp lực cao.",
       logo: company2,
     },
+    {
+      id: 3,
+      name: "Công ty CP Công nghệ VinFast",
+      address: "Gia Lâm, Hà Nội",
+      website: "www.vinfast.vn",
+      position: "Kỹ sư Ô tô / Cơ khí",
+      salary: "18.000.000 - 30.000.000 VNĐ",
+      benefits: ["Lương tháng 13", "Bảo hiểm cao cấp", "Nhà ở"],
+      description: "Tuyển kỹ sư ô tô có kiến thức về hệ thống điện và cơ khí.",
+      logo: company1,
+    },
+    {
+      id: 4,
+      name: "Công ty TNHH Samsung Electronics",
+      address: "Bắc Ninh (Gần Hà Nội)",
+      website: "www.samsung.com/vn",
+      position: "Kỹ sư Điện tử / Phần mềm",
+      salary: "15.000.000 - 25.000.000 VNĐ",
+      benefits: ["Shuttle bus", "Canteen", "Thưởng sản xuất"],
+      description: "Tuyển kỹ sư điện tử, ưu tiên có kinh nghiệm về embedded systems.",
+      logo: company2,
+    },
+    {
+      id: 5,
+      name: "Tổng Công ty Đường sắt Việt Nam",
+      address: "Hai Bà Trưng, Hà Nội",
+      website: "www.vr.com.vn",
+      position: "Kỹ sư Đường sắt / Vận hành",
+      salary: "10.000.000 - 18.000.000 VNĐ",
+      benefits: ["Biên chế nhà nước", "Bảo hiểm", "Phụ cấp"],
+      description: "Tuyển kỹ sư chuyên ngành đường sắt, cơ khí giao thông.",
+      logo: company1,
+    },
+    {
+      id: 6,
+      name: "Công ty CP Phần mềm FPT",
+      address: "Cầu Giấy, Hà Nội",
+      website: "www.fpt-software.com",
+      position: "Lập trình viên / DevOps",
+      salary: "15.000.000 - 35.000.000 VNĐ",
+      benefits: ["Remote", "Laptop", "Đào tạo quốc tế"],
+      description: "Tuyển lập trình viên React, Node.js, có khả năng làm việc nhóm.",
+      logo: company2,
+    },
   ],
   phutho: [
     {
-      id: 3,
+      id: 7,
       name: "Công ty TNHH Sản xuất XYZ",
       address: "KCN Thụy Vân, Phú Thọ",
       website: "www.xyzmanufacturing.com",
       position: "Kỹ sư Cơ khí / Điện tử",
       salary: "18.000.000 - 25.000.000 VNĐ",
       benefits: ["Nhà ở miễn phí", "Bảo hiểm", "Thưởng năng suất"],
-      description: "Cần tuyển kỹ sư có kinh nghiệm vận hành máy CNC, đọc hiểu bản vẽ kỹ thuật.",
+      description: "Cần tuyển kỹ sư có kinh nghiệm vận hành máy CNC.",
+      logo: company2,
+    },
+    {
+      id: 8,
+      name: "Công ty CP Hóa chất Việt Trì",
+      address: "TP. Việt Trì, Phú Thọ",
+      website: "www.vicaco.vn",
+      position: "Kỹ sư Hóa học / Môi trường",
+      salary: "12.000.000 - 18.000.000 VNĐ",
+      benefits: ["Phụ cấp độc hại", "Bảo hiểm", "Xe đưa đón"],
+      description: "Tuyển kỹ sư hóa học, môi trường làm việc tại nhà máy.",
+      logo: company1,
+    },
+    {
+      id: 9,
+      name: "Công ty TNHH Giấy Lee & Man",
+      address: "KCN Thụy Vân, Phú Thọ",
+      website: "www.leemanpaper.com",
+      position: "Kỹ sư Sản xuất / Bảo trì",
+      salary: "14.000.000 - 22.000.000 VNĐ",
+      benefits: ["Nhà ở", "Bảo hiểm", "Thưởng tháng"],
+      description: "Tuyển kỹ sư cơ khí, điện cho bộ phận sản xuất và bảo trì.",
       logo: company2,
     },
   ],
   thainguyen: [
     {
-      id: 4,
+      id: 10,
       name: "Công ty CP Khai thác Khoáng sản TN",
       address: "TP. Thái Nguyên",
       website: "www.tnmining.com.vn",
@@ -68,6 +134,39 @@ const companiesByLocation: Record<Location, Company[]> = {
       benefits: ["Phụ cấp độc hại", "Bảo hiểm cao cấp", "Thưởng dự án"],
       description: "Tuyển kỹ sư địa chất, mỏ có kinh nghiệm làm việc tại mỏ lộ thiên.",
       logo: company1,
+    },
+    {
+      id: 11,
+      name: "Công ty TNHH Samsung Electronics TN",
+      address: "KCN Yên Bình, Thái Nguyên",
+      website: "www.samsung.com/vn",
+      position: "Kỹ sư Điện tử / QC",
+      salary: "12.000.000 - 20.000.000 VNĐ",
+      benefits: ["Shuttle bus", "Canteen", "Ký túc xá"],
+      description: "Tuyển kỹ sư điện tử, kiểm soát chất lượng sản phẩm.",
+      logo: company2,
+    },
+    {
+      id: 12,
+      name: "Công ty CP Gang Thép Thái Nguyên",
+      address: "TP. Thái Nguyên",
+      website: "www.tisco.com.vn",
+      position: "Kỹ sư Luyện kim / Cơ khí",
+      salary: "15.000.000 - 25.000.000 VNĐ",
+      benefits: ["Nhà ở", "Bảo hiểm", "Phụ cấp nặng nhọc"],
+      description: "Tuyển kỹ sư luyện kim, cơ khí cho nhà máy sản xuất thép.",
+      logo: company1,
+    },
+    {
+      id: 13,
+      name: "Công ty CP Xi măng Quang Sơn",
+      address: "Đồng Hỷ, Thái Nguyên",
+      website: "www.quangsoncement.vn",
+      position: "Kỹ sư Xây dựng / Vận hành",
+      salary: "12.000.000 - 18.000.000 VNĐ",
+      benefits: ["Bảo hiểm", "Xe đưa đón", "Thưởng năm"],
+      description: "Tuyển kỹ sư vận hành, bảo trì dây chuyền sản xuất xi măng.",
+      logo: company2,
     },
   ],
 };
@@ -80,8 +179,16 @@ const locations: { key: Location; label: string; icon: string }[] = [
 
 const JobsSection = () => {
   const [selectedLocation, setSelectedLocation] = useState<Location>("hanoi");
+  const [selectedCompanyIndex, setSelectedCompanyIndex] = useState(0);
   
   const companies = companiesByLocation[selectedLocation];
+  const selectedCompany = companies[selectedCompanyIndex] || companies[0];
+
+  // Reset company index when location changes
+  const handleLocationChange = (loc: Location) => {
+    setSelectedLocation(loc);
+    setSelectedCompanyIndex(0);
+  };
 
   return (
     <section className="utt-section bg-background">
@@ -124,7 +231,7 @@ const JobsSection = () => {
                 {locations.map((loc) => (
                   <button
                     key={loc.key}
-                    onClick={() => setSelectedLocation(loc.key)}
+                    onClick={() => handleLocationChange(loc.key)}
                     className={`flex items-center gap-2 px-4 py-3 rounded-lg border-2 transition-all duration-300 text-left ${
                       selectedLocation === loc.key
                         ? "border-primary bg-primary/10 text-primary shadow-md"
@@ -133,11 +240,9 @@ const JobsSection = () => {
                   >
                     <span className="text-xl">{loc.icon}</span>
                     <span className="font-medium">{loc.label}</span>
-                    {selectedLocation === loc.key && (
-                      <span className="ml-auto text-xs bg-primary text-primary-foreground px-2 py-0.5 rounded-full">
-                        Đang chọn
-                      </span>
-                    )}
+                    <span className="ml-auto text-xs bg-muted text-muted-foreground px-2 py-0.5 rounded-full">
+                      {companiesByLocation[loc.key].length} DN
+                    </span>
                   </button>
                 ))}
               </div>
@@ -145,7 +250,7 @@ const JobsSection = () => {
           </div>
 
           {/* Right: Job Details (50% width) - Fixed height matching left card */}
-          {companies.length > 0 && (
+          {selectedCompany && (
             <div
               className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col lg:flex-row h-auto lg:h-[280px]"
             >
@@ -153,8 +258,8 @@ const JobsSection = () => {
               <div className="lg:w-1/2 h-48 lg:h-full flex flex-col">
                 {/* Image area - 2/3 */}
                 <div className="relative overflow-hidden h-2/3">
-                  {companies[0].logo ? (
-                    <img src={companies[0].logo} alt={companies[0].name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                  {selectedCompany.logo ? (
+                    <img src={selectedCompany.logo} alt={selectedCompany.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
                   ) : (
                     <div className="w-full h-full bg-primary/10 flex items-center justify-center">
                       <Building2 className="w-16 h-16 text-primary" />
@@ -163,9 +268,9 @@ const JobsSection = () => {
                 </div>
                 {/* Text area - 1/3 */}
                 <div className="h-1/3 bg-muted/50 flex flex-col items-center justify-center px-3">
-                  <p className="text-sm font-semibold text-foreground text-center line-clamp-1">{companies[0].name}</p>
+                  <p className="text-sm font-semibold text-foreground text-center line-clamp-1">{selectedCompany.name}</p>
                   <p className="text-xs text-muted-foreground flex items-center gap-1">
-                    <MapPin className="w-3 h-3" />{companies[0].address}
+                    <MapPin className="w-3 h-3" />{selectedCompany.address}
                   </p>
                 </div>
               </div>
@@ -175,7 +280,7 @@ const JobsSection = () => {
                 {/* Company Header */}
                 <div className="flex items-center gap-2 mb-3 pb-3 border-b border-border">
                   <Globe className="w-4 h-4 text-primary" />
-                  <p className="text-xs text-primary">{companies[0].website}</p>
+                  <p className="text-xs text-primary">{selectedCompany.website}</p>
                 </div>
 
                 {/* Job Info - Compact */}
@@ -184,7 +289,7 @@ const JobsSection = () => {
                     <Briefcase className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                     <div>
                       <p className="text-xs text-muted-foreground">Vị trí</p>
-                      <p className="text-sm font-semibold text-foreground">{companies[0].position}</p>
+                      <p className="text-sm font-semibold text-foreground">{selectedCompany.position}</p>
                     </div>
                   </div>
 
@@ -192,7 +297,7 @@ const JobsSection = () => {
                     <span className="text-primary text-sm">💰</span>
                     <div>
                       <p className="text-xs text-muted-foreground">Lương</p>
-                      <p className="text-sm font-semibold text-primary">{companies[0].salary}</p>
+                      <p className="text-sm font-semibold text-primary">{selectedCompany.salary}</p>
                     </div>
                   </div>
 
@@ -201,20 +306,12 @@ const JobsSection = () => {
                     <div>
                       <p className="text-xs text-muted-foreground">Đãi ngộ</p>
                       <div className="flex flex-wrap gap-1 mt-1">
-                        {companies[0].benefits.map((benefit, idx) => (
+                        {selectedCompany.benefits.map((benefit, idx) => (
                           <span key={idx} className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">
                             {benefit}
                           </span>
                         ))}
                       </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-2">
-                    <FileText className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <div>
-                      <p className="text-xs text-muted-foreground">Mô tả</p>
-                      <p className="text-foreground text-xs leading-relaxed line-clamp-2">{companies[0].description}</p>
                     </div>
                   </div>
                 </div>
@@ -225,6 +322,44 @@ const JobsSection = () => {
               </div>
             </div>
           )}
+        </div>
+
+        {/* Company List - Horizontal scroll */}
+        <div className="mt-8">
+          <h3 className="text-lg font-semibold text-foreground mb-4">
+            Doanh nghiệp tại {locations.find(l => l.key === selectedLocation)?.label} ({companies.length})
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+            {companies.map((company, index) => (
+              <button
+                key={company.id}
+                onClick={() => setSelectedCompanyIndex(index)}
+                className={`p-3 rounded-xl border-2 transition-all duration-300 text-left ${
+                  selectedCompanyIndex === index
+                    ? "border-primary bg-primary/10 shadow-md"
+                    : "border-border bg-card hover:border-primary/50 hover:shadow-sm"
+                }`}
+              >
+                <div className="w-12 h-12 rounded-lg overflow-hidden mx-auto mb-2">
+                  {company.logo ? (
+                    <img src={company.logo} alt={company.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="w-full h-full bg-muted flex items-center justify-center">
+                      <Building2 className="w-6 h-6 text-muted-foreground" />
+                    </div>
+                  )}
+                </div>
+                <p className="text-xs font-medium text-foreground text-center line-clamp-2">{company.name}</p>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* View All Button */}
+        <div className="text-center mt-8">
+          <Button variant="outline" size="lg" className="px-8 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+            Xem tất cả doanh nghiệp
+          </Button>
         </div>
 
       </div>
