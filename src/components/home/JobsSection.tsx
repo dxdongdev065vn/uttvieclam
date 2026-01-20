@@ -101,16 +101,19 @@ const JobsSection = () => {
         <div className="grid lg:grid-cols-2 gap-6 items-start">
           {/* Left: Image + Location Selection (50% width) - Fixed height */}
           <div className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg flex flex-col lg:flex-row h-auto lg:h-[280px]">
-            {/* Left side - Image */}
-            <div className="relative overflow-hidden lg:w-1/2 h-48 lg:h-full">
-              <img
-                src={slideCampus}
-                alt="Cơ sở đào tạo"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/50 to-transparent" />
-              <div className="absolute bottom-3 left-3 text-white">
-                <p className="text-sm font-semibold">Cơ sở đào tạo UTT</p>
+            {/* Left side - Image with text below */}
+            <div className="lg:w-1/2 h-48 lg:h-full flex flex-col">
+              {/* Image area - 2/3 */}
+              <div className="relative overflow-hidden h-2/3">
+                <img
+                  src={slideCampus}
+                  alt="Cơ sở đào tạo"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              {/* Text area - 1/3 */}
+              <div className="h-1/3 bg-muted/50 flex items-center justify-center px-3">
+                <p className="text-sm font-semibold text-foreground text-center">Cơ sở đào tạo UTT</p>
               </div>
             </div>
 
@@ -146,19 +149,22 @@ const JobsSection = () => {
             <div
               className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col lg:flex-row h-auto lg:h-[280px]"
             >
-              {/* Left side - Company Logo/Image */}
-              <div className="relative overflow-hidden lg:w-1/2 h-48 lg:h-full">
-                {companies[0].logo ? (
-                  <img src={companies[0].logo} alt={companies[0].name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-                ) : (
-                  <div className="w-full h-full bg-primary/10 flex items-center justify-center">
-                    <Building2 className="w-16 h-16 text-primary" />
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 to-transparent" />
-                <div className="absolute bottom-3 left-3 text-white">
-                  <p className="text-sm font-semibold">{companies[0].name}</p>
-                  <p className="text-xs flex items-center gap-1 opacity-90">
+              {/* Left side - Company Logo/Image with text below */}
+              <div className="lg:w-1/2 h-48 lg:h-full flex flex-col">
+                {/* Image area - 2/3 */}
+                <div className="relative overflow-hidden h-2/3">
+                  {companies[0].logo ? (
+                    <img src={companies[0].logo} alt={companies[0].name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                  ) : (
+                    <div className="w-full h-full bg-primary/10 flex items-center justify-center">
+                      <Building2 className="w-16 h-16 text-primary" />
+                    </div>
+                  )}
+                </div>
+                {/* Text area - 1/3 */}
+                <div className="h-1/3 bg-muted/50 flex flex-col items-center justify-center px-3">
+                  <p className="text-sm font-semibold text-foreground text-center line-clamp-1">{companies[0].name}</p>
+                  <p className="text-xs text-muted-foreground flex items-center gap-1">
                     <MapPin className="w-3 h-3" />{companies[0].address}
                   </p>
                 </div>
