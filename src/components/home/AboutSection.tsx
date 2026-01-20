@@ -20,7 +20,10 @@ const AboutSection = () => {
             <Sparkles className="w-4 h-4" />
             VỀ CHÚNG TÔI
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4 uppercase">
+          <p className="text-lg md:text-xl font-semibold text-foreground mb-2 tracking-wide">
+            TRANG THÔNG TIN TUYỂN DỤNG
+          </p>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-4 uppercase">
             TRƯỜNG ĐẠI HỌC CÔNG NGHỆ GIAO THÔNG VẬN TẢI
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
