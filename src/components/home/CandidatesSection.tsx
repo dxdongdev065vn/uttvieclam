@@ -116,28 +116,27 @@ const CandidatesSection = () => {
               className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col lg:flex-row h-auto lg:h-[280px]"
             >
               {/* Left side - Avatar */}
-              <div className="relative overflow-hidden lg:w-1/2 h-48 lg:h-full">
+              <div className="relative overflow-hidden lg:w-2/5 h-48 lg:h-full">
                 <img 
                   src={candidate.avatar} 
                   alt={candidate.name}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 to-transparent" />
-                <div className="absolute bottom-3 left-3 text-white">
-                  <p className="text-sm font-semibold flex items-center gap-1">
-                    <GraduationCap className="w-4 h-4" />
-                    {candidate.name}
-                  </p>
-                  <p className="text-xs opacity-90">{candidate.major}</p>
-                </div>
               </div>
 
               {/* Right side - Candidate Info */}
-              <div className="lg:w-1/2 p-5 flex flex-col">
-                {/* Header */}
-                <div className="flex items-center gap-2 mb-3 pb-3 border-b border-border">
-                  <Award className="w-4 h-4 text-primary" />
-                  <p className="text-xs text-primary font-medium">Tốt nghiệp loại: {candidate.graduationType}</p>
+              <div className="lg:w-3/5 p-5 flex flex-col bg-card">
+                {/* Header with Name */}
+                <div className="mb-3 pb-3 border-b border-border">
+                  <div className="flex items-center gap-2 mb-1">
+                    <GraduationCap className="w-5 h-5 text-primary" />
+                    <h3 className="text-base font-bold text-foreground">{candidate.name}</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground ml-7">{candidate.major}</p>
+                  <div className="flex items-center gap-2 mt-2 ml-7">
+                    <Award className="w-4 h-4 text-primary" />
+                    <p className="text-xs text-primary font-medium">Tốt nghiệp loại: {candidate.graduationType}</p>
+                  </div>
                 </div>
 
                 {/* Info */}
