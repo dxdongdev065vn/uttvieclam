@@ -141,87 +141,84 @@ const JobsSection = () => {
             </div>
           </div>
 
-          {/* Right: Job Details (50% width) */}
-          <div className="space-y-4">
-            {companies.map((company) => (
-              <div
-                key={company.id}
-                className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col lg:flex-row"
-              >
-                {/* Left side - Company Logo/Image */}
-                <div className="relative overflow-hidden lg:w-2/5 h-48 lg:h-auto min-h-[200px]">
-                  {company.logo ? (
-                    <img src={company.logo} alt={company.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-                  ) : (
-                    <div className="w-full h-full bg-primary/10 flex items-center justify-center">
-                      <Building2 className="w-16 h-16 text-primary" />
-                    </div>
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 to-transparent" />
-                  <div className="absolute bottom-3 left-3 text-white">
-                    <p className="text-sm font-semibold">{company.name}</p>
-                    <p className="text-xs flex items-center gap-1 opacity-90">
-                      <MapPin className="w-3 h-3" />{company.address}
-                    </p>
+          {/* Right: Job Details (50% width) - Fixed height matching left card */}
+          {companies.length > 0 && (
+            <div
+              className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col lg:flex-row h-auto lg:h-[280px]"
+            >
+              {/* Left side - Company Logo/Image */}
+              <div className="relative overflow-hidden lg:w-1/2 h-48 lg:h-full">
+                {companies[0].logo ? (
+                  <img src={companies[0].logo} alt={companies[0].name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                ) : (
+                  <div className="w-full h-full bg-primary/10 flex items-center justify-center">
+                    <Building2 className="w-16 h-16 text-primary" />
                   </div>
-                </div>
-
-                {/* Right side - Job Info */}
-                <div className="lg:w-3/5 p-5 flex flex-col">
-                  {/* Company Header */}
-                  <div className="flex items-center gap-2 mb-3 pb-3 border-b border-border">
-                    <Globe className="w-4 h-4 text-primary" />
-                    <p className="text-xs text-primary">{company.website}</p>
-                  </div>
-
-                  {/* Job Info - Compact */}
-                  <div className="space-y-2 flex-1">
-                    <div className="flex items-start gap-2">
-                      <Briefcase className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <div>
-                        <p className="text-xs text-muted-foreground">Vị trí</p>
-                        <p className="text-sm font-semibold text-foreground">{company.position}</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-2">
-                      <span className="text-primary text-sm">💰</span>
-                      <div>
-                        <p className="text-xs text-muted-foreground">Lương</p>
-                        <p className="text-sm font-semibold text-primary">{company.salary}</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-2">
-                      <Gift className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <div>
-                        <p className="text-xs text-muted-foreground">Đãi ngộ</p>
-                        <div className="flex flex-wrap gap-1 mt-1">
-                          {company.benefits.map((benefit, idx) => (
-                            <span key={idx} className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">
-                              {benefit}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-2">
-                      <FileText className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <div>
-                        <p className="text-xs text-muted-foreground">Mô tả</p>
-                        <p className="text-foreground text-xs leading-relaxed line-clamp-2">{company.description}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <Button className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 text-sm">
-                    👉 ỨNG TUYỂN NGAY
-                  </Button>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 to-transparent" />
+                <div className="absolute bottom-3 left-3 text-white">
+                  <p className="text-sm font-semibold">{companies[0].name}</p>
+                  <p className="text-xs flex items-center gap-1 opacity-90">
+                    <MapPin className="w-3 h-3" />{companies[0].address}
+                  </p>
                 </div>
               </div>
-            ))}
-          </div>
+
+              {/* Right side - Job Info */}
+              <div className="lg:w-1/2 p-5 flex flex-col">
+                {/* Company Header */}
+                <div className="flex items-center gap-2 mb-3 pb-3 border-b border-border">
+                  <Globe className="w-4 h-4 text-primary" />
+                  <p className="text-xs text-primary">{companies[0].website}</p>
+                </div>
+
+                {/* Job Info - Compact */}
+                <div className="space-y-2 flex-1 overflow-hidden">
+                  <div className="flex items-start gap-2">
+                    <Briefcase className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <div>
+                      <p className="text-xs text-muted-foreground">Vị trí</p>
+                      <p className="text-sm font-semibold text-foreground">{companies[0].position}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2">
+                    <span className="text-primary text-sm">💰</span>
+                    <div>
+                      <p className="text-xs text-muted-foreground">Lương</p>
+                      <p className="text-sm font-semibold text-primary">{companies[0].salary}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2">
+                    <Gift className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <div>
+                      <p className="text-xs text-muted-foreground">Đãi ngộ</p>
+                      <div className="flex flex-wrap gap-1 mt-1">
+                        {companies[0].benefits.map((benefit, idx) => (
+                          <span key={idx} className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">
+                            {benefit}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2">
+                    <FileText className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                    <div>
+                      <p className="text-xs text-muted-foreground">Mô tả</p>
+                      <p className="text-foreground text-xs leading-relaxed line-clamp-2">{companies[0].description}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <Button className="w-full mt-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-2.5 text-sm">
+                  👉 ỨNG TUYỂN NGAY
+                </Button>
+              </div>
+            </div>
+          )}
         </div>
 
       </div>
