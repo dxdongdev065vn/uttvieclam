@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronDown, Briefcase, Users, BookOpen, Newspaper, Target, Building2, FileText, PenTool, GraduationCap, MessageSquare, TrendingUp, Calendar } from "lucide-react";
+import { ChevronDown, Briefcase, Users, BookOpen, Newspaper, Target, Building2, FileText, PenTool, GraduationCap, MessageSquare, TrendingUp, Calendar, PenSquare, Lightbulb, Star } from "lucide-react";
 
 interface NavItem {
   label: string;
@@ -53,6 +53,17 @@ const navItems: NavItem[] = [
       { label: "Tin tuyển dụng", href: "/tin-tuc?category=tuyen-dung", icon: Briefcase },
       { label: "Xu hướng nghề nghiệp", href: "/tin-tuc?category=xu-huong", icon: TrendingUp },
       { label: "Sự kiện", href: "/tin-tuc?category=su-kien", icon: Calendar },
+    ],
+  },
+  {
+    label: "Blog",
+    href: "/blog",
+    icon: PenSquare,
+    submenu: [
+      { label: "Tất cả bài viết", href: "/blog", icon: PenSquare },
+      { label: "Chia sẻ kinh nghiệm", href: "/blog?category=chia-se", icon: Lightbulb },
+      { label: "Hỏi đáp nghề nghiệp", href: "/blog?category=hoi-dap", icon: MessageSquare },
+      { label: "Review công ty", href: "/blog?category=review", icon: Star },
     ],
   },
 ];

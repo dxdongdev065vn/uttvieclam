@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { User, Globe, Menu, X, Briefcase, Users, BookOpen, Newspaper, Phone, Home } from "lucide-react";
+import { User, Globe, Menu, X, Briefcase, Users, BookOpen, Newspaper, Phone, Home, PenSquare } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import uttLogo from "@/assets/utt-logo-new.png";
@@ -10,6 +10,7 @@ const navLinks = [
   { name: "Ứng Viên", path: "/ung-vien", icon: Users },
   { name: "Cẩm Nang", path: "/cam-nang", icon: BookOpen },
   { name: "Tin Tức", path: "/tin-tuc", icon: Newspaper },
+  { name: "Blog", path: "/blog", icon: PenSquare },
   { name: "Giới Thiệu", path: "/gioi-thieu", icon: Home },
   { name: "Liên Hệ", path: "/lien-he", icon: Phone },
 ];
