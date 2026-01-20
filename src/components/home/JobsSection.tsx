@@ -86,66 +86,66 @@ const JobsSection = () => {
     <section className="utt-section bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <span className="utt-badge mb-4">CƠ HỘI VIỆC LÀM</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+        <div className="text-center mb-8">
+          <span className="utt-badge mb-3">CƠ HỘI VIỆC LÀM</span>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
             KẾT NỐI <span className="text-primary">DOANH NGHIỆP</span>
           </h2>
-          <p className="text-muted-foreground mt-3">
+          <p className="text-muted-foreground mt-2 text-sm">
             Dành cho Doanh nghiệp đăng tuyển - Chọn khu vực để xem chi tiết
           </p>
         </div>
 
         {/* Location Selection */}
-        <div className="max-w-3xl mx-auto mb-12">
-          <h3 className="text-xl font-semibold mb-6 text-foreground text-center">Chọn khu vực tuyển dụng:</h3>
-          <div className="flex flex-wrap justify-center gap-4">
+        <div className="max-w-md mx-auto mb-8">
+          <h3 className="text-base font-semibold mb-4 text-foreground text-center">Chọn khu vực tuyển dụng:</h3>
+          <div className="flex flex-wrap justify-center gap-2">
             {locations.map((loc) => (
               <button
                 key={loc.key}
                 onClick={() => setSelectedLocation(loc.key)}
-                className={`flex items-center gap-3 px-6 py-4 rounded-xl border-2 transition-all duration-300 ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg border-2 transition-all duration-300 text-sm ${
                   selectedLocation === loc.key
-                    ? "border-primary bg-primary/10 text-primary shadow-lg"
+                    ? "border-primary bg-primary/10 text-primary shadow-md"
                     : "border-border bg-card text-foreground hover:border-primary/50 hover:bg-muted"
                 }`}
               >
-                <span className="text-2xl">{loc.icon}</span>
-                <span className="font-semibold text-lg">{loc.label}</span>
+                <span className="text-lg">{loc.icon}</span>
+                <span className="font-medium">{loc.label}</span>
               </button>
             ))}
           </div>
         </div>
 
         {/* B. Company Listings */}
-        <div className="space-y-8">
+        <div className="max-w-2xl mx-auto space-y-6">
           {companies.map((company) => (
             <div
               key={company.id}
-              className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="bg-card border border-border rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="grid lg:grid-cols-2">
+              <div className="grid md:grid-cols-2">
                 {/* Left Column: Brand */}
-                <div className="p-8 bg-muted/30 border-r border-border">
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="w-20 h-20 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
-                      <Building2 className="w-10 h-10 text-primary" />
+                <div className="p-4 bg-muted/30 border-r border-border">
+                  <div className="flex items-start gap-3 mb-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                      <Building2 className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-foreground mb-1">{company.name}</h3>
-                      <p className="flex items-center gap-2 text-muted-foreground text-sm">
-                        <MapPin className="w-4 h-4" />
+                      <h3 className="text-sm font-bold text-foreground mb-0.5 leading-tight">{company.name}</h3>
+                      <p className="flex items-center gap-1.5 text-muted-foreground text-xs">
+                        <MapPin className="w-3 h-3" />
                         {company.address}
                       </p>
-                      <p className="flex items-center gap-2 text-primary text-sm mt-1">
-                        <Globe className="w-4 h-4" />
+                      <p className="flex items-center gap-1.5 text-primary text-xs mt-0.5">
+                        <Globe className="w-3 h-3" />
                         {company.website}
                       </p>
                     </div>
                   </div>
                   
                   {/* Company Image */}
-                  <div className="w-full h-40 rounded-xl overflow-hidden">
+                  <div className="w-full h-24 rounded-lg overflow-hidden">
                     {company.logo ? (
                       <img 
                         src={company.logo} 
@@ -154,40 +154,40 @@ const JobsSection = () => {
                       />
                     ) : (
                       <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                        <Building2 className="w-12 h-12 text-muted-foreground opacity-50" />
+                        <Building2 className="w-8 h-8 text-muted-foreground opacity-50" />
                       </div>
                     )}
                   </div>
                 </div>
 
                 {/* Right Column: Job Details */}
-                <div className="p-8">
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <Briefcase className="w-5 h-5 text-primary mt-1 shrink-0" />
+                <div className="p-4">
+                  <div className="space-y-2.5">
+                    <div className="flex items-start gap-2">
+                      <Briefcase className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                       <div>
-                        <p className="text-sm text-muted-foreground">Vị trí tuyển dụng</p>
-                        <p className="font-semibold text-foreground">{company.position}</p>
+                        <p className="text-xs text-muted-foreground">Vị trí tuyển dụng</p>
+                        <p className="font-medium text-foreground text-sm">{company.position}</p>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3">
-                      <span className="text-primary text-lg mt-0.5">💰</span>
+                    <div className="flex items-start gap-2">
+                      <span className="text-primary text-sm mt-0.5">💰</span>
                       <div>
-                        <p className="text-sm text-muted-foreground">Mức lương</p>
-                        <p className="font-semibold text-primary">{company.salary}</p>
+                        <p className="text-xs text-muted-foreground">Mức lương</p>
+                        <p className="font-medium text-primary text-sm">{company.salary}</p>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3">
-                      <Gift className="w-5 h-5 text-primary mt-1 shrink-0" />
+                    <div className="flex items-start gap-2">
+                      <Gift className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                       <div>
-                        <p className="text-sm text-muted-foreground">Chế độ đãi ngộ</p>
-                        <div className="flex flex-wrap gap-2 mt-1">
+                        <p className="text-xs text-muted-foreground">Chế độ đãi ngộ</p>
+                        <div className="flex flex-wrap gap-1 mt-0.5">
                           {company.benefits.map((benefit, idx) => (
                             <span
                               key={idx}
-                              className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full"
+                              className="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded-full"
                             >
                               {benefit}
                             </span>
@@ -196,16 +196,16 @@ const JobsSection = () => {
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3">
-                      <FileText className="w-5 h-5 text-primary mt-1 shrink-0" />
+                    <div className="flex items-start gap-2">
+                      <FileText className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                       <div>
-                        <p className="text-sm text-muted-foreground">Mô tả công việc</p>
-                        <p className="text-foreground text-sm leading-relaxed">{company.description}</p>
+                        <p className="text-xs text-muted-foreground">Mô tả công việc</p>
+                        <p className="text-foreground text-xs leading-relaxed line-clamp-2">{company.description}</p>
                       </div>
                     </div>
                   </div>
 
-                  <Button className="w-full mt-6 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-6">
+                  <Button className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-2 text-sm h-auto">
                     👉 ỨNG TUYỂN NGAY
                   </Button>
                 </div>
