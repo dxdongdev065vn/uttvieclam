@@ -9,6 +9,7 @@ import Jobs from "./pages/Jobs";
 import Candidates from "./pages/Candidates";
 import Handbook from "./pages/Handbook";
 import News from "./pages/News";
+import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/ung-vien" element={<Candidates />} />
           <Route path="/cam-nang" element={<Handbook />} />
           <Route path="/tin-tuc" element={<News />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/gioi-thieu" element={<About />} />
           <Route path="/lien-he" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
