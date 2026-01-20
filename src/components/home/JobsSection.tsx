@@ -146,71 +146,79 @@ const JobsSection = () => {
             {companies.map((company) => (
               <div
                 key={company.id}
-                className="bg-card border border-border rounded-2xl p-5 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col lg:flex-row"
               >
-                {/* Company Header */}
-                <div className="flex items-center gap-3 mb-4 pb-4 border-b border-border">
-                  <div className="w-12 h-12 rounded-xl overflow-hidden shrink-0">
-                    {company.logo ? (
-                      <img src={company.logo} alt={company.name} className="w-full h-full object-cover" />
-                    ) : (
-                      <div className="w-full h-full bg-primary/10 flex items-center justify-center">
-                        <Building2 className="w-6 h-6 text-primary" />
-                      </div>
-                    )}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-foreground truncate">{company.name}</h3>
-                    <p className="text-xs text-primary flex items-center gap-1">
-                      <Globe className="w-3 h-3" />{company.website}
+                {/* Left side - Company Logo/Image */}
+                <div className="relative overflow-hidden lg:w-2/5 h-48 lg:h-auto min-h-[200px]">
+                  {company.logo ? (
+                    <img src={company.logo} alt={company.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                  ) : (
+                    <div className="w-full h-full bg-primary/10 flex items-center justify-center">
+                      <Building2 className="w-16 h-16 text-primary" />
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 to-transparent" />
+                  <div className="absolute bottom-3 left-3 text-white">
+                    <p className="text-sm font-semibold">{company.name}</p>
+                    <p className="text-xs flex items-center gap-1 opacity-90">
+                      <MapPin className="w-3 h-3" />{company.address}
                     </p>
                   </div>
                 </div>
 
-                {/* Job Info - Compact */}
-                <div className="space-y-3">
-                  <div className="flex items-start gap-2">
-                    <Briefcase className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <div>
-                      <p className="text-xs text-muted-foreground">Vị trí</p>
-                      <p className="text-sm font-semibold text-foreground">{company.position}</p>
-                    </div>
+                {/* Right side - Job Info */}
+                <div className="lg:w-3/5 p-5 flex flex-col">
+                  {/* Company Header */}
+                  <div className="flex items-center gap-2 mb-3 pb-3 border-b border-border">
+                    <Globe className="w-4 h-4 text-primary" />
+                    <p className="text-xs text-primary">{company.website}</p>
                   </div>
 
-                  <div className="flex items-start gap-2">
-                    <span className="text-primary text-sm">💰</span>
-                    <div>
-                      <p className="text-xs text-muted-foreground">Lương</p>
-                      <p className="text-sm font-semibold text-primary">{company.salary}</p>
+                  {/* Job Info - Compact */}
+                  <div className="space-y-2 flex-1">
+                    <div className="flex items-start gap-2">
+                      <Briefcase className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <div>
+                        <p className="text-xs text-muted-foreground">Vị trí</p>
+                        <p className="text-sm font-semibold text-foreground">{company.position}</p>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="flex items-start gap-2">
-                    <Gift className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <div>
-                      <p className="text-xs text-muted-foreground">Đãi ngộ</p>
-                      <div className="flex flex-wrap gap-1 mt-1">
-                        {company.benefits.map((benefit, idx) => (
-                          <span key={idx} className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">
-                            {benefit}
-                          </span>
-                        ))}
+                    <div className="flex items-start gap-2">
+                      <span className="text-primary text-sm">💰</span>
+                      <div>
+                        <p className="text-xs text-muted-foreground">Lương</p>
+                        <p className="text-sm font-semibold text-primary">{company.salary}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-2">
+                      <Gift className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <div>
+                        <p className="text-xs text-muted-foreground">Đãi ngộ</p>
+                        <div className="flex flex-wrap gap-1 mt-1">
+                          {company.benefits.map((benefit, idx) => (
+                            <span key={idx} className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">
+                              {benefit}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-2">
+                      <FileText className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <div>
+                        <p className="text-xs text-muted-foreground">Mô tả</p>
+                        <p className="text-foreground text-xs leading-relaxed line-clamp-2">{company.description}</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-2">
-                    <FileText className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <div>
-                      <p className="text-xs text-muted-foreground">Mô tả</p>
-                      <p className="text-foreground text-xs leading-relaxed line-clamp-2">{company.description}</p>
-                    </div>
-                  </div>
+                  <Button className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 text-sm">
+                    👉 ỨNG TUYỂN NGAY
+                  </Button>
                 </div>
-
-                <Button className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-4 text-sm">
-                  👉 ỨNG TUYỂN NGAY
-                </Button>
               </div>
             ))}
           </div>
