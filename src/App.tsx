@@ -19,11 +19,11 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/gioi-thieu" element={<About />} />
           <Route path="/viec-lam" element={<Jobs />} />
-          <Route path="/lien-he" element={<Contact />} />
+          <Route path="/ung-vien" element={<About />} />
           <Route path="/cam-nang" element={<About />} />
-          <Route path="/tao-cv" element={<About />} />
+          <Route path="/tin-tuc" element={<About />} />
+          <Route path="/lien-he" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
