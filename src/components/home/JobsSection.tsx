@@ -197,10 +197,10 @@ const JobsSection = () => {
         <div className="text-center mb-12">
           <span className="utt-badge mb-4">CƠ HỘI VIỆC LÀM</span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            KẾT NỐI <span className="text-primary">DOANH NGHIỆP</span>
+            KẾT NỐI <span className="text-primary">CÔNG TY</span>
           </h2>
           <p className="text-muted-foreground mt-3">
-            Dành cho Doanh nghiệp đăng tuyển - Chọn khu vực để xem chi tiết
+            Dành cho Công ty đăng tuyển - Chọn khu vực để xem chi tiết
           </p>
         </div>
 
@@ -327,7 +327,7 @@ const JobsSection = () => {
         {/* Company List - Horizontal scroll */}
         <div className="mt-8">
           <h3 className="text-lg font-semibold text-foreground mb-4">
-            Doanh nghiệp tại {locations.find(l => l.key === selectedLocation)?.label} ({companies.length})
+            Công ty tại {locations.find(l => l.key === selectedLocation)?.label} ({companies.length})
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
             {companies.map((company, index) => (
@@ -358,7 +358,7 @@ const JobsSection = () => {
         {/* View All Button */}
         <div className="text-center mt-8">
           <Button variant="outline" size="lg" className="px-8 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-            Xem tất cả doanh nghiệp
+            Xem tất cả công ty
           </Button>
         </div>
 
