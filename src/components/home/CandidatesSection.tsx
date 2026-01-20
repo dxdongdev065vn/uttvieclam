@@ -1,4 +1,4 @@
-import { User, GraduationCap, Award, MapPin, DollarSign, Clock, FileText } from "lucide-react";
+import { User, GraduationCap, Award, MapPin, DollarSign, Clock, FileText, ArrowRight, Heart, Star, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import candidate1 from "@/assets/candidate-1.jpg";
 import candidate2 from "@/assets/candidate-2.jpg";
@@ -12,6 +12,8 @@ const candidates = [
     major: "Công nghệ thông tin",
     graduationType: "Giỏi",
     avatar: candidate1,
+    isNew: true,
+    skills: ["React", "Node.js", "Python"],
     desires: {
       position: "Lập trình viên Backend",
       location: "Hà Nội",
@@ -26,6 +28,8 @@ const candidates = [
     major: "Kỹ thuật Cầu đường",
     graduationType: "Xuất sắc",
     avatar: candidate2,
+    isHot: true,
+    skills: ["AutoCAD", "BIM", "Project Management"],
     desires: {
       position: "Kỹ sư thiết kế cầu",
       location: "Phú Thọ",
@@ -40,6 +44,7 @@ const candidates = [
     major: "Kỹ thuật Ô tô",
     graduationType: "Giỏi",
     avatar: candidate3,
+    skills: ["Chẩn đoán ô tô", "Bảo dưỡng", "ADAS"],
     desires: {
       position: "Kỹ sư chẩn đoán ô tô",
       location: "Hà Nội",
@@ -54,6 +59,8 @@ const candidates = [
     major: "Logistics và Quản lý chuỗi cung ứng",
     graduationType: "Khá",
     avatar: candidate1,
+    isNew: true,
+    skills: ["SAP", "Excel", "Supply Chain"],
     desires: {
       position: "Chuyên viên Logistics",
       location: "Hà Nội",
@@ -68,6 +75,8 @@ const candidates = [
     major: "Kinh tế vận tải",
     graduationType: "Xuất sắc",
     avatar: candidate2,
+    isHot: true,
+    skills: ["Planning", "Analysis", "Communication"],
     desires: {
       position: "Chuyên viên kế hoạch vận tải",
       location: "Phú Thọ",
@@ -82,6 +91,7 @@ const candidates = [
     major: "Kỹ thuật Điện - Điện tử",
     graduationType: "Giỏi",
     avatar: candidate3,
+    skills: ["PLC", "SCADA", "Embedded Systems"],
     desires: {
       position: "Kỹ sư điện tử",
       location: "Hà Nội",
@@ -93,94 +103,111 @@ const candidates = [
 
 const CandidatesSection = () => {
   return (
-    <section className="py-16 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="utt-section bg-muted/30 relative overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="utt-blob utt-blob-primary w-80 h-80 -top-40 -left-40 animate-float" />
+      <div className="utt-blob utt-blob-secondary w-96 h-96 -bottom-48 -right-48 animate-pulse-slow" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
-            ỨNG VIÊN
+          <span className="utt-badge mb-4">
+            <GraduationCap className="w-4 h-4 mr-1" />
+            ỨNG VIÊN TIỀM NĂNG
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-            SINH VIÊN TÀI NĂNG
+            Sinh Viên <span className="text-gradient-orange">Tài Năng</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
-            Kết nối với những ứng viên tiềm năng từ Đại học Công nghệ GTVT
+          <p className="text-muted-foreground max-w-xl mx-auto">
+            Kết nối với những ứng viên xuất sắc từ Đại học Công nghệ GTVT
           </p>
         </div>
 
-        {/* Candidates Grid - 2 columns */}
-        <div className="grid lg:grid-cols-2 gap-6">
+        {/* Candidates Grid - 3 columns */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {candidates.map((candidate) => (
             <div
               key={candidate.id}
-              className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col lg:flex-row h-auto lg:h-[280px]"
+              className="utt-card bg-card p-0 overflow-hidden group"
             >
-              {/* Left side - Avatar with text below */}
-              <div className="lg:w-1/2 h-48 lg:h-full flex flex-col">
-                {/* Image area - 2/3 */}
-                <div className="relative overflow-hidden h-2/3">
-                  <img 
-                    src={candidate.avatar} 
-                    alt={candidate.name}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  />
+              {/* Avatar Section - 2/3 height */}
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={candidate.avatar} 
+                  alt={candidate.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                
+                {/* Badges */}
+                <div className="absolute top-3 left-3 flex gap-1.5">
+                  {candidate.isHot && (
+                    <span className="utt-badge-hot">
+                      <Star className="w-3 h-3" />TOP
+                    </span>
+                  )}
+                  {candidate.isNew && (
+                    <span className="utt-badge-new">MỚI</span>
+                  )}
                 </div>
-                {/* Text area - 1/3 */}
-                <div className="h-1/3 bg-muted/50 flex flex-col items-center justify-center px-3">
-                  <p className="text-sm font-semibold text-foreground flex items-center gap-1">
+
+                {/* Save Button */}
+                <button className="absolute top-3 right-3 w-8 h-8 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-background transition-all">
+                  <Heart className="w-4 h-4" />
+                </button>
+
+                {/* Name & Major - Bottom of image */}
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <div className="flex items-center gap-2 mb-1">
                     <GraduationCap className="w-4 h-4 text-primary" />
-                    {candidate.name}
-                  </p>
-                  <p className="text-xs text-muted-foreground text-center line-clamp-1">{candidate.major}</p>
+                    <h3 className="font-bold text-foreground">{candidate.name}</h3>
+                    <span className="ml-auto text-xs bg-primary/90 text-primary-foreground px-2 py-0.5 rounded-full">
+                      {candidate.graduationType}
+                    </span>
+                  </div>
+                  <p className="text-sm text-muted-foreground line-clamp-1">{candidate.major}</p>
                 </div>
               </div>
 
-              {/* Right side - Candidate Info */}
-              <div className="lg:w-1/2 p-5 flex flex-col">
-                {/* Header */}
-                <div className="flex items-center gap-2 mb-3 pb-3 border-b border-border">
-                  <Award className="w-4 h-4 text-primary" />
-                  <p className="text-xs text-primary font-medium">Tốt nghiệp loại: {candidate.graduationType}</p>
-                </div>
-
-                {/* Info */}
-                <div className="space-y-2 flex-1 overflow-hidden">
-                  <div className="flex items-start gap-2">
-                    <User className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <div>
-                      <p className="text-xs text-muted-foreground">Vị trí mong muốn</p>
-                      <p className="text-sm font-semibold text-foreground">{candidate.desires.position}</p>
-                    </div>
+              {/* Info Section - 1/3 height */}
+              <div className="p-4 space-y-3">
+                {/* Skills */}
+                {candidate.skills && (
+                  <div className="flex flex-wrap gap-1.5">
+                    {candidate.skills.map((skill, idx) => (
+                      <span key={idx} className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded-md">
+                        {skill}
+                      </span>
+                    ))}
                   </div>
+                )}
 
-                  <div className="flex items-start gap-2">
-                    <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <div>
-                      <p className="text-xs text-muted-foreground">Địa điểm</p>
-                      <p className="text-sm font-semibold text-foreground">{candidate.desires.location}</p>
-                    </div>
+                {/* Desires Info */}
+                <div className="grid grid-cols-2 gap-2 text-sm">
+                  <div className="flex items-center gap-1.5 text-muted-foreground">
+                    <Briefcase className="w-3.5 h-3.5 text-primary" />
+                    <span className="truncate">{candidate.desires.position}</span>
                   </div>
-
-                  <div className="flex items-start gap-2">
-                    <DollarSign className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <div>
-                      <p className="text-xs text-muted-foreground">Mức lương</p>
-                      <p className="text-sm font-semibold text-primary">{candidate.desires.salary}</p>
-                    </div>
+                  <div className="flex items-center gap-1.5 text-muted-foreground">
+                    <MapPin className="w-3.5 h-3.5 text-primary" />
+                    <span>{candidate.desires.location}</span>
                   </div>
-
-                  <div className="flex items-start gap-2">
-                    <Clock className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <div>
-                      <p className="text-xs text-muted-foreground">Thời gian</p>
-                      <p className="text-sm font-semibold text-foreground">{candidate.desires.workType}</p>
-                    </div>
+                  <div className="flex items-center gap-1.5 text-primary font-semibold">
+                    <DollarSign className="w-3.5 h-3.5" />
+                    <span>{candidate.desires.salary}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-muted-foreground">
+                    <Clock className="w-3.5 h-3.5 text-primary" />
+                    <span>{candidate.desires.workType}</span>
                   </div>
                 </div>
 
-                <Button className="w-full mt-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-2.5 text-sm">
+                {/* CTA Button */}
+                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold group/btn">
                   <FileText className="w-4 h-4 mr-2" />
-                  XEM CV CHI TIẾT
+                  Xem CV chi tiết
+                  <ArrowRight className="w-4 h-4 ml-auto group-hover/btn:translate-x-1 transition-transform" />
                 </Button>
               </div>
             </div>
@@ -189,8 +216,9 @@ const CandidatesSection = () => {
 
         {/* View All Button */}
         <div className="text-center mt-10">
-          <Button variant="outline" size="lg" className="px-8 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+          <Button variant="outline" size="lg" className="px-8 border-primary text-primary hover:bg-primary hover:text-primary-foreground group">
             Xem tất cả ứng viên
+            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
       </div>
