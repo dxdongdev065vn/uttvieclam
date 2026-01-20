@@ -10,6 +10,7 @@ const navLinks = [
   { name: "Ứng Viên", path: "/ung-vien", icon: Users },
   { name: "Cẩm Nang", path: "/cam-nang", icon: BookOpen },
   { name: "Tin Tức", path: "/tin-tuc", icon: Newspaper },
+  { name: "Giới Thiệu", path: "/gioi-thieu", icon: Home },
   { name: "Liên Hệ", path: "/lien-he", icon: Phone },
 ];
 
