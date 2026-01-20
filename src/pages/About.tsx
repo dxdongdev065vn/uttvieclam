@@ -9,7 +9,7 @@ Ngày 27/4/2011, Thủ tướng Chính phủ ký Quyết định số 630/QĐ-TT
 
 Hiện nay, trường có 3 cơ sở đào tạo:
 • Cơ sở 1 tại số 54 Phố Triều Khúc - Phường Thanh Xuân Nam, Quận Thanh Xuân, TP. Hà Nội
-• Cơ sở 2 tại Phường Đồng Tâm, Thành phố Vĩnh Yên, Tỉnh Vĩnh Phúc  
+• Cơ sở 2 tại TP. Việt Trì, Tỉnh Phú Thọ  
 • Cơ sở 3 tại Phường Tân Thịnh, TP. Thái Nguyên, Tỉnh Thái Nguyên
 
 Trường đào tạo theo hướng ứng dụng công nghệ phục vụ chiến lược phát triển ngành GTVT và đất nước. Hiện nay Nhà trường đào tạo gần 13.000 học viên, sinh viên các hệ Tiến sĩ (02 chuyên ngành); Thạc sĩ (12 chuyên ngành); Đại học (30 chuyên ngành).`;
