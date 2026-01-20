@@ -5,7 +5,7 @@ import slideCampus from "@/assets/slide-campus.jpg";
 import company1 from "@/assets/company-1.jpg";
 import company2 from "@/assets/company-2.jpg";
 
-type Location = "hanoi" | "vinhphuc" | "thainguyen";
+type Location = "hanoi" | "phutho" | "thainguyen";
 
 interface Company {
   id: number;
@@ -44,11 +44,11 @@ const companiesByLocation: Record<Location, Company[]> = {
       logo: company2,
     },
   ],
-  vinhphuc: [
+  phutho: [
     {
       id: 3,
       name: "Công ty TNHH Sản xuất XYZ",
-      address: "KCN Bình Xuyên, Vĩnh Phúc",
+      address: "KCN Thụy Vân, Phú Thọ",
       website: "www.xyzmanufacturing.com",
       position: "Kỹ sư Cơ khí / Điện tử",
       salary: "18.000.000 - 25.000.000 VNĐ",
@@ -74,7 +74,7 @@ const companiesByLocation: Record<Location, Company[]> = {
 
 const locations: { key: Location; label: string; icon: string }[] = [
   { key: "hanoi", label: "HÀ NỘI", icon: "🏢" },
-  { key: "vinhphuc", label: "VĨNH PHÚC", icon: "🏭" },
+  { key: "phutho", label: "PHÚ THỌ", icon: "🏭" },
   { key: "thainguyen", label: "THÁI NGUYÊN", icon: "🏗️" },
 ];
 

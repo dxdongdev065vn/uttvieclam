@@ -37,11 +37,11 @@ const Footer = () => {
 
             {/* Campus 2 */}
             <div className="mb-4">
-              <p className="text-primary font-medium mb-2">Cơ sở 2 - Vĩnh Phúc:</p>
+              <p className="text-primary font-medium mb-2">Cơ sở 2 - Phú Thọ:</p>
               <div className="space-y-1.5 text-sm text-secondary-foreground/80">
                 <p className="flex items-start gap-2">
                   <MapPin className="w-4 h-4 mt-0.5 text-primary shrink-0" />
-                  Phường Đồng Tâm, TP. Vĩnh Yên, Vĩnh Phúc
+                  TP. Việt Trì, Phú Thọ
                 </p>
                 <p className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-primary shrink-0" />

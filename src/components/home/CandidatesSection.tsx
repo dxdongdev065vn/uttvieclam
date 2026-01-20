@@ -27,7 +27,7 @@ const candidates = [
     avatar: candidate2,
     desires: {
       position: "Kỹ sư thiết kế cầu",
-      location: "Vĩnh Phúc",
+      location: "Phú Thọ",
       salary: "12-15 triệu",
       workType: "Full-time"
     }
