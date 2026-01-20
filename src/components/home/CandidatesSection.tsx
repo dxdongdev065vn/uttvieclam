@@ -115,20 +115,23 @@ const CandidatesSection = () => {
               key={candidate.id}
               className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col lg:flex-row h-auto lg:h-[280px]"
             >
-              {/* Left side - Avatar */}
-              <div className="relative overflow-hidden lg:w-1/2 h-48 lg:h-full">
-                <img 
-                  src={candidate.avatar} 
-                  alt={candidate.name}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 to-transparent" />
-                <div className="absolute bottom-3 left-3 text-white">
-                  <p className="text-sm font-semibold flex items-center gap-1">
-                    <GraduationCap className="w-4 h-4" />
+              {/* Left side - Avatar with text below */}
+              <div className="lg:w-1/2 h-48 lg:h-full flex flex-col">
+                {/* Image area - 2/3 */}
+                <div className="relative overflow-hidden h-2/3">
+                  <img 
+                    src={candidate.avatar} 
+                    alt={candidate.name}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                {/* Text area - 1/3 */}
+                <div className="h-1/3 bg-muted/50 flex flex-col items-center justify-center px-3">
+                  <p className="text-sm font-semibold text-foreground flex items-center gap-1">
+                    <GraduationCap className="w-4 h-4 text-primary" />
                     {candidate.name}
                   </p>
-                  <p className="text-xs opacity-90">{candidate.major}</p>
+                  <p className="text-xs text-muted-foreground text-center line-clamp-1">{candidate.major}</p>
                 </div>
               </div>
 
