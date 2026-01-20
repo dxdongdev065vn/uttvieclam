@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { MapPin, Globe, Briefcase, Gift, FileText, Building2 } from "lucide-react";
+import { MapPin, Globe, Briefcase, Gift, FileText, Building2, ChevronDown } from "lucide-react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Button } from "@/components/ui/button";
 import slideCampus from "@/assets/slide-campus.jpg";
 import company1 from "@/assets/company-1.jpg";
@@ -80,6 +81,7 @@ const locations: { key: Location; label: string; icon: string }[] = [
 
 const JobsSection = () => {
   const [selectedLocation, setSelectedLocation] = useState<Location>("hanoi");
+  const [isCompanyListOpen, setIsCompanyListOpen] = useState(true);
   const companies = companiesByLocation[selectedLocation];
 
   return (
@@ -137,34 +139,49 @@ const JobsSection = () => {
               ))}
             </div>
 
-            {/* Company List for Selected Location */}
-            <div className="mt-6 pt-6 border-t border-border">
-              <h4 className="text-sm font-semibold text-muted-foreground mb-3">Nhà tuyển dụng tại {locations.find(l => l.key === selectedLocation)?.label}:</h4>
-              <div className="space-y-2">
-                {companies.map((company) => (
-                  <div 
-                    key={company.id}
-                    className="flex items-center gap-3 p-3 bg-muted/30 rounded-lg"
-                  >
-                    <div className="w-10 h-10 rounded-lg overflow-hidden shrink-0">
-                      {company.logo ? (
-                        <img src={company.logo} alt={company.name} className="w-full h-full object-cover" />
-                      ) : (
-                        <div className="w-full h-full bg-primary/10 flex items-center justify-center">
-                          <Building2 className="w-5 h-5 text-primary" />
-                        </div>
-                      )}
+            {/* Company List for Selected Location - Collapsible */}
+            <Collapsible 
+              open={isCompanyListOpen} 
+              onOpenChange={setIsCompanyListOpen}
+              className="mt-6 pt-6 border-t border-border"
+            >
+              <CollapsibleTrigger className="flex items-center justify-between w-full group">
+                <h4 className="text-sm font-semibold text-muted-foreground">
+                  Nhà tuyển dụng tại {locations.find(l => l.key === selectedLocation)?.label}:
+                </h4>
+                <ChevronDown 
+                  className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${
+                    isCompanyListOpen ? "rotate-180" : ""
+                  }`} 
+                />
+              </CollapsibleTrigger>
+              <CollapsibleContent className="mt-3">
+                <div className="space-y-2">
+                  {companies.map((company) => (
+                    <div 
+                      key={company.id}
+                      className="flex items-center gap-3 p-3 bg-muted/30 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer"
+                    >
+                      <div className="w-10 h-10 rounded-lg overflow-hidden shrink-0">
+                        {company.logo ? (
+                          <img src={company.logo} alt={company.name} className="w-full h-full object-cover" />
+                        ) : (
+                          <div className="w-full h-full bg-primary/10 flex items-center justify-center">
+                            <Building2 className="w-5 h-5 text-primary" />
+                          </div>
+                        )}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-foreground truncate">{company.name}</p>
+                        <p className="text-xs text-muted-foreground flex items-center gap-1">
+                          <MapPin className="w-3 h-3" />{company.address}
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-foreground truncate">{company.name}</p>
-                      <p className="text-xs text-muted-foreground flex items-center gap-1">
-                        <MapPin className="w-3 h-3" />{company.address}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+                  ))}
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
           </div>
 
           {/* Right: Job Details (50% width) */}
