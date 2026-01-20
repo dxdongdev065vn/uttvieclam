@@ -2,6 +2,7 @@ import { User, GraduationCap, Award, MapPin, DollarSign, Clock, FileText } from 
 import { Button } from "@/components/ui/button";
 import candidate1 from "@/assets/candidate-1.jpg";
 import candidate2 from "@/assets/candidate-2.jpg";
+import candidate3 from "@/assets/candidate-3.jpg";
 
 const candidates = [
   {
@@ -29,6 +30,62 @@ const candidates = [
       position: "Kỹ sư thiết kế cầu",
       location: "Phú Thọ",
       salary: "12-15 triệu",
+      workType: "Full-time"
+    }
+  },
+  {
+    id: 3,
+    name: "Lê Hoàng C",
+    birthYear: 2003,
+    major: "Kỹ thuật Ô tô",
+    graduationType: "Giỏi",
+    avatar: candidate3,
+    desires: {
+      position: "Kỹ sư chẩn đoán ô tô",
+      location: "Hà Nội",
+      salary: "10-12 triệu",
+      workType: "Full-time"
+    }
+  },
+  {
+    id: 4,
+    name: "Phạm Minh D",
+    birthYear: 2004,
+    major: "Logistics và Quản lý chuỗi cung ứng",
+    graduationType: "Khá",
+    avatar: candidate1,
+    desires: {
+      position: "Chuyên viên Logistics",
+      location: "Hà Nội",
+      salary: "8-10 triệu",
+      workType: "Full-time"
+    }
+  },
+  {
+    id: 5,
+    name: "Vũ Thị E",
+    birthYear: 2003,
+    major: "Kinh tế vận tải",
+    graduationType: "Xuất sắc",
+    avatar: candidate2,
+    desires: {
+      position: "Chuyên viên kế hoạch vận tải",
+      location: "Phú Thọ",
+      salary: "10-15 triệu",
+      workType: "Full-time"
+    }
+  },
+  {
+    id: 6,
+    name: "Đỗ Quang F",
+    birthYear: 2004,
+    major: "Kỹ thuật Điện - Điện tử",
+    graduationType: "Giỏi",
+    avatar: candidate3,
+    desires: {
+      position: "Kỹ sư điện tử",
+      location: "Hà Nội",
+      salary: "12-18 triệu",
       workType: "Full-time"
     }
   },
