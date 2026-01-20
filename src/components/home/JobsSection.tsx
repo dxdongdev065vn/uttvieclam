@@ -100,88 +100,90 @@ const JobsSection = () => {
 
         {/* Main Content - Side by Side Layout */}
         <div className="grid lg:grid-cols-2 gap-6">
-          {/* Left: Location Selection (50% width) */}
-          <div className="bg-card border border-border rounded-2xl p-6 shadow-lg">
-            {/* Campus Image - Smaller */}
-            <div className="relative overflow-hidden rounded-xl h-40 mb-6">
+          {/* Left: Image + Location Selection (50% width) */}
+          <div className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg flex flex-col lg:flex-row">
+            {/* Left side - Image */}
+            <div className="relative overflow-hidden lg:w-1/2 h-48 lg:h-auto">
               <img
                 src={slideCampus}
                 alt="Cơ sở đào tạo"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/50 to-transparent" />
               <div className="absolute bottom-3 left-3 text-white">
                 <p className="text-sm font-semibold">Cơ sở đào tạo UTT</p>
               </div>
             </div>
 
-            {/* Location Tabs - Compact */}
-            <h3 className="text-lg font-semibold mb-4 text-foreground">Chọn khu vực:</h3>
-            <div className="flex flex-col gap-3">
-              {locations.map((loc) => (
-                <button
-                  key={loc.key}
-                  onClick={() => setSelectedLocation(loc.key)}
-                  className={`flex items-center gap-2 px-4 py-3 rounded-lg border-2 transition-all duration-300 text-left ${
-                    selectedLocation === loc.key
-                      ? "border-primary bg-primary/10 text-primary shadow-md"
-                      : "border-border bg-muted/30 text-foreground hover:border-primary/50"
-                  }`}
-                >
-                  <span className="text-xl">{loc.icon}</span>
-                  <span className="font-medium">{loc.label}</span>
-                  {selectedLocation === loc.key && (
-                    <span className="ml-auto text-xs bg-primary text-primary-foreground px-2 py-0.5 rounded-full">
-                      Đang chọn
-                    </span>
-                  )}
-                </button>
-              ))}
-            </div>
+            {/* Right side - Location Selection */}
+            <div className="lg:w-1/2 p-6 flex flex-col">
+              <h3 className="text-lg font-semibold mb-4 text-foreground">Chọn khu vực:</h3>
+              <div className="flex flex-col gap-3 flex-1">
+                {locations.map((loc) => (
+                  <button
+                    key={loc.key}
+                    onClick={() => setSelectedLocation(loc.key)}
+                    className={`flex items-center gap-2 px-4 py-3 rounded-lg border-2 transition-all duration-300 text-left ${
+                      selectedLocation === loc.key
+                        ? "border-primary bg-primary/10 text-primary shadow-md"
+                        : "border-border bg-muted/30 text-foreground hover:border-primary/50"
+                    }`}
+                  >
+                    <span className="text-xl">{loc.icon}</span>
+                    <span className="font-medium">{loc.label}</span>
+                    {selectedLocation === loc.key && (
+                      <span className="ml-auto text-xs bg-primary text-primary-foreground px-2 py-0.5 rounded-full">
+                        Đang chọn
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
 
-            {/* Company List for Selected Location - Collapsible */}
-            <Collapsible 
-              open={isCompanyListOpen} 
-              onOpenChange={setIsCompanyListOpen}
-              className="mt-6 pt-6 border-t border-border"
-            >
-              <CollapsibleTrigger className="flex items-center justify-between w-full group">
-                <h4 className="text-sm font-semibold text-muted-foreground">
-                  Nhà tuyển dụng tại {locations.find(l => l.key === selectedLocation)?.label}:
-                </h4>
-                <ChevronDown 
-                  className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${
-                    isCompanyListOpen ? "rotate-180" : ""
-                  }`} 
-                />
-              </CollapsibleTrigger>
-              <CollapsibleContent className="mt-3">
-                <div className="space-y-2">
-                  {companies.map((company) => (
-                    <div 
-                      key={company.id}
-                      className="flex items-center gap-3 p-3 bg-muted/30 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer"
-                    >
-                      <div className="w-10 h-10 rounded-lg overflow-hidden shrink-0">
-                        {company.logo ? (
-                          <img src={company.logo} alt={company.name} className="w-full h-full object-cover" />
-                        ) : (
-                          <div className="w-full h-full bg-primary/10 flex items-center justify-center">
-                            <Building2 className="w-5 h-5 text-primary" />
-                          </div>
-                        )}
+              {/* Company List - Collapsible */}
+              <Collapsible 
+                open={isCompanyListOpen} 
+                onOpenChange={setIsCompanyListOpen}
+                className="mt-6 pt-4 border-t border-border"
+              >
+                <CollapsibleTrigger className="flex items-center justify-between w-full group">
+                  <h4 className="text-sm font-semibold text-muted-foreground">
+                    Nhà tuyển dụng tại {locations.find(l => l.key === selectedLocation)?.label}:
+                  </h4>
+                  <ChevronDown 
+                    className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${
+                      isCompanyListOpen ? "rotate-180" : ""
+                    }`} 
+                  />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="mt-3">
+                  <div className="space-y-2">
+                    {companies.map((company) => (
+                      <div 
+                        key={company.id}
+                        className="flex items-center gap-3 p-3 bg-muted/30 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer"
+                      >
+                        <div className="w-10 h-10 rounded-lg overflow-hidden shrink-0">
+                          {company.logo ? (
+                            <img src={company.logo} alt={company.name} className="w-full h-full object-cover" />
+                          ) : (
+                            <div className="w-full h-full bg-primary/10 flex items-center justify-center">
+                              <Building2 className="w-5 h-5 text-primary" />
+                            </div>
+                          )}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium text-foreground truncate">{company.name}</p>
+                          <p className="text-xs text-muted-foreground flex items-center gap-1">
+                            <MapPin className="w-3 h-3" />{company.address}
+                          </p>
+                        </div>
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-foreground truncate">{company.name}</p>
-                        <p className="text-xs text-muted-foreground flex items-center gap-1">
-                          <MapPin className="w-3 h-3" />{company.address}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CollapsibleContent>
-            </Collapsible>
+                    ))}
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+            </div>
           </div>
 
           {/* Right: Job Details (50% width) */}
