@@ -9,7 +9,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import heroCampus from "@/assets/hero-campus.jpg";
 import slideTalkshow from "@/assets/slide-talkshow.jpg";
 import slideStudents from "@/assets/slide-students.jpg";
 import slideCampus from "@/assets/slide-campus.jpg";
@@ -71,10 +70,9 @@ const majorsByFaculty: Record<string, string[]> = {
 };
 
 const slides = [
-  { id: 0, image: heroCampus, alt: "UTT Campus" },
+  { id: 0, image: slideCampus, alt: "Khuôn viên trường" },
   { id: 1, image: slideTalkshow, alt: "Talkshow du học Pháp" },
   { id: 2, image: slideStudents, alt: "Sinh viên UTT" },
-  { id: 3, image: slideCampus, alt: "Khuôn viên trường" },
 ];
 
 const HeroSection = () => {
