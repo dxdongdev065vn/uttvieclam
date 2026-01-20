@@ -135,16 +135,20 @@
 
   /* UTT Buttons */
   .utt-btn-primary {
-    @apply bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-utt-orange-hover hover:shadow-lg inline-flex items-center gap-2;
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-utt-orange-hover hover:shadow-lg hover:-translate-y-0.5 inline-flex items-center gap-2;
   }
 
   .utt-btn-outline {
-    @apply border-2 border-primary text-primary px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-primary hover:text-primary-foreground inline-flex items-center gap-2;
+    @apply border-2 border-primary text-primary px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5 inline-flex items-center gap-2;
   }
 
-  /* UTT Cards */
+  /* UTT Cards - Techex Style */
   .utt-card {
-    @apply bg-card rounded-xl border border-border shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/20;
+    @apply bg-card rounded-2xl border border-border shadow-sm transition-all duration-500 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1;
+  }
+
+  .utt-card-glass {
+    @apply bg-card/80 backdrop-blur-sm rounded-2xl border border-border/50 shadow-lg;
   }
 
   .utt-card-orange {
@@ -155,9 +159,13 @@
     @apply bg-secondary text-secondary-foreground rounded-2xl p-8;
   }
 
-  /* UTT Section */
+  /* UTT Section - Techex Style */
   .utt-section {
-    @apply py-16 md:py-24;
+    @apply py-16 md:py-24 relative overflow-hidden;
+  }
+
+  .utt-section-gradient {
+    @apply py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-background via-background to-accent/30;
   }
 
   .utt-section-title {
@@ -168,36 +176,76 @@
     @apply text-muted-foreground mt-2;
   }
 
-  /* UTT Badge */
+  /* UTT Badge - JobsGO Style */
   .utt-badge {
-    @apply inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-accent text-accent-foreground;
+    @apply inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20;
   }
 
   .utt-badge-hot {
-    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold bg-primary text-primary-foreground;
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-destructive text-destructive-foreground shadow-sm;
+  }
+
+  .utt-badge-new {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-secondary text-secondary-foreground shadow-sm;
+  }
+
+  .utt-badge-urgent {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-accent text-accent-foreground shadow-sm;
   }
 
   /* UTT Tag */
   .utt-tag {
-    @apply inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium border transition-colors;
+    @apply inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-300;
   }
 
   .utt-tag-location {
-    @apply border-primary/30 text-primary bg-primary/5;
+    @apply border-primary/30 text-primary bg-primary/5 hover:bg-primary/10;
   }
 
   .utt-tag-type {
-    @apply border-border text-muted-foreground bg-muted;
+    @apply border-border text-muted-foreground bg-muted hover:bg-muted/80;
   }
 
   /* Search Input */
   .utt-search-input {
-    @apply w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all;
+    @apply w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all;
   }
 
   /* Gradient Text */
   .text-gradient-orange {
-    @apply bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary to-accent-foreground bg-clip-text text-transparent;
+  }
+
+  /* Floating Blob Decorations - Techex Style */
+  .utt-blob {
+    @apply absolute rounded-full blur-3xl opacity-20 pointer-events-none;
+  }
+
+  .utt-blob-primary {
+    @apply bg-primary;
+  }
+
+  .utt-blob-secondary {
+    @apply bg-secondary;
+  }
+
+  /* Company Card - JobsGO Style */
+  .utt-company-card {
+    @apply bg-card rounded-2xl border border-border p-5 transition-all duration-500 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1 cursor-pointer group;
+  }
+
+  /* Job Card - JobsGO Style */
+  .utt-job-card {
+    @apply bg-card rounded-xl border border-border p-4 transition-all duration-300 hover:shadow-lg hover:border-primary/40 cursor-pointer group relative overflow-hidden;
+  }
+
+  .utt-job-card::before {
+    content: '';
+    @apply absolute left-0 top-0 bottom-0 w-1 bg-primary transform scale-y-0 origin-bottom transition-transform duration-300;
+  }
+
+  .utt-job-card:hover::before {
+    @apply scale-y-100;
   }
 }
 
@@ -212,6 +260,14 @@
 
   .animate-slide-in-right {
     animation: slideInRight 0.6s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulseSlow 4s ease-in-out infinite;
   }
 
   @keyframes fadeIn {
@@ -242,6 +298,26 @@
     to {
       opacity: 1;
       transform: translateX(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes pulseSlow {
+    0%, 100% {
+      opacity: 0.2;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.3;
+      transform: scale(1.05);
     }
   }
 }
