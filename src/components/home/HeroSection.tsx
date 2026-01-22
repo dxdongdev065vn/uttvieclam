@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Search, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -35,6 +35,10 @@ const HeroSection = () => {
   const [selectedMajor, setSelectedMajor] = useState<string>("");
   const availableMajors = selectedFaculty ? majorsByFaculty[selectedFaculty] || [] : [];
 
+  const marqueeContainerRef = useRef<HTMLDivElement | null>(null);
+  const marqueeContentRef = useRef<HTMLDivElement | null>(null);
+  const [marqueeStyle, setMarqueeStyle] = useState<React.CSSProperties>({});
+
   // Reset major when faculty changes
   const handleFacultyChange = (value: string) => {
     setSelectedFaculty(value);
@@ -48,6 +52,41 @@ const HeroSection = () => {
     }, 5000);
     return () => clearInterval(timer);
   }, []);
+
+  // Marquee: calculate distance based on actual text width so it always runs fully.
+  useLayoutEffect(() => {
+    const update = () => {
+      const container = marqueeContainerRef.current;
+      const content = marqueeContentRef.current;
+      if (!container || !content) return;
+
+      const containerWidth = container.clientWidth;
+      const contentWidth = content.scrollWidth;
+      if (!containerWidth || !contentWidth) return;
+
+      // px/s: tune to taste. Higher = faster.
+      const speed = 140;
+      const duration = (containerWidth + contentWidth) / speed;
+
+      setMarqueeStyle({
+        animationDuration: `${Math.max(10, duration).toFixed(1)}s`,
+        ["--marquee-from" as any]: `${containerWidth}px`,
+        ["--marquee-to" as any]: `${-contentWidth}px`
+      } as React.CSSProperties);
+    };
+
+    update();
+
+    const ro = new ResizeObserver(update);
+    if (marqueeContainerRef.current) ro.observe(marqueeContainerRef.current);
+    if (marqueeContentRef.current) ro.observe(marqueeContentRef.current);
+
+    window.addEventListener("resize", update);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", update);
+    };
+  }, [currentSlide]);
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
@@ -61,15 +100,16 @@ const HeroSection = () => {
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-black/60" />
 
-        {/* Marquee text at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 py-6 overflow-hidden z-30">
-          <div className="animate-marquee whitespace-nowrap text-white text-2xl md:text-3xl font-semibold drop-shadow-lg">
-            <span className="mx-12">
-              Trường Đại học Công nghệ Giao thông vận tải (UTT) mang sứ mạng đào tạo và cung cấp nguồn nhân lực chất lượng cao theo hướng ứng dụng, đa ngành, đa lĩnh vực, đồng thời đẩy mạnh nghiên cứu khoa học và chuyển giao công nghệ phục vụ phát triển ngành GTVT và đất nước. Tầm nhìn đến 2030: có một số ngành đào tạo ngang tầm các trường uy tín trong khu vực và thế giới, trở thành trung tâm nghiên cứu khoa học ứng dụng, chuyển giao công nghệ và hợp tác quốc tế trong lĩnh vực GTVT. Đến tương lai năm 2045, trở thành trường đại học thông minh. UTT kiên định triết lý giáo dục "Ứng dụng – Thực học – Thực nghiệp": chương trình đào tạo theo định hướng ứng dụng; bảo đảm thực hành, thực tập từ 40% trở lên; gắn chặt nhu cầu doanh nghiệp để sinh viên sẵn sàng làm việc sau tốt nghiệp. Nhà trường tổ chức đào tạo qua các khoa: Công trình, Công nghệ thông tin, Quản trị, Kinh tế vận tải, Khoa học ứng dụng, Cơ sở kỹ thuật, Luật – Chính trị, với các nhóm ngành tiêu biểu như giao thông–xây dựng, cơ khí–ô tô, điện tử–viễn thông, CNTT/AI, logistics, kinh tế–quản trị, luật, ngôn ngữ…
-            </span>
-            <span className="mx-12">
-              Trường Đại học Công nghệ Giao thông vận tải (UTT) mang sứ mạng đào tạo và cung cấp nguồn nhân lực chất lượng cao theo hướng ứng dụng, đa ngành, đa lĩnh vực, đồng thời đẩy mạnh nghiên cứu khoa học và chuyển giao công nghệ phục vụ phát triển ngành GTVT và đất nước. Tầm nhìn đến 2030: có một số ngành đào tạo ngang tầm các trường uy tín trong khu vực và thế giới, trở thành trung tâm nghiên cứu khoa học ứng dụng, chuyển giao công nghệ và hợp tác quốc tế trong lĩnh vực GTVT. Đến tương lai năm 2045, trở thành trường đại học thông minh. UTT kiên định triết lý giáo dục "Ứng dụng – Thực học – Thực nghiệp": chương trình đào tạo theo định hướng ứng dụng; bảo đảm thực hành, thực tập từ 40% trở lên; gắn chặt nhu cầu doanh nghiệp để sinh viên sẵn sàng làm việc sau tốt nghiệp. Nhà trường tổ chức đào tạo qua các khoa: Công trình, Công nghệ thông tin, Quản trị, Kinh tế vận tải, Khoa học ứng dụng, Cơ sở kỹ thuật, Luật – Chính trị, với các nhóm ngành tiêu biểu như giao thông–xây dựng, cơ khí–ô tô, điện tử–viễn thông, CNTT/AI, logistics, kinh tế–quản trị, luật, ngôn ngữ…
-            </span>
+        {/* Marquee text at bottom (dynamic width -> always runs full content) */}
+        <div className="absolute bottom-0 left-0 right-0 py-6 overflow-hidden z-30 pointer-events-none">
+          <div ref={marqueeContainerRef} className="w-full overflow-hidden">
+            <div
+              ref={marqueeContentRef}
+              style={marqueeStyle}
+              className="animate-marquee-dynamic whitespace-nowrap text-primary-foreground text-2xl md:text-3xl font-semibold drop-shadow-lg will-change-transform"
+            >
+              Trường Đại học Công nghệ Giao thông vận tải (UTT) mang sứ mạng đào tạo và cung cấp nguồn nhân lực chất lượng cao theo hướng ứng dụng, đa ngành, đa lĩnh vực, đồng thời đẩy mạnh nghiên cứu khoa học và chuyển giao công nghệ phục vụ phát triển ngành GTVT và đất nước. Tầm nhìn đến 2030: có một số ngành đào tạo ngang tầm các trường uy tín trong khu vực và thế giới, trở thành trung tâm nghiên cứu khoa học ứng dụng, chuyển giao công nghệ và hợp tác quốc tế trong lĩnh vực GTVT. Đến tương lai năm 2045: trở thành trường đại học thông minh. UTT kiên định triết lý giáo dục “Ứng dụng – Thực học – Thực nghiệp”: chương trình đào tạo theo định hướng ứng dụng; bảo đảm thực hành, thực tập từ 40% trở lên; gắn chặt nhu cầu doanh nghiệp để sinh viên sẵn sàng làm việc sau tốt nghiệp. Nhà trường tổ chức đào tạo qua các khoa: Công trình, Công nghệ thông tin, Quản trị, Kinh tế vận tải, Khoa học ứng dụng, Cơ sở kỹ thuật, Luật – Chính trị, với các nhóm ngành tiêu biểu như giao thông–xây dựng, cơ khí–ô tô, điện tử–viễn thông, CNTT/AI, logistics, kinh tế–quản trị, luật, ngôn ngữ…
+            </div>
           </div>
         </div>
       </div>
