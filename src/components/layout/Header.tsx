@@ -1,7 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
-import { User, Globe, Menu, X, Home, Info, Newspaper, Briefcase, Cpu, Brain, Users2, FileText, ChevronDown, GraduationCap, Building2, UserCircle, Handshake, Lightbulb, Database, Shield, MessageSquare, Calendar, Heart, Award } from "lucide-react";
+import { User, Globe, Menu, X, Home, Info, Newspaper, Briefcase, Cpu, Brain, Users2, FileText, ChevronDown, ChevronRight, GraduationCap, Building2, UserCircle, Handshake, Lightbulb, Database, Shield, MessageSquare, Calendar, Heart, Award, Search, Bell } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import uttLogo from "@/assets/utt-logo-new.png";
 
 interface NavItem {
@@ -85,6 +88,20 @@ const Header = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [expandedMobileItems, setExpandedMobileItems] = useState<string[]>([]);
+
+  const toggleMobileSubmenu = (itemName: string) => {
+    setExpandedMobileItems(prev => 
+      prev.includes(itemName) 
+        ? prev.filter(name => name !== itemName)
+        : [...prev, itemName]
+    );
+  };
+
+  const closeMobileMenu = () => {
+    setIsMenuOpen(false);
+    setExpandedMobileItems([]);
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-background shadow-sm">
@@ -118,24 +135,128 @@ const Header = () => {
               <span>EN</span>
             </div>
 
-            {/* Mobile Menu Button */}
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </Button>
+            {/* Mobile Menu Button - Using Sheet */}
+            <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+              <SheetTrigger asChild>
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="lg:hidden"
+                >
+                  <Menu className="w-6 h-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[85vw] max-w-[400px] p-0">
+                <SheetHeader className="p-4 border-b border-border bg-primary">
+                  <SheetTitle className="flex items-center gap-3 text-primary-foreground">
+                    <img src={uttLogo} alt="UTT" className="h-10 w-auto brightness-0 invert" />
+                    <span className="text-sm font-medium">Menu</span>
+                  </SheetTitle>
+                </SheetHeader>
+                
+                <ScrollArea className="h-[calc(100vh-180px)]">
+                  <div className="p-2">
+                    {navLinks.map((link) => {
+                      const IconComponent = link.icon;
+                      const hasSubmenu = link.submenu && link.submenu.length > 0;
+                      const isExpanded = expandedMobileItems.includes(link.name);
+                      const isActive = location.pathname === link.path;
+                      
+                      if (hasSubmenu) {
+                        return (
+                          <Collapsible 
+                            key={link.path}
+                            open={isExpanded}
+                            onOpenChange={() => toggleMobileSubmenu(link.name)}
+                          >
+                            <CollapsibleTrigger asChild>
+                              <button
+                                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all ${
+                                  isActive || isExpanded
+                                    ? "bg-primary/10 text-primary" 
+                                    : "text-foreground hover:bg-muted"
+                                }`}
+                              >
+                                <div className="flex items-center gap-3">
+                                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
+                                    isActive || isExpanded ? "bg-primary text-primary-foreground" : "bg-muted"
+                                  }`}>
+                                    <IconComponent className="w-5 h-5" />
+                                  </div>
+                                  <span className="font-medium">{link.name}</span>
+                                </div>
+                                <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`} />
+                              </button>
+                            </CollapsibleTrigger>
+                            <CollapsibleContent className="pl-4 pr-2 pb-2">
+                              <div className="mt-1 ml-4 border-l-2 border-primary/20 pl-4 space-y-1">
+                                {link.submenu?.map((subItem) => (
+                                  <Link
+                                    key={subItem.label}
+                                    to={subItem.href}
+                                    onClick={closeMobileMenu}
+                                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors"
+                                  >
+                                    <subItem.icon className="w-4 h-4" />
+                                    <span className="text-sm">{subItem.label}</span>
+                                  </Link>
+                                ))}
+                              </div>
+                            </CollapsibleContent>
+                          </Collapsible>
+                        );
+                      }
+                      
+                      return (
+                        <Link
+                          key={link.path}
+                          to={link.path}
+                          onClick={closeMobileMenu}
+                          className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
+                            isActive 
+                              ? "bg-primary/10 text-primary" 
+                              : "text-foreground hover:bg-muted"
+                          }`}
+                        >
+                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
+                            isActive ? "bg-primary text-primary-foreground" : "bg-muted"
+                          }`}>
+                            <IconComponent className="w-5 h-5" />
+                          </div>
+                          <span className="font-medium">{link.name}</span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </ScrollArea>
+
+                {/* Mobile Bottom Actions */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-background border-t border-border space-y-3">
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium h-12">
+                    <Briefcase className="w-4 h-4 mr-2" />
+                    Đăng Tin Tuyển Dụng
+                  </Button>
+                  <div className="grid grid-cols-2 gap-2">
+                    <Button variant="outline" className="h-11">
+                      <User className="w-4 h-4 mr-2" />
+                      Đăng nhập
+                    </Button>
+                    <Button variant="outline" className="h-11">
+                      <Globe className="w-4 h-4 mr-2" />
+                      VI / EN
+                    </Button>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>
 
-      {/* Navigation Bar */}
-      <nav className="bg-primary border-b-2 border-primary">
+      {/* Navigation Bar - Desktop Only */}
+      <nav className="bg-primary border-b-2 border-primary hidden lg:block">
         <div className="container mx-auto px-4">
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center justify-center gap-0.5">
+          <div className="flex items-center justify-center gap-0.5">
             {navLinks.map((link) => {
               const IconComponent = link.icon;
               const hasSubmenu = link.submenu && link.submenu.length > 0;
@@ -185,57 +306,6 @@ const Header = () => {
               );
             })}
           </div>
-
-          {/* Mobile Nav */}
-          {isMenuOpen && (
-            <div className="lg:hidden py-4 space-y-1 max-h-[70vh] overflow-y-auto">
-              {navLinks.map((link) => {
-                const IconComponent = link.icon;
-                const hasSubmenu = link.submenu && link.submenu.length > 0;
-                
-                return (
-                  <div key={link.path}>
-                    <Link
-                      to={link.path}
-                      className={`flex items-center gap-3 px-4 py-3 text-sm font-medium tracking-wide rounded-lg transition-colors ${
-                        location.pathname === link.path 
-                          ? "text-primary-foreground bg-primary-foreground/15 border-l-4 border-primary-foreground" 
-                          : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10"
-                      }`}
-                      onClick={() => !hasSubmenu && setIsMenuOpen(false)}
-                    >
-                      <IconComponent className="w-5 h-5" />
-                      {link.name}
-                    </Link>
-                    {hasSubmenu && (
-                      <div className="ml-8 mt-1 space-y-1">
-                        {link.submenu?.map((subItem) => (
-                          <Link
-                            key={subItem.label}
-                            to={subItem.href}
-                            className="flex items-center gap-2 px-4 py-2 text-xs text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            <subItem.icon className="w-4 h-4" />
-                            {subItem.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-              <div className="pt-4 mt-4 border-t border-primary-foreground/20 space-y-2">
-                <Button className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-medium">
-                  Đăng Tin Tuyển Dụng
-                </Button>
-                <Button variant="outline" className="w-full border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
-                  <User className="w-4 h-4 mr-2" />
-                  Đăng nhập
-                </Button>
-              </div>
-            </div>
-          )}
         </div>
       </nav>
     </header>
