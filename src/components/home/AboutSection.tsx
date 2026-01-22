@@ -57,18 +57,6 @@ const sectionContent = {
         badgeColor: "primary",
         items: ["Khoa Công trình", "Khoa Cơ khí", "Khoa Kinh tế vận tải", "Khoa Công nghệ thông tin", "Khoa Khoa học ứng dụng", "Khoa Luật – Chính trị", "Khoa Cơ sở kỹ thuật", "Khoa Đào tạo tại chức"],
       },
-      {
-        icon: GraduationCap,
-        title: "Chương trình đào tạo",
-        badge: "Programs",
-        badgeColor: "secondary",
-        items: ["Tiến sĩ (02 chuyên ngành)", "Thạc sĩ (12 chuyên ngành)", "Đại học (30 chuyên ngành)"],
-      },
-      {
-        icon: FlaskConical,
-        title: "Định hướng đào tạo",
-        tags: ["Ứng dụng", "Công nghệ", "Thực tiễn"],
-      },
     ],
     cta: { text: "Xem các ngành đào tạo", subText: "Đào tạo theo hướng ứng dụng" },
   },
