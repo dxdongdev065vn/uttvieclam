@@ -273,11 +273,11 @@ const Header = () => {
                     to={link.path}
                     className={`relative flex items-center gap-1.5 px-4 py-2 text-xs font-medium tracking-wide transition-all duration-150 rounded-full ${
                       isActive 
-                        ? "bg-white text-primary shadow-[0_4px_12px_rgba(249,115,22,0.4),0_2px_4px_rgba(249,115,22,0.3)]" 
-                        : "bg-white/90 text-foreground shadow-[0_2px_8px_rgba(249,115,22,0.25)] hover:bg-white hover:shadow-[0_4px_12px_rgba(249,115,22,0.4)]"
+                        ? "bg-primary text-white shadow-[0_4px_12px_rgba(0,0,0,0.2)]" 
+                        : "bg-white text-foreground shadow-[0_2px_8px_rgba(249,115,22,0.25)] hover:shadow-[0_4px_12px_rgba(249,115,22,0.4)]"
                     }`}
                   >
-                    <IconComponent className="w-3.5 h-3.5" />
+                    <IconComponent className={`w-3.5 h-3.5 ${isActive ? "text-white" : "text-primary"}`} />
                     <span className="whitespace-nowrap">{link.name}</span>
                     {hasSubmenu && (
                       <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />

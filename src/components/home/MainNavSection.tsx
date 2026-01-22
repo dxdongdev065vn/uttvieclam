@@ -77,12 +77,12 @@ const MainNavSection = () => {
                   to={item.href}
                   className={`flex items-center gap-2 px-4 md:px-5 py-2.5 font-medium rounded-full transition-all duration-150 ${
                     activeItem === item.label 
-                      ? "bg-white text-primary shadow-[0_4px_12px_rgba(249,115,22,0.4),0_2px_4px_rgba(249,115,22,0.3)]" 
+                      ? "bg-primary text-white shadow-[0_4px_12px_rgba(0,0,0,0.2)]" 
                       : "bg-white text-foreground shadow-[0_2px_8px_rgba(249,115,22,0.2)] hover:shadow-[0_4px_12px_rgba(249,115,22,0.35)]"
                   }`}
                   style={{ fontFamily: "'Be Vietnam Pro', sans-serif" }}
                 >
-                  <item.icon className={`w-4 h-4 ${activeItem === item.label ? "text-primary-foreground" : "text-primary"}`} />
+                  <item.icon className={`w-4 h-4 ${activeItem === item.label ? "text-white" : "text-primary"}`} />
                   <span className="text-xs md:text-sm tracking-wide whitespace-nowrap">{item.label}</span>
                   {hasSubmenu && (
                     <ChevronDown
