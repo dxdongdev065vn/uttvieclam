@@ -254,7 +254,7 @@ const Header = () => {
       </div>
 
       {/* Navigation Bar - Desktop Only */}
-      <nav className="bg-gradient-to-b from-primary to-primary/95 border-b border-primary-foreground/10 hidden lg:block shadow-md">
+      <nav className="bg-gradient-to-b from-primary via-primary to-primary/90 hidden lg:block shadow-[0_4px_12px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.15)]">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center">
             {navLinks.map((link, index) => {
@@ -271,12 +271,12 @@ const Header = () => {
                 >
                   <Link
                     to={link.path}
-                    className={`relative flex items-center gap-1.5 px-4 py-3 text-xs font-medium tracking-wide transition-all duration-150 border-r border-primary-foreground/10 ${
+                    className={`relative flex items-center gap-1.5 px-4 py-3 text-xs font-medium tracking-wide transition-all duration-150 border-r border-white/20 ${
                       index === 0 ? "border-l" : ""
                     } ${
                       isActive 
-                        ? "text-primary-foreground bg-primary-foreground/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),inset_0_-2px_4px_rgba(0,0,0,0.1)]" 
-                        : "text-primary-foreground/90 hover:text-primary-foreground hover:bg-primary-foreground/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]"
+                        ? "text-primary-foreground bg-black/15 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2),inset_0_-1px_0_rgba(255,255,255,0.1)]" 
+                        : "text-primary-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.15),inset_0_-1px_0_rgba(0,0,0,0.1)] hover:bg-black/10 hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]"
                     }`}
                   >
                     <IconComponent className="w-3.5 h-3.5" />
