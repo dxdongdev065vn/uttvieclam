@@ -146,7 +146,7 @@ const AboutSection = () => {
       <div className="absolute top-1/4 right-1/4 w-3 h-3 bg-primary rounded-full animate-pulse-slow opacity-40" />
       <div className="absolute bottom-1/3 left-1/4 w-2 h-2 bg-secondary rounded-full animate-float opacity-50" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="max-w-full xl:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 relative z-10">
         {/* Section Header - Modern Style */}
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm border border-primary/20 text-primary px-5 py-2 rounded-full text-sm font-medium mb-6">
@@ -184,7 +184,7 @@ const AboutSection = () => {
         </div>
 
         {/* Main Content - Asymmetric Layout */}
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 xl:gap-20 items-center">
           {/* Left Column - Image Composition */}
           <div className="lg:col-span-5 relative">
             {/* Background Shape */}
