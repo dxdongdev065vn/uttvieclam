@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { ArrowRight, Target, Eye, Lightbulb, GraduationCap, Users, Building2, Award, CheckCircle, Sparkles, School, BookOpen, UserCog, Handshake, Briefcase, Globe, FlaskConical, Network } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import aboutCampus from "@/assets/about-campus.jpg";
@@ -120,13 +120,42 @@ const sectionContent = {
   },
 };
 
+// Time for each slide (in milliseconds) - adjusted for reading content
+const SLIDE_DURATIONS: Record<string, number> = {
+  intro: 8000,     // 8 seconds - 3 cards with lists
+  faculties: 6000, // 6 seconds - 1 card with 8 items
+  leaders: 7000,   // 7 seconds - 3 cards
+  center: 7000,    // 7 seconds - 3 cards
+};
+
 const AboutSection = () => {
   const [activeButton, setActiveButton] = useState<string>("intro");
+  const [isPaused, setIsPaused] = useState(false);
+
+  const goToNextSlide = useCallback(() => {
+    const currentIndex = aboutButtons.findIndex((btn) => btn.id === activeButton);
+    const nextIndex = (currentIndex + 1) % aboutButtons.length;
+    setActiveButton(aboutButtons[nextIndex].id);
+  }, [activeButton]);
+
+  // Auto-play effect
+  useEffect(() => {
+    if (isPaused) return;
+
+    const duration = SLIDE_DURATIONS[activeButton] || 7000;
+    const timer = setTimeout(goToNextSlide, duration);
+
+    return () => clearTimeout(timer);
+  }, [activeButton, isPaused, goToNextSlide]);
 
   const currentContent = sectionContent[activeButton as keyof typeof sectionContent];
 
   return (
-    <section className="utt-section bg-gradient-to-br from-background via-background to-accent/20 relative overflow-hidden">
+    <section 
+      className="utt-section bg-gradient-to-br from-background via-background to-accent/20 relative overflow-hidden"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       {/* Floating Decorative Elements - Techex Style */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float" />
