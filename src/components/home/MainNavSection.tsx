@@ -14,18 +14,6 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: "Trang Chủ", href: "/", icon: Home },
-  {
-    label: "Giới Thiệu",
-    href: "/gioi-thieu",
-    icon: Info,
-    submenu: [
-      { label: "Giới thiệu về trường", href: "/gioi-thieu", icon: Building2 },
-      { label: "Khoa, ngành đào tạo", href: "/gioi-thieu?tab=khoa-nganh", icon: GraduationCap },
-      { label: "Lãnh đạo nhà trường", href: "/gioi-thieu?tab=lanh-dao", icon: UserCircle },
-      { label: "Trung tâm hướng nghiệp", href: "/gioi-thieu?tab=trung-tam", icon: Handshake },
-    ],
-  },
   {
     label: "Bản Tin",
     href: "/tin-tuc",
@@ -44,16 +32,6 @@ const navItems: NavItem[] = [
       { label: "Việc làm và tuyển dụng", href: "/viec-lam", icon: Briefcase },
       { label: "Hồ sơ năng lực cá nhân", href: "/ung-vien", icon: UserCircle },
       { label: "Thực tập & Học kỳ doanh nghiệp", href: "/viec-lam?tab=thuc-tap", icon: GraduationCap },
-    ],
-  },
-  {
-    label: "Công Nghệ & Đổi Mới",
-    href: "/cong-nghe",
-    icon: Cpu,
-    submenu: [
-      { label: "Danh mục công nghệ & giải pháp", href: "/cong-nghe", icon: Database },
-      { label: "Đặt hàng nghiên cứu & đổi mới", href: "/cong-nghe?tab=dat-hang", icon: Lightbulb },
-      { label: "Chuyển giao công nghệ & sở hữu trí tuệ", href: "/cong-nghe?tab=chuyen-giao", icon: Shield },
     ],
   },
   {
@@ -76,7 +54,6 @@ const navItems: NavItem[] = [
       { label: "Quỹ đầu tư & Học bổng", href: "/cong-dong?tab=quy", icon: Award },
     ],
   },
-  { label: "Tạo CV", href: "/tao-cv", icon: FileText },
 ];
 
 const MainNavSection = () => {
