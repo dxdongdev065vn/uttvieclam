@@ -60,10 +60,10 @@ const MainNavSection = () => {
   const [activeItem, setActiveItem] = useState<string | null>(null);
 
   return (
-    <nav className="relative z-40 -mt-6">
+    <nav className="relative z-40 -mt-8">
       <div className="container mx-auto px-4 flex justify-center">
-        <div className="bg-background backdrop-blur-md rounded-full shadow-xl border border-border px-4 py-2">
-          <ul className="flex items-center gap-0.5">
+        <div className="bg-background/95 backdrop-blur-md rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-border/50 px-6 py-3">
+          <ul className="flex items-center gap-1">
             {navItems.map((item) => {
               const hasSubmenu = item.submenu && item.submenu.length > 0;
               
@@ -76,19 +76,19 @@ const MainNavSection = () => {
                 >
                   <Link
                     to={item.href}
-                    className={`flex items-center gap-1 px-2.5 md:px-3 py-2 font-medium rounded-full transition-all duration-200 ${
+                    className={`flex items-center gap-2 px-4 md:px-5 py-2.5 font-medium rounded-full transition-all duration-200 shadow-sm ${
                       activeItem === item.label 
-                        ? "text-primary bg-primary/10" 
-                        : "text-foreground hover:text-primary hover:bg-primary/5"
+                        ? "text-primary-foreground bg-primary shadow-md" 
+                        : "text-foreground bg-muted/50 hover:bg-primary hover:text-primary-foreground hover:shadow-md"
                     }`}
                     style={{ fontFamily: "'Be Vietnam Pro', sans-serif" }}
                   >
-                    <item.icon className="w-3.5 h-3.5 text-primary" />
-                    <span className="text-[10px] md:text-xs tracking-wide whitespace-nowrap">{item.label}</span>
+                    <item.icon className={`w-4 h-4 ${activeItem === item.label ? "text-primary-foreground" : "text-primary"}`} />
+                    <span className="text-xs md:text-sm tracking-wide whitespace-nowrap">{item.label}</span>
                     {hasSubmenu && (
                       <ChevronDown
-                        className={`w-3 h-3 text-muted-foreground transition-transform duration-200 ${
-                          activeItem === item.label ? "rotate-180 text-primary" : ""
+                        className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                          activeItem === item.label ? "rotate-180 text-primary-foreground" : "text-muted-foreground"
                         }`}
                       />
                     )}
@@ -96,15 +96,15 @@ const MainNavSection = () => {
 
                   {/* Dropdown Menu */}
                   {hasSubmenu && activeItem === item.label && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 min-w-[240px] bg-background border border-border rounded-xl shadow-2xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                      <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-background border-l border-t border-border rotate-45 rounded-tl" />
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 min-w-[260px] bg-background/95 backdrop-blur-md border border-border/50 rounded-2xl shadow-[0_10px_40px_rgb(0,0,0,0.15)] py-3 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                      <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-background border-l border-t border-border/50 rotate-45 rounded-tl" />
                       {item.submenu?.map((subItem) => (
                         <Link
                           key={subItem.label}
                           to={subItem.href}
-                          className="flex items-center gap-3 px-4 py-2.5 text-foreground hover:bg-muted hover:text-primary transition-colors mx-2 rounded-lg group"
+                          className="flex items-center gap-3 px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors mx-2 rounded-xl group"
                         >
-                          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                          <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center shadow-sm group-hover:bg-primary group-hover:shadow-md transition-all">
                             <subItem.icon className="w-4 h-4 text-primary group-hover:text-primary-foreground" />
                           </div>
                           <span className="text-sm font-medium">{subItem.label}</span>
