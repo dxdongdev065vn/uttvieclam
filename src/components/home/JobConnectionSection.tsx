@@ -525,7 +525,7 @@ const JobConnectionSection = () => {
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float" />
 
-      <div className="container mx-auto px-4 max-w-[1800px] relative z-10">
+      <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12">
           <span className="utt-badge mb-4">KẾT NỐI VIỆC LÀM</span>

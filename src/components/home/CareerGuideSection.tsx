@@ -128,7 +128,7 @@ const CareerGuideSection = () => {
       <div className="absolute top-10 right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-10 left-20 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12">
           <span className="utt-badge mb-4">

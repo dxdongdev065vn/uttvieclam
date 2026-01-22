@@ -224,7 +224,7 @@ const TechnologySection = () => {
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-primary/5 to-transparent rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-blue-500/5 to-transparent rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-4 max-w-[1800px] relative z-10">
+      <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-10">
           <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
