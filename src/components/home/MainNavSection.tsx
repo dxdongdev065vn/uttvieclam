@@ -62,60 +62,58 @@ const MainNavSection = () => {
   return (
     <nav className="relative z-40 -mt-8">
       <div className="container mx-auto px-4 flex justify-center">
-        <div className="bg-background/95 backdrop-blur-md rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-border/50 px-6 py-3">
-          <ul className="flex items-center gap-1">
-            {navItems.map((item) => {
-              const hasSubmenu = item.submenu && item.submenu.length > 0;
-              
-              return (
-                <li
-                  key={item.label}
-                  className="relative"
-                  onMouseEnter={() => setActiveItem(item.label)}
-                  onMouseLeave={() => setActiveItem(null)}
+        <div className="bg-muted/30 backdrop-blur-md rounded-xl shadow-lg border border-border/30 p-1.5 flex gap-0.5">
+          {navItems.map((item) => {
+            const hasSubmenu = item.submenu && item.submenu.length > 0;
+            
+            return (
+              <div
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => setActiveItem(item.label)}
+                onMouseLeave={() => setActiveItem(null)}
+              >
+                <Link
+                  to={item.href}
+                  className={`flex items-center gap-2 px-4 md:px-5 py-2.5 font-medium rounded-lg transition-all duration-150 border ${
+                    activeItem === item.label 
+                      ? "bg-primary text-primary-foreground border-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_1px_3px_rgba(0,0,0,0.1)]" 
+                      : "bg-gradient-to-b from-background to-muted/80 text-foreground border-border/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.8),inset_0_-1px_0_rgba(0,0,0,0.05),0_1px_2px_rgba(0,0,0,0.08)] hover:from-muted/50 hover:to-muted hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_2px_4px_rgba(0,0,0,0.1)]"
+                  }`}
+                  style={{ fontFamily: "'Be Vietnam Pro', sans-serif" }}
                 >
-                  <Link
-                    to={item.href}
-                    className={`flex items-center gap-2 px-4 md:px-5 py-2.5 font-medium rounded-full transition-all duration-200 shadow-sm ${
-                      activeItem === item.label 
-                        ? "text-primary-foreground bg-primary shadow-md" 
-                        : "text-foreground bg-muted/50 hover:bg-primary hover:text-primary-foreground hover:shadow-md"
-                    }`}
-                    style={{ fontFamily: "'Be Vietnam Pro', sans-serif" }}
-                  >
-                    <item.icon className={`w-4 h-4 ${activeItem === item.label ? "text-primary-foreground" : "text-primary"}`} />
-                    <span className="text-xs md:text-sm tracking-wide whitespace-nowrap">{item.label}</span>
-                    {hasSubmenu && (
-                      <ChevronDown
-                        className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                          activeItem === item.label ? "rotate-180 text-primary-foreground" : "text-muted-foreground"
-                        }`}
-                      />
-                    )}
-                  </Link>
-
-                  {/* Dropdown Menu */}
-                  {hasSubmenu && activeItem === item.label && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 min-w-[260px] bg-background/95 backdrop-blur-md border border-border/50 rounded-2xl shadow-[0_10px_40px_rgb(0,0,0,0.15)] py-3 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                      <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-background border-l border-t border-border/50 rotate-45 rounded-tl" />
-                      {item.submenu?.map((subItem) => (
-                        <Link
-                          key={subItem.label}
-                          to={subItem.href}
-                          className="flex items-center gap-3 px-4 py-3 text-foreground hover:bg-primary/10 hover:text-primary transition-colors mx-2 rounded-xl group"
-                        >
-                          <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center shadow-sm group-hover:bg-primary group-hover:shadow-md transition-all">
-                            <subItem.icon className="w-4 h-4 text-primary group-hover:text-primary-foreground" />
-                          </div>
-                          <span className="text-sm font-medium">{subItem.label}</span>
-                        </Link>
-                      ))}
-                    </div>
+                  <item.icon className={`w-4 h-4 ${activeItem === item.label ? "text-primary-foreground" : "text-primary"}`} />
+                  <span className="text-xs md:text-sm tracking-wide whitespace-nowrap">{item.label}</span>
+                  {hasSubmenu && (
+                    <ChevronDown
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                        activeItem === item.label ? "rotate-180 text-primary-foreground" : "text-muted-foreground"
+                      }`}
+                    />
                   )}
-                </li>
-              );
-            })}
-          </ul>
+                </Link>
+
+                {/* Dropdown Menu */}
+                {hasSubmenu && activeItem === item.label && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 min-w-[260px] bg-background border border-border/60 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.12)] py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-background border-l border-t border-border/60 rotate-45 rounded-tl" />
+                    {item.submenu?.map((subItem) => (
+                      <Link
+                        key={subItem.label}
+                        to={subItem.href}
+                        className="flex items-center gap-3 px-4 py-2.5 text-foreground hover:bg-muted transition-colors mx-2 rounded-lg group"
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-b from-muted to-muted/50 border border-border/40 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] flex items-center justify-center group-hover:from-primary group-hover:to-primary group-hover:border-primary transition-all">
+                          <subItem.icon className="w-4 h-4 text-primary group-hover:text-primary-foreground" />
+                        </div>
+                        <span className="text-sm font-medium">{subItem.label}</span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </nav>
