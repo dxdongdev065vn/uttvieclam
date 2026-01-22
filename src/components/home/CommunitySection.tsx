@@ -64,43 +64,28 @@ const alumniList = [
   },
 ];
 
-// Cột 2: Câu lạc bộ & Dự án sinh viên
-const clubsAndProjects = [
+// Cột 2: Câu lạc bộ (chỉ CLB, không có dự án)
+const clubsList = [
   {
     id: 1,
     name: "CLB Nghiên cứu Khoa học",
-    type: "CLB",
     members: 45,
     isActive: true,
-    project: null,
     description: "Nghiên cứu ứng dụng công nghệ mới",
   },
   {
     id: 2,
-    name: "Dự án Bãi đỗ xe thông minh",
-    type: "Dự án",
-    members: 8,
-    isActive: true,
-    progress: 75,
-    description: "IoT + AI quản lý bãi đỗ xe tự động",
-  },
-  {
-    id: 3,
     name: "CLB Khởi nghiệp UTT",
-    type: "CLB",
     members: 120,
     isActive: true,
-    project: null,
     description: "Ươm mầm ý tưởng khởi nghiệp SV",
   },
   {
-    id: 4,
-    name: "Dự án App Tìm xe buýt",
-    type: "Dự án",
-    members: 5,
+    id: 3,
+    name: "CLB Kỹ năng mềm",
+    members: 85,
     isActive: true,
-    progress: 90,
-    description: "Ứng dụng theo dõi xe buýt realtime",
+    description: "Phát triển kỹ năng giao tiếp, thuyết trình",
   },
 ];
 
@@ -223,14 +208,19 @@ const CommunitySection = () => {
             <div className="p-4 pt-0 space-y-2">
               <Link to="/cong-dong" className="block">
                 <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">
-                  Kết nối Cựu SV
+                  Kết nối cựu sinh viên
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
               <Link to="/cong-dong?action=join" className="block">
                 <Button variant="outline" className="w-full border-blue-200 text-blue-600 hover:bg-blue-50">
+                  Tham gia mạng lưới
+                </Button>
+              </Link>
+              <Link to="/cong-dong?action=contact" className="block">
+                <Button variant="outline" className="w-full border-blue-200 text-blue-600 hover:bg-blue-50">
                   <Handshake className="w-4 h-4 mr-2" />
-                  Tham gia Mentorship
+                  Liên hệ hợp tác
                 </Button>
               </Link>
             </div>
@@ -251,47 +241,36 @@ const CommunitySection = () => {
               </div>
             </div>
             
-            {/* Content - Clubs & Projects */}
+            {/* Content - Clubs List */}
             <div className="p-4 flex-1 space-y-3">
-              {clubsAndProjects.map((item) => (
+              {clubsList.map((club) => (
                 <Link
-                  key={item.id}
-                  to={`/cong-dong/clb/${item.id}`}
+                  key={club.id}
+                  to={`/cong-dong/clb/${club.id}`}
                   className="block bg-muted/50 hover:bg-muted rounded-xl p-3 transition-all hover:shadow-md group"
                 >
                   <div className="flex items-center gap-2 mb-2">
-                    <Badge className={item.type === "CLB" ? "bg-rose-500" : "bg-purple-500"}>
-                      {item.type === "CLB" ? <Heart className="w-3 h-3 mr-1" /> : <Rocket className="w-3 h-3 mr-1" />}
-                      {item.type}
+                    <Badge className="bg-rose-500">
+                      <Heart className="w-3 h-3 mr-1" />
+                      CLB
                     </Badge>
-                    {item.isActive && (
+                    {club.isActive && (
                       <Badge variant="outline" className="text-xs text-green-600 border-green-300">
                         Đang hoạt động
                       </Badge>
                     )}
                   </div>
                   <h4 className="font-semibold text-sm text-foreground group-hover:text-rose-600 transition-colors mb-1">
-                    {item.name}
+                    {club.name}
                   </h4>
                   <p className="text-xs text-muted-foreground mb-2 line-clamp-1">
-                    {item.description}
+                    {club.description}
                   </p>
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center">
                     <span className="text-xs text-muted-foreground flex items-center gap-1">
                       <Users className="w-3 h-3" />
-                      {item.members} thành viên
+                      {club.members} thành viên
                     </span>
-                    {item.type === "Dự án" && item.progress && (
-                      <div className="flex items-center gap-2">
-                        <div className="w-16 h-1.5 bg-muted rounded-full overflow-hidden">
-                          <div 
-                            className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
-                            style={{ width: `${item.progress}%` }}
-                          />
-                        </div>
-                        <span className="text-xs font-medium text-purple-600">{item.progress}%</span>
-                      </div>
-                    )}
                   </div>
                 </Link>
               ))}
@@ -301,14 +280,19 @@ const CommunitySection = () => {
             <div className="p-4 pt-0 space-y-2">
               <Link to="/cong-dong?tab=clb" className="block">
                 <Button className="w-full bg-rose-500 hover:bg-rose-600 text-white">
-                  Xem tất cả CLB
+                  Xem câu lạc bộ
                   <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
+              <Link to="/cong-dong?tab=clb&action=join" className="block">
+                <Button variant="outline" className="w-full border-rose-200 text-rose-600 hover:bg-rose-50">
+                  Tham gia hoạt động
                 </Button>
               </Link>
               <Link to="/cong-dong?tab=clb&action=propose" className="block">
                 <Button variant="outline" className="w-full border-rose-200 text-rose-600 hover:bg-rose-50">
                   <Lightbulb className="w-4 h-4 mr-2" />
-                  Đề xuất CLB / Dự án
+                  Đề xuất câu lạc bộ mới
                 </Button>
               </Link>
             </div>
@@ -370,16 +354,21 @@ const CommunitySection = () => {
 
             {/* Footer Buttons */}
             <div className="p-4 pt-0 space-y-2">
-              <Link to="/cong-dong?tab=quy&action=apply" className="block">
+              <Link to="/cong-dong?tab=quy" className="block">
                 <Button className="w-full bg-amber-500 hover:bg-amber-600 text-white">
-                  Đăng ký nhận Học bổng
+                  Góp quỹ / Tài trợ
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
-              <Link to="/cong-dong?tab=quy" className="block">
+              <Link to="/cong-dong?tab=quy&action=apply" className="block">
+                <Button variant="outline" className="w-full border-amber-200 text-amber-600 hover:bg-amber-50">
+                  Đăng ký nhận hỗ trợ
+                </Button>
+              </Link>
+              <Link to="/cong-dong?tab=quy&action=partner" className="block">
                 <Button variant="outline" className="w-full border-amber-200 text-amber-600 hover:bg-amber-50">
                   <Handshake className="w-4 h-4 mr-2" />
-                  Góp quỹ / Tài trợ
+                  Đồng hành cùng trung tâm
                 </Button>
               </Link>
             </div>
