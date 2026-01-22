@@ -1,12 +1,14 @@
+import { useSearchParams } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Breadcrumb from "@/components/shared/Breadcrumb";
-import { Search, MapPin, Building2, Flame, Clock, DollarSign, Briefcase, ChevronRight, Heart, Filter, Star, Users, TrendingUp } from "lucide-react";
+import { Search, MapPin, Building2, Flame, Clock, DollarSign, Briefcase, ChevronRight, Heart, Filter, Star, Users, TrendingUp, GraduationCap } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import company1 from "@/assets/company-1.jpg";
 import company2 from "@/assets/company-2.jpg";
 
@@ -134,6 +136,17 @@ const hotCategories = [
 ];
 
 const Jobs = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentTab = searchParams.get("tab") || "viec-lam";
+
+  const handleTabChange = (value: string) => {
+    if (value === "viec-lam") {
+      setSearchParams({});
+    } else {
+      setSearchParams({ tab: value });
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-muted/30">
       <Header />
@@ -141,8 +154,22 @@ const Jobs = () => {
         {/* Search Bar - JobsGO Style */}
         <div className="bg-gradient-to-r from-primary to-primary/80 py-8">
           <div className="container mx-auto px-4">
+            {/* Tabs for Job Type */}
+            <Tabs value={currentTab} onValueChange={handleTabChange} className="mb-4">
+              <TabsList className="mx-auto bg-white/20 border-0">
+                <TabsTrigger value="viec-lam" className="data-[state=active]:bg-white data-[state=active]:text-primary text-white">
+                  <Briefcase className="w-4 h-4 mr-2" />
+                  Việc làm
+                </TabsTrigger>
+                <TabsTrigger value="thuc-tap" className="data-[state=active]:bg-white data-[state=active]:text-primary text-white">
+                  <GraduationCap className="w-4 h-4 mr-2" />
+                  Thực tập & Học kỳ DN
+                </TabsTrigger>
+              </TabsList>
+            </Tabs>
+            
             <h1 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4 text-center">
-              Việc làm và tuyển dụng
+              {currentTab === "thuc-tap" ? "Thực tập & Học kỳ doanh nghiệp" : "Việc làm và tuyển dụng"}
             </h1>
             <div className="bg-background rounded-xl p-4 shadow-lg">
               <div className="flex flex-col lg:flex-row gap-3">
@@ -181,7 +208,10 @@ const Jobs = () => {
         </div>
 
         <div className="container mx-auto px-4 py-6">
-          <Breadcrumb items={[{ label: "Trang chủ", path: "/" }, { label: "Việc làm và tuyển dụng" }]} />
+          <Breadcrumb items={[
+            { label: "Trang chủ", path: "/" }, 
+            { label: currentTab === "thuc-tap" ? "Thực tập & Học kỳ doanh nghiệp" : "Việc làm và tuyển dụng" }
+          ]} />
           
           <div className="flex flex-col lg:flex-row gap-6 mt-4">
             {/* Sidebar - Filters */}

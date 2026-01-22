@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -135,8 +134,16 @@ const patents = [
 ];
 
 const Technology = () => {
-  const [searchParams] = useSearchParams();
-  const defaultTab = searchParams.get("tab") || "danh-muc";
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentTab = searchParams.get("tab") || "danh-muc";
+
+  const handleTabChange = (value: string) => {
+    if (value === "danh-muc") {
+      setSearchParams({});
+    } else {
+      setSearchParams({ tab: value });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -157,7 +164,7 @@ const Technology = () => {
       <div className="container mx-auto px-4 py-6">
         <Breadcrumb items={[{ label: "Trang chủ", path: "/" }, { label: "Công nghệ & Đổi mới" }]} />
 
-        <Tabs defaultValue={defaultTab} className="mt-6">
+        <Tabs value={currentTab} onValueChange={handleTabChange} className="mt-6">
           <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:inline-grid mb-8">
             <TabsTrigger value="danh-muc" className="flex items-center gap-2">
               <Database className="w-4 h-4" />

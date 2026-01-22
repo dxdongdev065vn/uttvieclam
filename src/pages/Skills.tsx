@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -207,8 +206,16 @@ const workshops = [
 ];
 
 const Skills = () => {
-  const [searchParams] = useSearchParams();
-  const defaultTab = searchParams.get("tab") || "ky-nang";
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentTab = searchParams.get("tab") || "ky-nang";
+
+  const handleTabChange = (value: string) => {
+    if (value === "ky-nang") {
+      setSearchParams({});
+    } else {
+      setSearchParams({ tab: value });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -229,7 +236,7 @@ const Skills = () => {
       <div className="container mx-auto px-4 py-6">
         <Breadcrumb items={[{ label: "Trang chủ", path: "/" }, { label: "Kỹ Năng & AI" }]} />
 
-        <Tabs defaultValue={defaultTab} className="mt-6">
+        <Tabs value={currentTab} onValueChange={handleTabChange} className="mt-6">
           <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:inline-grid mb-8">
             <TabsTrigger value="ky-nang" className="flex items-center gap-2">
               <MessageSquare className="w-4 h-4" />
