@@ -69,22 +69,22 @@ const sectionContent = {
     cards: [
       {
         icon: UserCog,
-        title: "Ban Giám hiệu",
+        title: "Triết lý lãnh đạo",
         badge: "Leadership",
         badgeColor: "primary",
-        items: ["Hiệu trưởng: PGS.TS Nguyễn Văn A", "Phó Hiệu trưởng phụ trách Đào tạo", "Phó Hiệu trưởng phụ trách NCKH"],
+        items: ["Cây cầu tri thức kết nối tương lai", "Sự ổn định và phát triển bền vững", "Sắc màu của thịnh vượng và thành công"],
       },
       {
         icon: Target,
         title: "Định hướng phát triển",
         badge: "Strategy",
         badgeColor: "secondary",
-        items: ["Đổi mới sáng tạo trong giáo dục", "Hội nhập quốc tế sâu rộng"],
+        items: ["Kết nối Tài năng - Công nghệ - Cộng đồng", "Đào tạo nguồn nhân lực chất lượng cao theo hướng ứng dụng"],
       },
       {
         icon: Award,
-        title: "Thành tựu nổi bật",
-        tags: ["Top 10 ĐH", "Kiểm định QS", "ISO 9001"],
+        title: "Giá trị cốt lõi",
+        tags: ["Tri thức", "Sáng tạo", "Bền vững"],
       },
     ],
     cta: { text: "Xem chi tiết Ban lãnh đạo", subText: "Đội ngũ giảng viên giàu kinh nghiệm" },
