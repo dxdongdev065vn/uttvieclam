@@ -195,9 +195,9 @@ const JobsSection = () => {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <span className="utt-badge mb-4">CƠ HỘI VIỆC LÀM</span>
+          <span className="utt-badge mb-4">KẾT NỐI VIỆC LÀM</span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            KẾT NỐI <span className="text-primary">CÔNG TY</span>
+            VIỆC LÀM VÀ <span className="text-primary">TUYỂN DỤNG</span>
           </h2>
           <p className="text-muted-foreground mt-3">
             Dành cho Công ty đăng tuyển - Chọn khu vực để xem chi tiết

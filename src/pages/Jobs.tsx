@@ -142,7 +142,7 @@ const Jobs = () => {
         <div className="bg-gradient-to-r from-primary to-primary/80 py-8">
           <div className="container mx-auto px-4">
             <h1 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4 text-center">
-              Tìm việc làm phù hợp với bạn
+              Việc làm và tuyển dụng
             </h1>
             <div className="bg-background rounded-xl p-4 shadow-lg">
               <div className="flex flex-col lg:flex-row gap-3">
@@ -181,7 +181,7 @@ const Jobs = () => {
         </div>
 
         <div className="container mx-auto px-4 py-6">
-          <Breadcrumb items={[{ label: "Trang chủ", path: "/" }, { label: "Việc làm" }]} />
+          <Breadcrumb items={[{ label: "Trang chủ", path: "/" }, { label: "Việc làm và tuyển dụng" }]} />
           
           <div className="flex flex-col lg:flex-row gap-6 mt-4">
             {/* Sidebar - Filters */}
