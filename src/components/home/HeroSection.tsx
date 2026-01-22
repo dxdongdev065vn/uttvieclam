@@ -102,7 +102,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative w-full h-[320px] md:h-[400px] lg:h-[450px]">
+    <section className="relative w-full h-[100svh] min-h-[600px]">
       {/* Full-width Image Carousel */}
       <div className="absolute inset-0 overflow-hidden">
         {slides.map((slide, index) => (
@@ -121,30 +121,33 @@ const HeroSection = () => {
         ))}
 
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-black/60" />
       </div>
 
-      {/* Dots - positioned at bottom left of slide area */}
-      <div className="absolute bottom-4 left-1/2 lg:left-1/3 -translate-x-1/2 flex gap-2 z-20">
+      {/* Dots - positioned at bottom center on mobile, left on desktop */}
+      <div className="absolute bottom-8 left-1/2 lg:left-[30%] -translate-x-1/2 flex gap-3 z-20">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-2.5 h-2.5 rounded-full transition-colors ${
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
               index === currentSlide
-                ? "bg-primary"
-                : "bg-background/60 hover:bg-background/80"
+                ? "bg-primary scale-125"
+                : "bg-white/60 hover:bg-white/80"
             }`}
           />
         ))}
       </div>
 
       {/* Search Panel Card - Overlay on right side */}
-      <div className="absolute right-0 top-0 bottom-0 w-full lg:w-1/3 flex items-center justify-center p-4 lg:p-0 z-10">
-        <div className="bg-background/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-border/50 p-6 lg:p-8 w-full max-w-md lg:max-w-none lg:mx-6 lg:my-8">
-          <h1 className="text-2xl md:text-3xl lg:text-3xl font-bold mb-4">
+      <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[420px] xl:w-[480px] flex items-center justify-center p-4 lg:p-0 z-10">
+        <div className="bg-background/95 backdrop-blur-md rounded-2xl shadow-2xl border border-border/50 p-6 lg:p-10 w-full max-w-md lg:max-w-none lg:mx-8 lg:my-12">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
             Tìm kiếm việc làm
           </h1>
+          <p className="text-muted-foreground mb-6">
+            Khám phá cơ hội nghề nghiệp phù hợp với bạn
+          </p>
 
           {/* Search Form */}
           <div className="space-y-4">
@@ -155,22 +158,22 @@ const HeroSection = () => {
                 placeholder="Tìm việc làm, công ty, vị trí..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-12 pr-4 py-6 text-base rounded-lg border-border"
+                className="pl-12 pr-4 py-7 text-base rounded-xl border-border"
               />
             </div>
 
-            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-base font-semibold rounded-lg">
+            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-7 text-base font-semibold rounded-xl">
               Tìm kiếm
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </div>
 
           {/* Faculty & Major Dropdowns */}
-          <div className="mt-6 space-y-3">
-            <p className="text-sm text-muted-foreground mb-3">Tìm nhanh:</p>
-            <div className="grid grid-cols-2 gap-3">
+          <div className="mt-8 space-y-4">
+            <p className="text-sm font-medium text-foreground">Tìm nhanh theo chuyên ngành:</p>
+            <div className="space-y-3">
               <Select value={selectedFaculty} onValueChange={handleFacultyChange}>
-                <SelectTrigger className="w-full bg-background border-border">
+                <SelectTrigger className="w-full bg-background border-border py-6 rounded-xl">
                   <SelectValue placeholder="Chọn Khoa" />
                 </SelectTrigger>
                 <SelectContent className="bg-background border-border z-50">
@@ -187,7 +190,7 @@ const HeroSection = () => {
                 onValueChange={setSelectedMajor}
                 disabled={!selectedFaculty}
               >
-                <SelectTrigger className="w-full bg-background border-border">
+                <SelectTrigger className="w-full bg-background border-border py-6 rounded-xl">
                   <SelectValue placeholder="Chọn Ngành" />
                 </SelectTrigger>
                 <SelectContent className="bg-background border-border z-50">
@@ -200,6 +203,29 @@ const HeroSection = () => {
               </Select>
             </div>
           </div>
+
+          {/* Quick stats */}
+          <div className="mt-8 pt-6 border-t border-border/50 grid grid-cols-3 gap-4 text-center">
+            <div>
+              <p className="text-2xl font-bold text-primary">500+</p>
+              <p className="text-xs text-muted-foreground">Việc làm</p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-primary">200+</p>
+              <p className="text-xs text-muted-foreground">Doanh nghiệp</p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-primary">10k+</p>
+              <p className="text-xs text-muted-foreground">Sinh viên</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 lg:left-[30%] -translate-x-1/2 translate-y-12 z-20 animate-bounce hidden lg:block">
+        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center pt-2">
+          <div className="w-1.5 h-3 bg-white/70 rounded-full" />
         </div>
       </div>
     </section>
