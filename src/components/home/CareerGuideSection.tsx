@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MessageSquare, Brain, Calendar, ArrowRight } from "lucide-react";
+import { MessageSquare, Brain, Users, ArrowRight, BookOpen, Video, Mail, Sparkles, GraduationCap, HelpCircle, UserCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import articleCV from "@/assets/article-cv.jpg";
 import articleInterview from "@/assets/article-interview.jpg";
@@ -9,10 +9,15 @@ const skillCategories = [
   {
     id: 1,
     title: "KỸ NĂNG LÀM VIỆC & KỸ NĂNG MỀM",
-    description: "Trang bị nền tảng kỹ năng để làm việc hiệu quả",
+    description: "Cẩm nang, bài viết, video hướng dẫn phát triển kỹ năng giao tiếp, viết email chuyên nghiệp, tư duy logic và làm việc nhóm hiệu quả.",
     icon: MessageSquare,
     image: articleCV,
     color: "from-blue-500 to-blue-600",
+    highlights: [
+      { icon: BookOpen, text: "Cẩm nang & Bài viết" },
+      { icon: Video, text: "Video hướng dẫn" },
+      { icon: Mail, text: "Kỹ năng giao tiếp, viết mail" },
+    ],
     buttons: [
       { label: "Xem lớp Kỹ năng", href: "/ky-nang" },
       { label: "Đăng ký tham gia", href: "/ky-nang?action=register" },
@@ -21,11 +26,16 @@ const skillCategories = [
   },
   {
     id: 2,
-    title: "AI ỨNG DỤNG HỌC TẬP & CÔNG VIỆC",
-    description: "Sử dụng AI trong học tập và làm việc thực tế",
+    title: "ỨNG DỤNG AI TRONG CÔNG VIỆC & HỌC TẬP",
+    description: "Các khóa đào tạo AI thực dụng (Miễn phí/Trả phí) giúp sinh viên làm chủ công nghệ AI trong học tập và công việc thực tế.",
     icon: Brain,
     image: articleInterview,
     color: "from-purple-500 to-purple-600",
+    highlights: [
+      { icon: Sparkles, text: "Khóa học Miễn phí & Trả phí" },
+      { icon: GraduationCap, text: "AI thực dụng cho SV" },
+      { icon: Brain, text: "Ứng dụng AI thực tế" },
+    ],
     buttons: [
       { label: "Khám phá AI", href: "/ky-nang?tab=ai" },
       { label: "Học AI cơ bản", href: "/ky-nang?tab=ai&level=basic" },
@@ -34,11 +44,16 @@ const skillCategories = [
   },
   {
     id: 3,
-    title: "HỘI THẢO - TẬP HUẤN - CHIA SẺ",
-    description: "Kết nối với chuyên gia và cộng đồng",
-    icon: Calendar,
+    title: "HỘI THẢO & CHIA SẺ KINH NGHIỆM",
+    description: "Forum chia sẻ kinh nghiệm phỏng vấn, chuyện nghề nghiệp - nơi sinh viên hỏi, chuyên gia và cựu sinh viên trả lời.",
+    icon: Users,
     image: articleNetworking,
     color: "from-orange-500 to-orange-600",
+    highlights: [
+      { icon: HelpCircle, text: "Hỏi đáp với Chuyên gia" },
+      { icon: UserCheck, text: "Cựu SV chia sẻ" },
+      { icon: MessageSquare, text: "Kinh nghiệm phỏng vấn" },
+    ],
     buttons: [
       { label: "Xem lịch sự kiện", href: "/ky-nang?tab=hoi-thao" },
       { label: "Đăng ký tham dự", href: "/ky-nang?tab=hoi-thao&action=register" },
@@ -104,9 +119,21 @@ const CareerGuideSection = () => {
                 {/* Content Section */}
                 <div className="p-5 flex flex-col flex-1">
                   {/* Description */}
-                  <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
+                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                     {category.description}
                   </p>
+                  
+                  {/* Highlights */}
+                  <div className="space-y-2 mb-5">
+                    {category.highlights.map((highlight, idx) => (
+                      <div key={idx} className="flex items-center gap-3 text-sm">
+                        <div className={`w-7 h-7 rounded-lg bg-gradient-to-br ${category.color} bg-opacity-10 flex items-center justify-center`}>
+                          <highlight.icon className="w-3.5 h-3.5 text-white" />
+                        </div>
+                        <span className="text-foreground text-xs">{highlight.text}</span>
+                      </div>
+                    ))}
+                  </div>
                   
                   {/* Action Buttons */}
                   <div className="space-y-2 mt-auto">
