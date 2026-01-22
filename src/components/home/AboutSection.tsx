@@ -30,8 +30,8 @@ const AboutSection = () => {
             VỀ CHÚNG TÔI
           </div>
           
-          {/* 3D Shadow Buttons - Vertical Layout */}
-          <div className="flex flex-col items-center gap-3 max-w-md mx-auto">
+          {/* 3D Shadow Buttons - Horizontal Layout */}
+          <div className="flex flex-wrap justify-center gap-3">
             {aboutButtons.map((btn) => {
               const Icon = btn.icon;
               const isActive = activeButton === btn.id;
