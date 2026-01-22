@@ -254,9 +254,9 @@ const Header = () => {
       </div>
 
       {/* Navigation Bar - Desktop Only */}
-      <nav className="bg-gradient-to-b from-primary via-primary to-primary/90 hidden lg:block shadow-[0_4px_12px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.15)]">
+      <nav className="bg-primary hidden lg:block py-2 shadow-lg">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center gap-1">
             {navLinks.map((link, index) => {
               const IconComponent = link.icon;
               const hasSubmenu = link.submenu && link.submenu.length > 0;
@@ -271,12 +271,10 @@ const Header = () => {
                 >
                   <Link
                     to={link.path}
-                    className={`relative flex items-center gap-1.5 px-4 py-3 text-xs font-medium tracking-wide transition-all duration-150 border-r border-white/20 ${
-                      index === 0 ? "border-l" : ""
-                    } ${
+                    className={`relative flex items-center gap-1.5 px-4 py-2 text-xs font-medium tracking-wide transition-all duration-150 rounded-full ${
                       isActive 
-                        ? "text-primary-foreground bg-black/15 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2),inset_0_-1px_0_rgba(255,255,255,0.1)]" 
-                        : "text-primary-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.15),inset_0_-1px_0_rgba(0,0,0,0.1)] hover:bg-black/10 hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)]"
+                        ? "bg-white text-primary shadow-[0_4px_12px_rgba(249,115,22,0.4),0_2px_4px_rgba(249,115,22,0.3)]" 
+                        : "bg-white/90 text-foreground shadow-[0_2px_8px_rgba(249,115,22,0.25)] hover:bg-white hover:shadow-[0_4px_12px_rgba(249,115,22,0.4)]"
                     }`}
                   >
                     <IconComponent className="w-3.5 h-3.5" />

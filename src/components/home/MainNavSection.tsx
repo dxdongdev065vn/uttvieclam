@@ -62,7 +62,7 @@ const MainNavSection = () => {
   return (
     <nav className="relative z-40 -mt-8">
       <div className="container mx-auto px-4 flex justify-center">
-        <div className="bg-background/90 backdrop-blur-md rounded-xl shadow-[0_6px_20px_rgba(0,0,0,0.15),0_2px_6px_rgba(0,0,0,0.1)] border border-border/40 p-1.5 flex gap-0.5">
+        <div className="bg-primary/10 backdrop-blur-md rounded-full shadow-lg border border-primary/20 p-2 flex gap-1.5">
           {navItems.map((item) => {
             const hasSubmenu = item.submenu && item.submenu.length > 0;
             
@@ -75,10 +75,10 @@ const MainNavSection = () => {
               >
                 <Link
                   to={item.href}
-                  className={`flex items-center gap-2 px-4 md:px-5 py-2.5 font-medium rounded-lg transition-all duration-150 border ${
+                  className={`flex items-center gap-2 px-4 md:px-5 py-2.5 font-medium rounded-full transition-all duration-150 ${
                     activeItem === item.label 
-                      ? "bg-primary text-primary-foreground border-primary shadow-[inset_0_2px_4px_rgba(0,0,0,0.2),0_2px_4px_rgba(0,0,0,0.15)]" 
-                      : "bg-gradient-to-b from-white to-muted/60 text-foreground border-border/70 shadow-[inset_0_1px_0_rgba(255,255,255,1),inset_0_-2px_0_rgba(0,0,0,0.05),0_2px_4px_rgba(0,0,0,0.1)] hover:from-muted/30 hover:to-muted hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_3px_8px_rgba(0,0,0,0.12)]"
+                      ? "bg-white text-primary shadow-[0_4px_12px_rgba(249,115,22,0.4),0_2px_4px_rgba(249,115,22,0.3)]" 
+                      : "bg-white text-foreground shadow-[0_2px_8px_rgba(249,115,22,0.2)] hover:shadow-[0_4px_12px_rgba(249,115,22,0.35)]"
                   }`}
                   style={{ fontFamily: "'Be Vietnam Pro', sans-serif" }}
                 >
