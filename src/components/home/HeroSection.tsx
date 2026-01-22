@@ -61,8 +61,8 @@ const HeroSection = () => {
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-black/60" />
 
-        {/* Marquee text at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 bg-primary/90 backdrop-blur-sm py-2 overflow-hidden">
+        {/* Marquee text at top */}
+        <div className="absolute top-0 left-0 right-0 bg-primary/90 backdrop-blur-sm py-2 overflow-hidden z-30">
           <div className="animate-marquee whitespace-nowrap text-primary-foreground text-sm font-medium">
             <span className="mx-8">
               TRƯỜNG ĐẠI HỌC CÔNG NGHỆ GIAO THÔNG VẬN TẢI (UTT) mang sứ mạng đào tạo và cung cấp nguồn nhân lực chất lượng cao theo hướng ứng dụng, đa ngành, đa lĩnh vực, đồng thời đẩy mạnh nghiên cứu khoa học và chuyển giao công nghệ phục vụ phát triển ngành GTVT và đất nước. Tầm nhìn đến 2030, có một số ngành đào tạo ngang tầm các trường uy tín trong khu vực và thế giới, trở thành trung tâm nghiên cứu khoa học ứng dụng, chuyển giao công nghệ và hợp tác quốc tế trong lĩnh vực GTVT. Trong tương lai, trở thành trường đại học thông minh. UTT kiên định triết lý giáo dục "Ứng dụng – Thực học – Thực nghiệp": chương trình đào tạo theo định hướng ứng dụng; bảo đảm thực hành, thực tập từ 40% trở lên; gắn chặt nhu cầu doanh nghiệp để sinh viên sẵn sàng làm việc sau tốt nghiệp. Nhà trường tổ chức đào tạo qua các khoa: Công trình, Công nghệ thông tin, Quản trị, Kinh tế vận tải, Khoa học ứng dụng, Cơ sở kỹ thuật, Luật – Chính trị, với các nhóm ngành tiêu biểu như giao thông – xây dựng, cơ khí – ô tô, điện tử – viễn thông, CNTT/AI, logistics, kinh tế – quản trị, luật, ngôn ngữ…
