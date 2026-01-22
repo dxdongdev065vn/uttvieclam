@@ -13,9 +13,18 @@ import {
   MessageCircle,
   BookOpen,
   Phone,
-  Building
+  Building,
+  Check,
+  Clock,
+  Users,
+  Zap,
+  Shield,
+  TrendingUp,
+  FileCheck,
+  Briefcase
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import articleCV from "@/assets/article-cv.jpg";
 import articleInterview from "@/assets/article-interview.jpg";
 import articleNetworking from "@/assets/article-networking.jpg";
@@ -42,10 +51,102 @@ const tabButtons = [
 ];
 
 const SLIDE_DURATIONS: Record<string, number> = {
-  solutions: 8000,
-  research: 7000,
-  transfer: 7000,
+  solutions: 10000,
+  research: 9000,
+  transfer: 9000,
 };
+
+// Tab 1: Danh mục công nghệ sẵn sàng
+const technologyCatalog = [
+  {
+    id: 1,
+    name: "Hệ thống Giám sát Giao thông Thông minh",
+    category: "ITS",
+    status: "Sẵn sàng",
+    description: "Giám sát, phân tích luồng giao thông realtime bằng AI",
+    icon: Cpu,
+  },
+  {
+    id: 2,
+    name: "Phần mềm Quản lý Logistics",
+    category: "Software",
+    status: "Sẵn sàng",
+    description: "Tối ưu hóa chuỗi cung ứng và vận chuyển",
+    icon: TrendingUp,
+  },
+  {
+    id: 3,
+    name: "Giải pháp Bãi đỗ xe Thông minh",
+    category: "IoT",
+    status: "Đang triển khai",
+    description: "Hệ thống cảm biến và app quản lý bãi đỗ",
+    icon: Zap,
+  },
+  {
+    id: 4,
+    name: "Nền tảng Đào tạo Trực tuyến",
+    category: "EdTech",
+    status: "Sẵn sàng",
+    description: "LMS tích hợp AI hỗ trợ học tập cá nhân hóa",
+    icon: BookOpen,
+  },
+];
+
+// Tab 2: Dự án nghiên cứu đang thực hiện
+const researchProjects = [
+  {
+    id: 1,
+    title: "Tối ưu hóa tuyến vận tải cho Viettel Post",
+    partner: "Viettel Post",
+    progress: 75,
+    deadline: "Q2/2026",
+    type: "Đặt hàng",
+  },
+  {
+    id: 2,
+    title: "Nghiên cứu vật liệu xanh trong xây dựng",
+    partner: "Coteccons",
+    progress: 40,
+    deadline: "Q4/2026",
+    type: "Hợp tác",
+  },
+  {
+    id: 3,
+    title: "Ứng dụng AI trong bảo trì thiết bị công nghiệp",
+    partner: "Samsung Vietnam",
+    progress: 60,
+    deadline: "Q3/2026",
+    type: "Đặt hàng",
+  },
+];
+
+// Tab 3: Bằng sáng chế & chuyển giao
+const intellectualProperty = [
+  {
+    id: 1,
+    title: "Bằng sáng chế Hệ thống điều khiển đèn giao thông AI",
+    type: "Sáng chế",
+    year: 2024,
+    status: "Đã cấp",
+    transferable: true,
+  },
+  {
+    id: 2,
+    title: "Giải pháp hữu ích: Cảm biến đo độ rung cầu đường",
+    type: "Giải pháp hữu ích",
+    year: 2025,
+    status: "Đã cấp",
+    transferable: true,
+  },
+  {
+    id: 3,
+    title: "Phần mềm quản lý bến xe khách liên tỉnh",
+    type: "Bản quyền phần mềm",
+    year: 2025,
+    status: "Đang chuyển giao",
+    transferable: false,
+  },
+];
 
 const sectionContent = {
   solutions: {
@@ -56,12 +157,6 @@ const sectionContent = {
     stats: [
       { value: "50+", label: "Giải pháp công nghệ" },
       { value: "120+", label: "Dự án triển khai" },
-    ],
-    features: [
-      "Hệ thống giao thông thông minh (ITS)",
-      "Giải pháp logistics và vận tải",
-      "Công nghệ xây dựng hạ tầng",
-      "Phần mềm quản lý chuyên ngành",
     ],
     buttons: [
       { label: "Xem danh mục", href: "/cong-nghe?tab=catalog", icon: BookOpen },
@@ -78,12 +173,6 @@ const sectionContent = {
       { value: "30+", label: "Dự án đang thực hiện" },
       { value: "85%", label: "Tỷ lệ thành công" },
     ],
-    features: [
-      "Nghiên cứu theo đặt hàng của DN",
-      "Đổi mới quy trình sản xuất",
-      "Phát triển sản phẩm mới",
-      "Tối ưu hóa vận hành",
-    ],
     buttons: [
       { label: "Gửi yêu cầu", href: "/cong-nghe?tab=research&action=submit", icon: Send },
       { label: "Đặt hàng giải pháp", href: "/cong-nghe?tab=research&action=order", icon: FileSearch },
@@ -98,12 +187,6 @@ const sectionContent = {
     stats: [
       { value: "25+", label: "Bằng sáng chế" },
       { value: "40+", label: "Hợp đồng chuyển giao" },
-    ],
-    features: [
-      "Đăng ký bảo hộ sáng chế",
-      "Chuyển giao công nghệ trọn gói",
-      "Tư vấn thương mại hóa R&D",
-      "Hỗ trợ pháp lý SHTT",
     ],
     buttons: [
       { label: "Tìm hiểu chuyển giao", href: "/cong-nghe?tab=ip", icon: BookOpen },
@@ -234,22 +317,113 @@ const TechnologySection = () => {
               </h3>
             </div>
 
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               {currentContent.description}
             </p>
 
-            {/* Features List */}
-            <div className="grid sm:grid-cols-2 gap-3">
-              {currentContent.features.map((feature, index) => (
-                <div 
-                  key={index}
-                  className="flex items-center gap-3 bg-background rounded-xl px-4 py-3 border border-border"
-                >
-                  <div className="w-2 h-2 rounded-full bg-primary" />
-                  <span className="text-sm text-foreground">{feature}</span>
-                </div>
-              ))}
-            </div>
+            {/* Dynamic Content Based on Tab */}
+            {activeTab === "solutions" && (
+              <div className="grid sm:grid-cols-2 gap-3">
+                {technologyCatalog.map((tech) => {
+                  const TechIcon = tech.icon;
+                  return (
+                    <div 
+                      key={tech.id}
+                      className="bg-background rounded-xl p-4 border border-border hover:border-primary/50 hover:shadow-md transition-all group"
+                    >
+                      <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                          <TechIcon className="w-5 h-5 text-primary" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-1">
+                            <h4 className="font-semibold text-sm text-foreground truncate">{tech.name}</h4>
+                          </div>
+                          <div className="flex items-center gap-2 mb-1">
+                            <Badge variant="outline" className="text-xs">{tech.category}</Badge>
+                            <Badge className={`text-xs ${tech.status === "Sẵn sàng" ? "bg-green-500" : "bg-amber-500"}`}>
+                              {tech.status}
+                            </Badge>
+                          </div>
+                          <p className="text-xs text-muted-foreground line-clamp-2">{tech.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            {activeTab === "research" && (
+              <div className="space-y-3">
+                {researchProjects.map((project) => (
+                  <div 
+                    key={project.id}
+                    className="bg-background rounded-xl p-4 border border-border hover:border-primary/50 hover:shadow-md transition-all"
+                  >
+                    <div className="flex items-start justify-between gap-4 mb-3">
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-sm text-foreground mb-1">{project.title}</h4>
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                          <Briefcase className="w-3 h-3" />
+                          <span>Đối tác: {project.partner}</span>
+                          <span>•</span>
+                          <Clock className="w-3 h-3" />
+                          <span>Hoàn thành: {project.deadline}</span>
+                        </div>
+                      </div>
+                      <Badge className={project.type === "Đặt hàng" ? "bg-primary" : "bg-blue-500"}>
+                        {project.type}
+                      </Badge>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
+                        <div 
+                          className="h-full bg-gradient-to-r from-primary to-primary/70 rounded-full transition-all"
+                          style={{ width: `${project.progress}%` }}
+                        />
+                      </div>
+                      <span className="text-sm font-semibold text-primary">{project.progress}%</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {activeTab === "transfer" && (
+              <div className="space-y-3">
+                {intellectualProperty.map((ip) => (
+                  <div 
+                    key={ip.id}
+                    className="bg-background rounded-xl p-4 border border-border hover:border-primary/50 hover:shadow-md transition-all"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <FileCheck className="w-4 h-4 text-primary" />
+                          <h4 className="font-semibold text-sm text-foreground">{ip.title}</h4>
+                        </div>
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <Badge variant="outline" className="text-xs">{ip.type}</Badge>
+                          <Badge variant="secondary" className="text-xs">{ip.year}</Badge>
+                          <Badge className={`text-xs ${
+                            ip.status === "Đã cấp" ? "bg-green-500" : "bg-amber-500"
+                          }`}>
+                            {ip.status}
+                          </Badge>
+                          {ip.transferable && (
+                            <Badge className="text-xs bg-blue-500">
+                              <Check className="w-3 h-3 mr-1" />
+                              Sẵn sàng chuyển giao
+                            </Badge>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
 
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-3 pt-4">
