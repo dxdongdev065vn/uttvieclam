@@ -254,10 +254,10 @@ const Header = () => {
       </div>
 
       {/* Navigation Bar - Desktop Only */}
-      <nav className="bg-primary border-b-2 border-primary hidden lg:block">
+      <nav className="bg-gradient-to-b from-primary to-primary/95 border-b border-primary-foreground/10 hidden lg:block shadow-md">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-center gap-0.5">
-            {navLinks.map((link) => {
+          <div className="flex items-center justify-center">
+            {navLinks.map((link, index) => {
               const IconComponent = link.icon;
               const hasSubmenu = link.submenu && link.submenu.length > 0;
               const isActive = location.pathname === link.path;
@@ -271,10 +271,12 @@ const Header = () => {
                 >
                   <Link
                     to={link.path}
-                    className={`relative flex items-center gap-1.5 px-3 py-3 text-xs font-medium tracking-wide transition-all duration-200 ${
+                    className={`relative flex items-center gap-1.5 px-4 py-3 text-xs font-medium tracking-wide transition-all duration-150 border-r border-primary-foreground/10 ${
+                      index === 0 ? "border-l" : ""
+                    } ${
                       isActive 
-                        ? "text-primary-foreground bg-primary-foreground/15 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-primary-foreground" 
-                        : "text-primary-foreground/85 hover:text-primary-foreground hover:bg-primary-foreground/10"
+                        ? "text-primary-foreground bg-primary-foreground/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),inset_0_-2px_4px_rgba(0,0,0,0.1)]" 
+                        : "text-primary-foreground/90 hover:text-primary-foreground hover:bg-primary-foreground/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]"
                     }`}
                   >
                     <IconComponent className="w-3.5 h-3.5" />
@@ -286,7 +288,7 @@ const Header = () => {
 
                   {/* Dropdown Menu */}
                   {hasSubmenu && activeDropdown === link.name && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 min-w-[240px] bg-background border border-border rounded-xl shadow-2xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 min-w-[240px] bg-background border border-border rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.15)] py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                       <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-background border-l border-t border-border rotate-45 rounded-tl" />
                       {link.submenu?.map((subItem) => (
                         <Link
@@ -294,7 +296,7 @@ const Header = () => {
                           to={subItem.href}
                           className="flex items-center gap-3 px-4 py-2.5 text-foreground hover:bg-muted hover:text-primary transition-colors mx-2 rounded-lg group"
                         >
-                          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                          <div className="w-8 h-8 rounded-lg bg-gradient-to-b from-muted to-muted/50 border border-border/40 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] flex items-center justify-center group-hover:from-primary group-hover:to-primary group-hover:border-primary transition-all">
                             <subItem.icon className="w-4 h-4 text-primary group-hover:text-primary-foreground" />
                           </div>
                           <span className="text-sm font-medium">{subItem.label}</span>
