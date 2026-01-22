@@ -274,12 +274,27 @@
     animation: marquee 60s linear infinite;
   }
 
+  .animate-marquee-dynamic {
+    animation-name: marquee-dynamic;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
   @keyframes marquee {
     0% {
       transform: translateX(0);
     }
     100% {
       transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marquee-dynamic {
+    from {
+      transform: translateX(var(--marquee-from, 100%));
+    }
+    to {
+      transform: translateX(var(--marquee-to, -100%));
     }
   }
 
