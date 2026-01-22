@@ -1,8 +1,19 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Target, Eye, Lightbulb, GraduationCap, Users, Building2, Award, CheckCircle, Sparkles } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, Target, Eye, Lightbulb, GraduationCap, Users, Building2, Award, CheckCircle, Sparkles, School, BookOpen, UserCog, Handshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import aboutCampus from "@/assets/about-campus.jpg";
+
+const aboutButtons = [
+  { id: "intro", label: "Giới thiệu về trường", icon: School },
+  { id: "faculties", label: "Khoa, ngành đào tạo", icon: BookOpen },
+  { id: "leaders", label: "Lãnh đạo nhà trường", icon: UserCog },
+  { id: "center", label: "Trung tâm kết nối và hỗ trợ doanh nghiệp", icon: Handshake },
+];
+
 const AboutSection = () => {
+  const [activeButton, setActiveButton] = useState<string | null>(null);
+
   return <section className="utt-section bg-gradient-to-br from-background via-background to-accent/20 relative overflow-hidden">
       {/* Floating Decorative Elements - Techex Style */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
@@ -13,14 +24,38 @@ const AboutSection = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header - Modern Style */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm border border-primary/20 text-primary px-5 py-2 rounded-full text-sm font-medium mb-6">
             <Sparkles className="w-4 h-4" />
             VỀ CHÚNG TÔI
           </div>
           
-          
-          
+          {/* 3D Shadow Buttons - Vertical Layout */}
+          <div className="flex flex-col items-center gap-3 max-w-md mx-auto">
+            {aboutButtons.map((btn) => {
+              const Icon = btn.icon;
+              const isActive = activeButton === btn.id;
+              return (
+                <button
+                  key={btn.id}
+                  onClick={() => setActiveButton(isActive ? null : btn.id)}
+                  className={`
+                    w-full flex items-center gap-3 px-6 py-3.5 rounded-full font-medium text-sm
+                    transition-all duration-200 ease-out
+                    ${isActive 
+                      ? 'bg-primary text-primary-foreground shadow-lg translate-y-1' 
+                      : 'bg-card text-foreground hover:bg-primary/10 shadow-[0_4px_0_0_hsl(var(--primary)/0.3),0_6px_12px_-2px_hsl(var(--primary)/0.2)] hover:shadow-[0_2px_0_0_hsl(var(--primary)/0.3),0_4px_8px_-2px_hsl(var(--primary)/0.2)] hover:translate-y-0.5'
+                    }
+                    border border-border/50
+                    active:translate-y-1 active:shadow-[0_1px_0_0_hsl(var(--primary)/0.3)]
+                  `}
+                >
+                  <Icon className={`w-5 h-5 shrink-0 ${isActive ? 'text-primary-foreground' : 'text-primary'}`} />
+                  <span>{btn.label}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Main Content - Asymmetric Layout */}
