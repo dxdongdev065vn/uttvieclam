@@ -109,13 +109,23 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center flex-shrink-0">
             <img 
               src={uttLogo} 
               alt="Trường Đại học Công nghệ GTVT" 
-              className="h-12 md:h-16 w-auto"
+              className="h-12 md:h-14 w-auto"
             />
           </Link>
+
+          {/* Tagline - Center */}
+          <div className="hidden lg:flex flex-1 justify-center px-4">
+            <p 
+              className="text-sm xl:text-base text-center text-foreground/80 font-medium"
+              style={{ fontFamily: "Arial, sans-serif" }}
+            >
+              Hệ sinh thái Tri thức & Sự nghiệp: <span className="text-primary">Kết nối Tài năng - Công nghệ - Cộng đồng</span>
+            </p>
+          </div>
 
           {/* Right Actions */}
           <div className="flex items-center gap-2 md:gap-4">
