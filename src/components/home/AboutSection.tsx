@@ -2,10 +2,8 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Target, Eye, Lightbulb, GraduationCap, Users, Building2, Award, CheckCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import aboutCampus from "@/assets/about-campus.jpg";
-
 const AboutSection = () => {
-  return (
-    <section className="utt-section bg-gradient-to-br from-background via-background to-accent/20 relative overflow-hidden">
+  return <section className="utt-section bg-gradient-to-br from-background via-background to-accent/20 relative overflow-hidden">
       {/* Floating Decorative Elements - Techex Style */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float" />
@@ -20,15 +18,9 @@ const AboutSection = () => {
             <Sparkles className="w-4 h-4" />
             VỀ CHÚNG TÔI
           </div>
-          <p className="text-lg md:text-xl font-semibold text-foreground mb-2 tracking-wide">
-            TRANG THÔNG TIN TUYỂN DỤNG
-          </p>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-4 uppercase">
-            TRƯỜNG ĐẠI HỌC CÔNG NGHỆ GIAO THÔNG VẬN TẢI
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Nơi đào tạo nguồn nhân lực chất lượng cao cho ngành Giao thông Vận tải Việt Nam
-          </p>
+          
+          
+          
         </div>
 
         {/* Main Content - Asymmetric Layout */}
@@ -45,11 +37,7 @@ const AboutSection = () => {
               
               {/* Image */}
               <div className="relative rounded-[2rem] overflow-hidden shadow-2xl">
-                <img 
-                  src={aboutCampus} 
-                  alt="Khuôn viên ĐH Công nghệ GTVT" 
-                  className="w-full h-[400px] md:h-[500px] object-cover hover:scale-105 transition-transform duration-700"
-                />
+                <img src={aboutCampus} alt="Khuôn viên ĐH Công nghệ GTVT" className="w-full h-[400px] md:h-[500px] object-cover hover:scale-105 transition-transform duration-700" />
                 {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
               </div>
@@ -108,16 +96,10 @@ const AboutSection = () => {
                     <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">Core</span>
                   </h3>
                   <ul className="space-y-2">
-                    {[
-                      "Cung cấp nguồn nhân lực chất lượng cao",
-                      "Phục vụ sự phát triển của ngành GTVT",
-                      "Hỗ trợ phát triển đất nước"
-                    ].map((item, idx) => (
-                      <li key={idx} className="flex items-center gap-3 text-muted-foreground group-hover:text-foreground transition-colors">
+                    {["Cung cấp nguồn nhân lực chất lượng cao", "Phục vụ sự phát triển của ngành GTVT", "Hỗ trợ phát triển đất nước"].map((item, idx) => <li key={idx} className="flex items-center gap-3 text-muted-foreground group-hover:text-foreground transition-colors">
                         <CheckCircle className="w-4 h-4 text-primary shrink-0" />
                         <span>{item}</span>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </div>
               </div>
@@ -137,15 +119,10 @@ const AboutSection = () => {
                     <span className="text-xs bg-secondary/10 text-secondary-foreground px-2 py-1 rounded-full font-medium">Vision</span>
                   </h3>
                   <ul className="space-y-2">
-                    {[
-                      "Số 1 tại Việt Nam về đào tạo ngành GTVT",
-                      "Quy mô đào tạo 50.000 sinh viên"
-                    ].map((item, idx) => (
-                      <li key={idx} className="flex items-center gap-3 text-muted-foreground group-hover:text-foreground transition-colors">
+                    {["Số 1 tại Việt Nam về đào tạo ngành GTVT", "Quy mô đào tạo 50.000 sinh viên"].map((item, idx) => <li key={idx} className="flex items-center gap-3 text-muted-foreground group-hover:text-foreground transition-colors">
                         <CheckCircle className="w-4 h-4 text-secondary shrink-0" />
                         <span>{item}</span>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </div>
               </div>
@@ -164,14 +141,9 @@ const AboutSection = () => {
                     Triết lý giáo dục
                   </h3>
                   <div className="flex flex-wrap gap-3">
-                    {["Thực học", "Thực dụng", "Thực nghiệm"].map((item, idx) => (
-                      <span 
-                        key={idx}
-                        className="px-5 py-2.5 bg-gradient-to-r from-primary/10 to-primary/5 text-primary border border-primary/20 rounded-full text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-pointer"
-                      >
+                    {["Thực học", "Thực dụng", "Thực nghiệm"].map((item, idx) => <span key={idx} className="px-5 py-2.5 bg-gradient-to-r from-primary/10 to-primary/5 text-primary border border-primary/20 rounded-full text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-pointer">
                         {item}
-                      </span>
-                    ))}
+                      </span>)}
                   </div>
                 </div>
               </div>
@@ -193,8 +165,6 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
