@@ -40,7 +40,7 @@ const StatsSection = () => {
       <div className="absolute top-4 left-[10%] w-20 h-20 bg-primary-foreground/5 rounded-full animate-float" />
       <div className="absolute bottom-4 right-[15%] w-16 h-16 bg-primary-foreground/5 rounded-full animate-pulse-slow" />
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-8">
           {/* Left: Title */}
           <div className="lg:w-1/4 text-center lg:text-left">
