@@ -11,6 +11,10 @@ import Handbook from "./pages/Handbook";
 import News from "./pages/News";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
+import Skills from "./pages/Skills";
+import Community from "./pages/Community";
+import Technology from "./pages/Technology";
+import CVBuilder from "./pages/CVBuilder";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +34,10 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/gioi-thieu" element={<About />} />
           <Route path="/lien-he" element={<Contact />} />
+          <Route path="/ky-nang" element={<Skills />} />
+          <Route path="/cong-dong" element={<Community />} />
+          <Route path="/cong-nghe" element={<Technology />} />
+          <Route path="/tao-cv" element={<CVBuilder />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
