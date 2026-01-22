@@ -1,9 +1,9 @@
+/* UTT Talent Network Design System - Orange & Dark Theme */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* UTT Talent Network Design System - Orange & Dark Theme */
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap');
 
 @layer base {
   :root {
