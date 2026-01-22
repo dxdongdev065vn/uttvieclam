@@ -2,85 +2,37 @@ import { useState, useEffect } from "react";
 import { Search, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import slideTalkshow from "@/assets/slide-talkshow.jpg";
 import slideStudents from "@/assets/slide-students.jpg";
 import slideCampus from "@/assets/slide-campus.jpg";
-
-const faculties = [
-  "Khoa Công trình - Xây dựng",
-  "Khoa Cơ khí - Ô tô",
-  "Khoa Kinh tế, vận tải, logistics",
-  "Khoa CNTT - Điện tử viễn thông",
-  "Khoa CNKT môi trường",
-  "Khoa Luật - Ngôn ngữ Anh",
-];
-
+const faculties = ["Khoa Công trình - Xây dựng", "Khoa Cơ khí - Ô tô", "Khoa Kinh tế, vận tải, logistics", "Khoa CNTT - Điện tử viễn thông", "Khoa CNKT môi trường", "Khoa Luật - Ngôn ngữ Anh"];
 const majorsByFaculty: Record<string, string[]> = {
-  "Khoa Công trình - Xây dựng": [
-    "Xây dựng Cầu đường bộ",
-    "Quy hoạch và kỹ thuật giao thông",
-    "Quản lý dự án",
-    "Quản lý chất lượng công trình xây dựng",
-    "Xây dựng Đường sắt - Metro",
-    "Xây dựng Cảng - Đường thủy và Công trình biển",
-    "Xây dựng dân dụng và công nghiệp",
-  ],
-  "Khoa Cơ khí - Ô tô": [
-    "Công nghệ kỹ thuật Ô tô",
-    "Cơ điện tử trên Ô tô",
-    "Cơ khí Máy xây dựng",
-    "Cơ khí chế tạo",
-    "Tàu thủy và thiết bị nổi",
-    "Đầu máy - toa xe và tàu điện Metro",
-  ],
-  "Khoa Kinh tế, vận tải, logistics": [
-    "Logistics và quản lý chuỗi cung ứng",
-    "Thương mại điện tử",
-    "Kế toán doanh nghiệp",
-    "Hệ thống thông tin Kế toán tài chính",
-    "Kinh tế xây dựng",
-    "Quản trị doanh nghiệp",
-    "Quản trị Marketing",
-    "Quản trị Tài chính và đầu tư",
-    "Tài chính - Ngân hàng",
-    "Logistics và Vận tải đa phương thức",
-  ],
-  "Khoa CNTT - Điện tử viễn thông": [
-    "Cơ điện tử",
-    "Công nghệ thông tin",
-    "Hệ thống thông tin",
-    "Mạng máy tính và truyền thông dữ liệu",
-    "Điện tử - Viễn thông",
-  ],
-  "Khoa CNKT môi trường": [
-    "Công nghệ kỹ thuật môi trường",
-    "Quản lý tài nguyên và môi trường",
-  ],
-  "Khoa Luật - Ngôn ngữ Anh": [
-    "Luật kinh tế",
-    "Ngôn ngữ Anh",
-  ],
+  "Khoa Công trình - Xây dựng": ["Xây dựng Cầu đường bộ", "Quy hoạch và kỹ thuật giao thông", "Quản lý dự án", "Quản lý chất lượng công trình xây dựng", "Xây dựng Đường sắt - Metro", "Xây dựng Cảng - Đường thủy và Công trình biển", "Xây dựng dân dụng và công nghiệp"],
+  "Khoa Cơ khí - Ô tô": ["Công nghệ kỹ thuật Ô tô", "Cơ điện tử trên Ô tô", "Cơ khí Máy xây dựng", "Cơ khí chế tạo", "Tàu thủy và thiết bị nổi", "Đầu máy - toa xe và tàu điện Metro"],
+  "Khoa Kinh tế, vận tải, logistics": ["Logistics và quản lý chuỗi cung ứng", "Thương mại điện tử", "Kế toán doanh nghiệp", "Hệ thống thông tin Kế toán tài chính", "Kinh tế xây dựng", "Quản trị doanh nghiệp", "Quản trị Marketing", "Quản trị Tài chính và đầu tư", "Tài chính - Ngân hàng", "Logistics và Vận tải đa phương thức"],
+  "Khoa CNTT - Điện tử viễn thông": ["Cơ điện tử", "Công nghệ thông tin", "Hệ thống thông tin", "Mạng máy tính và truyền thông dữ liệu", "Điện tử - Viễn thông"],
+  "Khoa CNKT môi trường": ["Công nghệ kỹ thuật môi trường", "Quản lý tài nguyên và môi trường"],
+  "Khoa Luật - Ngôn ngữ Anh": ["Luật kinh tế", "Ngôn ngữ Anh"]
 };
-
-const slides = [
-  { id: 0, image: slideCampus, alt: "Khuôn viên trường" },
-  { id: 1, image: slideTalkshow, alt: "Talkshow du học Pháp" },
-  { id: 2, image: slideStudents, alt: "Sinh viên UTT" },
-];
-
+const slides = [{
+  id: 0,
+  image: slideCampus,
+  alt: "Khuôn viên trường"
+}, {
+  id: 1,
+  image: slideTalkshow,
+  alt: "Talkshow du học Pháp"
+}, {
+  id: 2,
+  image: slideStudents,
+  alt: "Sinh viên UTT"
+}];
 const HeroSection = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedFaculty, setSelectedFaculty] = useState<string>("");
   const [selectedMajor, setSelectedMajor] = useState<string>("");
-
   const availableMajors = selectedFaculty ? majorsByFaculty[selectedFaculty] || [] : [];
 
   // Reset major when faculty changes
@@ -92,33 +44,19 @@ const HeroSection = () => {
   // Auto-play carousel
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setCurrentSlide(prev => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
   }, []);
-
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
-
-  return (
-    <section className="relative w-full h-[100svh] min-h-[600px]">
+  return <section className="relative w-full h-[100svh] min-h-[600px]">
       {/* Full-width Image Carousel */}
       <div className="absolute inset-0 overflow-hidden">
-        {slides.map((slide, index) => (
-          <div
-            key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-700 ${
-              index === currentSlide ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <img
-              src={slide.image}
-              alt={slide.alt}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        ))}
+        {slides.map((slide, index) => <div key={slide.id} className={`absolute inset-0 transition-opacity duration-700 ${index === currentSlide ? "opacity-100" : "opacity-0"}`}>
+            <img src={slide.image} alt={slide.alt} className="w-full h-full object-cover" />
+          </div>)}
 
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-black/60" />
@@ -126,17 +64,7 @@ const HeroSection = () => {
 
       {/* Dots - positioned at bottom center on mobile, left on desktop */}
       <div className="absolute bottom-8 left-1/2 lg:left-[30%] -translate-x-1/2 flex gap-3 z-20">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide
-                ? "bg-primary scale-125"
-                : "bg-white/60 hover:bg-white/80"
-            }`}
-          />
-        ))}
+        {slides.map((_, index) => <button key={index} onClick={() => goToSlide(index)} className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide ? "bg-primary scale-125" : "bg-white/60 hover:bg-white/80"}`} />)}
       </div>
 
       {/* Search Panel Card - Overlay on right side */}
@@ -153,13 +81,7 @@ const HeroSection = () => {
           <div className="space-y-4">
             <div className="relative">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-              <Input
-                type="text"
-                placeholder="Tìm việc làm, công ty, vị trí..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-12 pr-4 py-7 text-base rounded-xl border-border"
-              />
+              <Input type="text" placeholder="Tìm việc làm, công ty, vị trí..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className="pl-12 pr-4 py-7 text-base rounded-xl border-border" />
             </div>
 
             <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-7 text-base font-semibold rounded-xl">
@@ -177,28 +99,20 @@ const HeroSection = () => {
                   <SelectValue placeholder="Chọn Khoa" />
                 </SelectTrigger>
                 <SelectContent className="bg-background border-border z-50">
-                  {faculties.map((faculty) => (
-                    <SelectItem key={faculty} value={faculty}>
+                  {faculties.map(faculty => <SelectItem key={faculty} value={faculty}>
                       {faculty}
-                    </SelectItem>
-                  ))}
+                    </SelectItem>)}
                 </SelectContent>
               </Select>
 
-              <Select
-                value={selectedMajor}
-                onValueChange={setSelectedMajor}
-                disabled={!selectedFaculty}
-              >
+              <Select value={selectedMajor} onValueChange={setSelectedMajor} disabled={!selectedFaculty}>
                 <SelectTrigger className="w-full bg-background border-border py-6 rounded-xl">
                   <SelectValue placeholder="Chọn Ngành" />
                 </SelectTrigger>
                 <SelectContent className="bg-background border-border z-50">
-                  {availableMajors.map((major) => (
-                    <SelectItem key={major} value={major}>
+                  {availableMajors.map(major => <SelectItem key={major} value={major}>
                       {major}
-                    </SelectItem>
-                  ))}
+                    </SelectItem>)}
                 </SelectContent>
               </Select>
             </div>
@@ -224,12 +138,8 @@ const HeroSection = () => {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 lg:left-[30%] -translate-x-1/2 translate-y-12 z-20 animate-bounce hidden lg:block">
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center pt-2">
-          <div className="w-1.5 h-3 bg-white/70 rounded-full" />
-        </div>
+        
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
