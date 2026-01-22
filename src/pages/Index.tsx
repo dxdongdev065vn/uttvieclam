@@ -5,8 +5,8 @@ import MainNavSection from "@/components/home/MainNavSection";
 import AboutSection from "@/components/home/AboutSection";
 import StatsSection from "@/components/home/StatsSection";
 import JobConnectionSection from "@/components/home/JobConnectionSection";
+import TechnologySection from "@/components/home/TechnologySection";
 import CareerGuideSection from "@/components/home/CareerGuideSection";
-import ArticlesSection from "@/components/home/ArticlesSection";
 
 const Index = () => {
   return (
@@ -18,8 +18,8 @@ const Index = () => {
         <AboutSection />
         <StatsSection />
         <JobConnectionSection />
+        <TechnologySection />
         <CareerGuideSection />
-        <ArticlesSection />
       </main>
       <Footer />
     </div>
