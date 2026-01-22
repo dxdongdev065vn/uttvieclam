@@ -151,11 +151,7 @@ const AboutSection = () => {
   const currentContent = sectionContent[activeButton as keyof typeof sectionContent];
 
   return (
-    <section 
-      className="utt-section bg-gradient-to-br from-background via-background to-accent/20 relative overflow-hidden"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
+    <section className="utt-section bg-gradient-to-br from-background via-background to-accent/20 relative overflow-hidden">
       {/* Floating Decorative Elements - Techex Style */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float" />
@@ -201,7 +197,11 @@ const AboutSection = () => {
         </div>
 
         {/* Main Content - Asymmetric Layout */}
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 xl:gap-20 items-center">
+        <div 
+          className="grid lg:grid-cols-12 gap-8 lg:gap-16 xl:gap-20 items-center"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           {/* Left Column - Image Composition */}
           <div className="lg:col-span-5 relative">
             {/* Background Shape */}
