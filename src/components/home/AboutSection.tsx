@@ -47,7 +47,7 @@ const sectionContent = {
     image: aboutStudents,
     imageAlt: "Sinh viên ĐH Công nghệ GTVT",
     stat1: { value: "30+", label: "Chuyên ngành", icon: BookOpen },
-    stat2: { value: "12", label: "Khoa đào tạo", icon: Building2 },
+    stat2: { value: "8", label: "Khoa đào tạo", icon: Building2 },
     badge: { title: "Khoa & Ngành", subtitle: "Đào tạo chuyên sâu" },
     cards: [
       {
@@ -55,7 +55,7 @@ const sectionContent = {
         title: "Các Khoa đào tạo",
         badge: "Faculties",
         badgeColor: "primary",
-        items: ["Khoa Công nghệ thông tin", "Khoa Kỹ thuật Xây dựng", "Khoa Cơ khí", "Khoa Kinh tế vận tải"],
+        items: ["Khoa Công trình", "Khoa Cơ khí", "Khoa Kinh tế vận tải", "Khoa Công nghệ thông tin", "Khoa Khoa học ứng dụng", "Khoa Luật – Chính trị", "Khoa Cơ sở kỹ thuật", "Khoa Đào tạo tại chức"],
       },
       {
         icon: GraduationCap,
