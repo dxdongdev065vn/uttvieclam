@@ -254,12 +254,9 @@ const JobConnectionSection = () => {
       <div className="grid lg:grid-cols-2 gap-6 items-start">
         {/* Left: Image + Location Selection */}
         <div className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg flex flex-col lg:flex-row h-auto lg:h-[280px]">
-          <div className="lg:w-1/2 h-48 lg:h-full flex flex-col">
-            <div className="relative overflow-hidden h-2/3">
+          <div className="lg:w-1/2 h-48 lg:h-full">
+            <div className="relative overflow-hidden h-full rounded-l-2xl lg:rounded-l-none">
               <img src={slideCampus} alt="Cơ sở đào tạo" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-            </div>
-            <div className="h-1/3 bg-muted/50 flex items-center justify-center px-3">
-              <p className="text-sm font-semibold text-foreground text-center">Cơ sở đào tạo UTT</p>
             </div>
           </div>
           <div className="lg:w-1/2 p-6 flex flex-col justify-center">
