@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
           {/* School Info */}
           <div className="lg:col-span-2">
             <h3 className="text-lg font-bold uppercase mb-4">
@@ -62,6 +62,37 @@ const Footer = () => {
                   <Phone className="w-4 h-4 text-primary shrink-0" />
                   (0208) 3753 357
                 </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Center for Business Cooperation */}
+          <div>
+            <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-5 border border-primary/20 h-full">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                  <svg className="w-5 h-5 text-primary-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <h3 className="text-base font-bold leading-tight">
+                  Trung tâm hợp tác Doanh nghiệp và Khởi nghiệp sáng tạo
+                </h3>
+              </div>
+              
+              <div className="space-y-3 text-sm">
+                <div className="flex items-start gap-2 text-secondary-foreground/80">
+                  <MapPin className="w-4 h-4 mt-0.5 text-primary shrink-0" />
+                  <div>
+                    <p>Tầng 4 Tòa Nhà Thư viện UTT</p>
+                    <p>Trường Đại học CN GTVT</p>
+                    <p>Số 54 Triều Khúc, Thanh Xuân, Hà Nội</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 text-secondary-foreground/80">
+                  <Phone className="w-4 h-4 text-primary shrink-0" />
+                  <span className="font-medium text-primary">024.3552 8976</span>
+                </div>
               </div>
             </div>
           </div>
