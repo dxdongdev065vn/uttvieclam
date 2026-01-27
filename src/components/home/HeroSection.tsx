@@ -3,6 +3,7 @@ import { Search, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { projectStats } from "@/data/projectData";
 import slideTalkshow from "@/assets/slide-talkshow.jpg";
 import slideStudents from "@/assets/slide-students.jpg";
 import slideCampus from "@/assets/slide-campus.jpg";
@@ -182,15 +183,15 @@ const HeroSection = () => {
           {/* Quick stats */}
           <div className="mt-8 pt-6 border-t border-border/50 grid grid-cols-3 gap-4 text-center">
             <div>
-              <p className="text-2xl font-bold text-primary">500+</p>
+              <p className="text-2xl font-bold text-primary">{projectStats.jobs.displayValue}</p>
               <p className="text-xs text-muted-foreground">Việc làm</p>
             </div>
             <div>
-              <p className="text-2xl font-bold text-primary">200+</p>
+              <p className="text-2xl font-bold text-primary">{projectStats.companies.displayValue}</p>
               <p className="text-xs text-muted-foreground">Doanh nghiệp</p>
             </div>
             <div>
-              <p className="text-2xl font-bold text-primary">10k+</p>
+              <p className="text-2xl font-bold text-primary">{projectStats.candidates.displayValue}</p>
               <p className="text-xs text-muted-foreground">Sinh viên</p>
             </div>
           </div>
