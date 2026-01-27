@@ -1,129 +1,96 @@
 import { Link } from "react-router-dom";
-import { 
-  MessageSquare, 
-  Brain, 
-  Users, 
-  ArrowRight, 
-  BookOpen, 
-  Video, 
-  Mail, 
-  Sparkles, 
-  GraduationCap, 
-  HelpCircle, 
-  UserCheck,
-  Clock,
-  Eye,
-  Play,
-  Star,
-  Calendar,
-  User,
-  Award
-} from "lucide-react";
+import { MessageSquare, Brain, Users, ArrowRight, BookOpen, Video, Mail, Sparkles, GraduationCap, HelpCircle, UserCheck, Clock, Eye, Play, Star, Calendar, User, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 // Cột 1: Cẩm nang & Bài viết - Kỹ năng mềm
-const skillArticles = [
-  {
-    id: 1,
-    title: "Cách viết Email chuyên nghiệp trong công việc",
-    type: "Cẩm nang",
-    icon: Mail,
-    views: 2450,
-    duration: "5 phút đọc",
-    isNew: true,
-  },
-  {
-    id: 2,
-    title: "Kỹ năng thuyết trình hiệu quả trước đám đông",
-    type: "Video",
-    icon: Video,
-    views: 1820,
-    duration: "12 phút",
-    isNew: false,
-  },
-  {
-    id: 3,
-    title: "Tư duy phản biện trong giải quyết vấn đề",
-    type: "Bài viết",
-    icon: BookOpen,
-    views: 980,
-    duration: "8 phút đọc",
-    isNew: true,
-  },
-];
+const skillArticles = [{
+  id: 1,
+  title: "Cách viết Email chuyên nghiệp trong công việc",
+  type: "Cẩm nang",
+  icon: Mail,
+  views: 2450,
+  duration: "5 phút đọc",
+  isNew: true
+}, {
+  id: 2,
+  title: "Kỹ năng thuyết trình hiệu quả trước đám đông",
+  type: "Video",
+  icon: Video,
+  views: 1820,
+  duration: "12 phút",
+  isNew: false
+}, {
+  id: 3,
+  title: "Tư duy phản biện trong giải quyết vấn đề",
+  type: "Bài viết",
+  icon: BookOpen,
+  views: 980,
+  duration: "8 phút đọc",
+  isNew: true
+}];
 
 // Cột 2: Khóa học AI
-const aiCourses = [
-  {
-    id: 1,
-    title: "ChatGPT cho sinh viên - Từ cơ bản đến nâng cao",
-    instructor: "TS. Nguyễn Văn Minh",
-    price: "Miễn phí",
-    isPaid: false,
-    rating: 4.8,
-    students: 520,
-    level: "Cơ bản",
-  },
-  {
-    id: 2,
-    title: "Ứng dụng AI trong nghiên cứu khoa học",
-    instructor: "PGS. Trần Hương Lan",
-    price: "500.000đ",
-    isPaid: true,
-    rating: 4.9,
-    students: 180,
-    level: "Nâng cao",
-  },
-  {
-    id: 3,
-    title: "Tạo CV và Portfolio với AI",
-    instructor: "ThS. Lê Hoàng Nam",
-    price: "Miễn phí",
-    isPaid: false,
-    rating: 4.7,
-    students: 890,
-    level: "Cơ bản",
-  },
-];
+const aiCourses = [{
+  id: 1,
+  title: "ChatGPT cho sinh viên - Từ cơ bản đến nâng cao",
+  instructor: "TS. Nguyễn Văn Minh",
+  price: "Miễn phí",
+  isPaid: false,
+  rating: 4.8,
+  students: 520,
+  level: "Cơ bản"
+}, {
+  id: 2,
+  title: "Ứng dụng AI trong nghiên cứu khoa học",
+  instructor: "PGS. Trần Hương Lan",
+  price: "500.000đ",
+  isPaid: true,
+  rating: 4.9,
+  students: 180,
+  level: "Nâng cao"
+}, {
+  id: 3,
+  title: "Tạo CV và Portfolio với AI",
+  instructor: "ThS. Lê Hoàng Nam",
+  price: "Miễn phí",
+  isPaid: false,
+  rating: 4.7,
+  students: 890,
+  level: "Cơ bản"
+}];
 
 // Cột 3: Hội thảo & Forum
-const forumEvents = [
-  {
-    id: 1,
-    title: "Hỏi đáp: Phỏng vấn tại Samsung Vietnam",
-    speaker: "Nguyễn Minh Tuấn - Samsung",
-    speakerType: "Chuyên gia",
-    date: "25/01/2026",
-    time: "14:00",
-    registered: 45,
-    isLive: false,
-  },
-  {
-    id: 2,
-    title: "Chia sẻ: Hành trình từ SV đến Team Lead",
-    speaker: "Trần Thu Hà - K62",
-    speakerType: "Cựu SV",
-    date: "28/01/2026",
-    time: "19:00",
-    registered: 78,
-    isLive: false,
-  },
-  {
-    id: 3,
-    title: "Tips: Viết CV ấn tượng cho Fresh Graduate",
-    speaker: "Lê Văn Đức - HR Manager",
-    speakerType: "Chuyên gia",
-    date: "Đang diễn ra",
-    time: "",
-    registered: 120,
-    isLive: true,
-  },
-];
-
+const forumEvents = [{
+  id: 1,
+  title: "Hỏi đáp: Phỏng vấn tại Samsung Vietnam",
+  speaker: "Nguyễn Minh Tuấn - Samsung",
+  speakerType: "Chuyên gia",
+  date: "25/01/2026",
+  time: "14:00",
+  registered: 45,
+  isLive: false
+}, {
+  id: 2,
+  title: "Chia sẻ: Hành trình từ SV đến Team Lead",
+  speaker: "Trần Thu Hà - K62",
+  speakerType: "Cựu SV",
+  date: "28/01/2026",
+  time: "19:00",
+  registered: 78,
+  isLive: false
+}, {
+  id: 3,
+  title: "Tips: Viết CV ấn tượng cho Fresh Graduate",
+  speaker: "Lê Văn Đức - HR Manager",
+  speakerType: "Chuyên gia",
+  date: "Đang diễn ra",
+  time: "",
+  registered: 120,
+  isLive: true
+}];
 const CareerGuideSection = () => {
-  return (
-    <section className="py-16 bg-gradient-to-br from-background via-background to-accent/20 relative overflow-hidden">
+  return <section className="py-16 bg-gradient-to-br from-background via-background to-accent/20 relative overflow-hidden">
       {/* Floating Decorative Elements */}
       <div className="absolute top-10 right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-10 left-20 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" />
@@ -134,9 +101,7 @@ const CareerGuideSection = () => {
           <span className="utt-badge mb-4">
             KỸ NĂNG & AI
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-            KỸ NĂNG & <span className="text-primary">AI</span>
-          </h2>
+          
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Phát triển kỹ năng mềm và ứng dụng AI trong học tập, công việc
           </p>
@@ -162,30 +127,19 @@ const CareerGuideSection = () => {
             
             {/* Content - Articles List */}
             <div className="p-4 flex-1 space-y-3">
-              {skillArticles.map((article) => {
-                const ArticleIcon = article.icon;
-                return (
-                  <Link
-                    key={article.id}
-                    to={`/ky-nang/bai-viet/${article.id}`}
-                    className="block bg-muted/50 hover:bg-muted rounded-xl p-3 transition-all hover:shadow-md group"
-                  >
+              {skillArticles.map(article => {
+              const ArticleIcon = article.icon;
+              return <Link key={article.id} to={`/ky-nang/bai-viet/${article.id}`} className="block bg-muted/50 hover:bg-muted rounded-xl p-3 transition-all hover:shadow-md group">
                     <div className="flex items-start gap-3">
                       <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center shrink-0 group-hover:bg-blue-500/20 transition-colors">
-                        {article.type === "Video" ? (
-                          <Play className="w-5 h-5 text-blue-600" />
-                        ) : (
-                          <ArticleIcon className="w-5 h-5 text-blue-600" />
-                        )}
+                        {article.type === "Video" ? <Play className="w-5 h-5 text-blue-600" /> : <ArticleIcon className="w-5 h-5 text-blue-600" />}
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
                           <Badge variant="outline" className="text-xs bg-blue-50 text-blue-600 border-blue-200">
                             {article.type}
                           </Badge>
-                          {article.isNew && (
-                            <Badge className="text-xs bg-green-500">Mới</Badge>
-                          )}
+                          {article.isNew && <Badge className="text-xs bg-green-500">Mới</Badge>}
                         </div>
                         <h4 className="font-medium text-sm text-foreground line-clamp-2 group-hover:text-blue-600 transition-colors">
                           {article.title}
@@ -202,9 +156,8 @@ const CareerGuideSection = () => {
                         </div>
                       </div>
                     </div>
-                  </Link>
-                );
-              })}
+                  </Link>;
+            })}
             </div>
 
             {/* Footer Buttons */}
@@ -240,12 +193,7 @@ const CareerGuideSection = () => {
             
             {/* Content - Courses List */}
             <div className="p-4 flex-1 space-y-3">
-              {aiCourses.map((course) => (
-                <Link
-                  key={course.id}
-                  to={`/ky-nang/khoa-hoc/${course.id}`}
-                  className="block bg-muted/50 hover:bg-muted rounded-xl p-3 transition-all hover:shadow-md group"
-                >
+              {aiCourses.map(course => <Link key={course.id} to={`/ky-nang/khoa-hoc/${course.id}`} className="block bg-muted/50 hover:bg-muted rounded-xl p-3 transition-all hover:shadow-md group">
                   <div className="flex items-center gap-2 mb-2">
                     <Badge className={course.isPaid ? "bg-amber-500" : "bg-green-500"}>
                       {course.price}
@@ -271,8 +219,7 @@ const CareerGuideSection = () => {
                       {course.students} học viên
                     </span>
                   </div>
-                </Link>
-              ))}
+                </Link>)}
             </div>
 
             {/* Footer Buttons */}
@@ -308,23 +255,14 @@ const CareerGuideSection = () => {
             
             {/* Content - Events List */}
             <div className="p-4 flex-1 space-y-3">
-              {forumEvents.map((event) => (
-                <Link
-                  key={event.id}
-                  to={`/ky-nang/hoi-thao/${event.id}`}
-                  className="block bg-muted/50 hover:bg-muted rounded-xl p-3 transition-all hover:shadow-md group"
-                >
+              {forumEvents.map(event => <Link key={event.id} to={`/ky-nang/hoi-thao/${event.id}`} className="block bg-muted/50 hover:bg-muted rounded-xl p-3 transition-all hover:shadow-md group">
                   <div className="flex items-center gap-2 mb-2">
-                    {event.isLive ? (
-                      <Badge className="bg-red-500 animate-pulse">
+                    {event.isLive ? <Badge className="bg-red-500 animate-pulse">
                         🔴 LIVE
-                      </Badge>
-                    ) : (
-                      <Badge variant="outline" className="text-xs bg-orange-50 text-orange-600 border-orange-200">
+                      </Badge> : <Badge variant="outline" className="text-xs bg-orange-50 text-orange-600 border-orange-200">
                         <Calendar className="w-3 h-3 mr-1" />
                         {event.date}
-                      </Badge>
-                    )}
+                      </Badge>}
                     <Badge className={event.speakerType === "Chuyên gia" ? "bg-blue-500" : "bg-green-500"}>
                       {event.speakerType}
                     </Badge>
@@ -337,19 +275,16 @@ const CareerGuideSection = () => {
                     <span>{event.speaker}</span>
                   </div>
                   <div className="flex items-center justify-between text-xs">
-                    {!event.isLive && event.time && (
-                      <span className="text-muted-foreground flex items-center gap-1">
+                    {!event.isLive && event.time && <span className="text-muted-foreground flex items-center gap-1">
                         <Clock className="w-3 h-3" />
                         {event.time}
-                      </span>
-                    )}
+                      </span>}
                     <span className="text-orange-600 flex items-center gap-1">
                       <Award className="w-3 h-3" />
                       {event.registered} đăng ký
                     </span>
                   </div>
-                </Link>
-              ))}
+                </Link>)}
             </div>
 
             {/* Footer Buttons */}
@@ -379,8 +314,6 @@ const CareerGuideSection = () => {
           </Link>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default CareerGuideSection;
