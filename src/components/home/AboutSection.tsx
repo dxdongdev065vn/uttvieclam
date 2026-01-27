@@ -85,7 +85,15 @@ const sectionContent = {
       title: "Các Khoa đào tạo",
       badge: "Faculties",
       badgeColor: "primary",
-      items: ["Khoa Công trình", "Khoa Cơ khí", "Khoa Kinh tế vận tải", "Khoa Công nghệ thông tin", "Khoa Khoa học ứng dụng", "Khoa Luật – Chính trị", "Khoa Cơ sở kỹ thuật", "Khoa Đào tạo tại chức"]
+      linkedItems: [
+        { name: "Khoa Công trình", url: "https://civil.utt.edu.vn" },
+        { name: "Khoa Công nghệ thông tin", url: "https://fit.utt.edu.vn" },
+        { name: "Khoa Quản trị", url: "https://utt.edu.vn/vn/khoaquantri" },
+        { name: "Khoa Kinh tế vận tải", url: "https://ktvt.utt.edu.vn" },
+        { name: "Khoa Khoa học ứng dụng", url: "https://utt.edu.vn/vn/khud" },
+        { name: "Khoa Cơ sở kỹ thuật", url: "https://utt.edu.vn/vn/cosokythuat" },
+        { name: "Khoa Luật - Chính trị", url: "https://utt.edu.vn/vn/luatchinhtri" }
+      ]
     }],
     cta: {
       text: "Xem các ngành đào tạo",
@@ -316,6 +324,20 @@ const AboutSection = () => {
                           {card.items.map((item, idx) => <li key={idx} className="flex items-center gap-3 text-muted-foreground group-hover:text-foreground transition-colors">
                               <CheckCircle className={`w-4 h-4 ${isSecondary ? "text-secondary" : "text-primary"} shrink-0`} />
                               <span>{item}</span>
+                            </li>)}
+                        </ul>}
+
+                      {card.linkedItems && <ul className="space-y-2">
+                          {card.linkedItems.map((item, idx) => <li key={idx} className="flex items-center gap-3 text-muted-foreground group-hover:text-foreground transition-colors">
+                              <CheckCircle className={`w-4 h-4 ${isSecondary ? "text-secondary" : "text-primary"} shrink-0`} />
+                              <a 
+                                href={item.url} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="hover:text-primary hover:underline transition-colors"
+                              >
+                                {item.name}
+                              </a>
                             </li>)}
                         </ul>}
 
