@@ -6,14 +6,23 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import slideTalkshow from "@/assets/slide-talkshow.jpg";
 import slideStudents from "@/assets/slide-students.jpg";
 import slideCampus from "@/assets/slide-campus.jpg";
-const faculties = ["Khoa Công trình - Xây dựng", "Khoa Cơ khí - Ô tô", "Khoa Kinh tế, vận tải, logistics", "Khoa CNTT - Điện tử viễn thông", "Khoa CNKT môi trường", "Khoa Luật - Ngôn ngữ Anh"];
+const faculties = [
+  "Khoa Công trình",
+  "Khoa Công nghệ thông tin", 
+  "Khoa Quản trị",
+  "Khoa Kinh tế vận tải",
+  "Khoa Khoa học ứng dụng",
+  "Khoa Cơ sở kỹ thuật",
+  "Khoa Luật - Chính trị"
+];
 const majorsByFaculty: Record<string, string[]> = {
-  "Khoa Công trình - Xây dựng": ["Xây dựng Cầu đường bộ", "Quy hoạch và kỹ thuật giao thông", "Quản lý dự án", "Quản lý chất lượng công trình xây dựng", "Xây dựng Đường sắt - Metro", "Xây dựng Cảng - Đường thủy và Công trình biển", "Xây dựng dân dụng và công nghiệp"],
-  "Khoa Cơ khí - Ô tô": ["Công nghệ kỹ thuật Ô tô", "Cơ điện tử trên Ô tô", "Cơ khí Máy xây dựng", "Cơ khí chế tạo", "Tàu thủy và thiết bị nổi", "Đầu máy - toa xe và tàu điện Metro"],
-  "Khoa Kinh tế, vận tải, logistics": ["Logistics và quản lý chuỗi cung ứng", "Thương mại điện tử", "Kế toán doanh nghiệp", "Hệ thống thông tin Kế toán tài chính", "Kinh tế xây dựng", "Quản trị doanh nghiệp", "Quản trị Marketing", "Quản trị Tài chính và đầu tư", "Tài chính - Ngân hàng", "Logistics và Vận tải đa phương thức"],
-  "Khoa CNTT - Điện tử viễn thông": ["Cơ điện tử", "Công nghệ thông tin", "Hệ thống thông tin", "Mạng máy tính và truyền thông dữ liệu", "Điện tử - Viễn thông"],
-  "Khoa CNKT môi trường": ["Công nghệ kỹ thuật môi trường", "Quản lý tài nguyên và môi trường"],
-  "Khoa Luật - Ngôn ngữ Anh": ["Luật kinh tế", "Ngôn ngữ Anh"]
+  "Khoa Công trình": ["Xây dựng Cầu đường bộ", "Quy hoạch và kỹ thuật giao thông", "Quản lý dự án", "Quản lý chất lượng công trình xây dựng", "Xây dựng Đường sắt - Metro", "Xây dựng Cảng - Đường thủy và Công trình biển", "Xây dựng dân dụng và công nghiệp"],
+  "Khoa Công nghệ thông tin": ["Công nghệ thông tin", "Hệ thống thông tin", "Mạng máy tính và truyền thông dữ liệu", "Điện tử - Viễn thông", "Cơ điện tử"],
+  "Khoa Quản trị": ["Quản trị doanh nghiệp", "Quản trị Marketing", "Quản trị Tài chính và đầu tư", "Thương mại điện tử"],
+  "Khoa Kinh tế vận tải": ["Logistics và quản lý chuỗi cung ứng", "Kế toán doanh nghiệp", "Hệ thống thông tin Kế toán tài chính", "Kinh tế xây dựng", "Tài chính - Ngân hàng", "Logistics và Vận tải đa phương thức"],
+  "Khoa Khoa học ứng dụng": ["Công nghệ kỹ thuật môi trường", "Quản lý tài nguyên và môi trường"],
+  "Khoa Cơ sở kỹ thuật": ["Công nghệ kỹ thuật Ô tô", "Cơ điện tử trên Ô tô", "Cơ khí Máy xây dựng", "Cơ khí chế tạo", "Tàu thủy và thiết bị nổi", "Đầu máy - toa xe và tàu điện Metro"],
+  "Khoa Luật - Chính trị": ["Luật kinh tế", "Ngôn ngữ Anh"]
 };
 const slides = [{
   id: 0,
