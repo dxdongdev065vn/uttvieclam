@@ -1,29 +1,30 @@
 import { Building2, Users, Briefcase, ThumbsUp, TrendingUp, Award } from "lucide-react";
+import { projectStats } from "@/data/projectData";
 
 const stats = [
   {
     icon: Building2,
-    value: "200+",
+    value: projectStats.companies.displayValue,
     label: "Doanh nghiệp đối tác",
-    trend: "+15%"
+    trend: projectStats.companies.trend
   },
   {
     icon: Users,
-    value: "10,000+",
+    value: projectStats.candidates.displayValue,
     label: "Sinh viên kết nối",
-    trend: "+23%"
+    trend: projectStats.candidates.trend
   },
   {
     icon: Briefcase,
-    value: "500+",
+    value: projectStats.jobs.displayValue,
     label: "Việc làm mỗi tháng",
-    trend: "+18%"
+    trend: projectStats.jobs.trend
   },
   {
     icon: ThumbsUp,
-    value: "95%",
+    value: projectStats.satisfaction.displayValue,
     label: "Tỷ lệ hài lòng",
-    trend: "+5%"
+    trend: projectStats.satisfaction.trend
   }
 ];
 
