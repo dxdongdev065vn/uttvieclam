@@ -210,7 +210,7 @@ const TechnologySection = () => {
       <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-10">
-          <span className="inline-block bg-primary/10 text-primary py-2 rounded-full text-sm font-medium mb-4 px-[22px]">
+          <span className="inline-block bg-primary/10 text-primary py-2.5 rounded-full text-base font-semibold mb-4 px-6">
             CÔNG NGHỆ VÀ ĐỔI MỚI
           </span>
           

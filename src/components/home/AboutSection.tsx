@@ -210,8 +210,8 @@ const AboutSection = () => {
       <div className="max-w-full xl:max-w-[1600px] 2xl:max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-12 relative z-10">
         {/* Section Header - Modern Style */}
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm border border-primary/20 text-primary py-2 rounded-full text-sm font-medium mb-6 px-[22px]">
-            <Sparkles className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm border border-primary/20 text-primary py-2.5 rounded-full text-base font-semibold mb-6 px-6">
+            <Sparkles className="w-5 h-5" />
             VỀ CHÚNG TÔI
           </div>
 

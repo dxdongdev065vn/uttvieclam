@@ -53,7 +53,7 @@ const ArticlesSection = () => {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-8">
-          <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+          <span className="inline-block bg-primary/10 text-primary px-6 py-2.5 rounded-full text-base font-semibold mb-4">
             BẢN TIN
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
