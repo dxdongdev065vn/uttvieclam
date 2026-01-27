@@ -18,7 +18,7 @@ const aboutButtons = [{
   icon: UserCog
 }, {
   id: "center",
-  label: "Trung tâm kết nối và hỗ trợ doanh nghiệp",
+  label: "Trung tâm hợp tác Doanh Nghiệp và Khởi Nghiệp Sáng Tạo",
   icon: Handshake
 }];
 
