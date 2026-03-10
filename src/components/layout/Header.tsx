@@ -266,7 +266,7 @@ const Header = () => {
       </div>
 
       {/* Navigation Bar - Desktop Only */}
-      <nav className="bg-primary hidden lg:block py-2 shadow-lg">
+      <nav className="bg-primary hidden lg:block py-3 shadow-lg">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center gap-1">
             {navLinks.map((link, index) => {
