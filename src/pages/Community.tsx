@@ -225,7 +225,7 @@ const Community = () => {
       <div className="bg-gradient-to-r from-primary to-primary/80 py-12">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
-            Kết Nối Cộng Đồng
+            Kết Nối Hệ Sinh Thái
           </h1>
           <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
             Mạng lưới cựu sinh viên, câu lạc bộ và cơ hội học bổng
