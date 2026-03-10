@@ -122,10 +122,10 @@ const Header = () => {
           {/* Tagline - Center */}
           <div className="hidden lg:flex flex-1 justify-center px-4">
             <p 
-              className="text-sm xl:text-base text-center text-foreground/80 font-medium"
+              className="text-base xl:text-lg text-center text-foreground/80 font-medium"
               style={{ fontFamily: "Arial, sans-serif" }}
             >
-              Hệ sinh thái Tri thức & Sự nghiệp: <span className="text-primary">Kết nối Tài năng - Công nghệ - Cộng đồng</span>
+              Hệ sinh thái Tri thức & Sự nghiệp: <span className="text-primary">Kết nối Tài năng & Công nghệ & Cộng đồng</span>
             </p>
           </div>
 
@@ -266,7 +266,7 @@ const Header = () => {
       </div>
 
       {/* Navigation Bar - Desktop Only */}
-      <nav className="bg-primary hidden lg:block py-2 shadow-lg">
+      <nav className="bg-primary hidden lg:block py-3 shadow-lg">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center gap-1">
             {navLinks.map((link, index) => {
@@ -283,13 +283,13 @@ const Header = () => {
                 >
                   <Link
                     to={link.path}
-                    className={`relative flex items-center gap-1.5 px-4 py-2 text-xs font-medium tracking-wide transition-all duration-150 rounded-full ${
+                    className={`relative flex items-center gap-2 px-5 py-2.5 text-sm font-medium tracking-wide transition-all duration-150 rounded-full ${
                       isActive 
                         ? "bg-primary text-white shadow-[0_4px_12px_rgba(0,0,0,0.2)]" 
                         : "bg-white text-foreground shadow-[0_2px_8px_rgba(249,115,22,0.25)] hover:shadow-[0_4px_12px_rgba(249,115,22,0.4)]"
                     }`}
                   >
-                    <IconComponent className={`w-3.5 h-3.5 ${isActive ? "text-white" : "text-primary"}`} />
+                    <IconComponent className={`w-4 h-4 ${isActive ? "text-white" : "text-primary"}`} />
                     <span className="whitespace-nowrap">{link.name}</span>
                     {hasSubmenu && (
                       <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
