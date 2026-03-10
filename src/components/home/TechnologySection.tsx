@@ -7,20 +7,30 @@ import articleCV from "@/assets/article-cv.jpg";
 import articleInterview from "@/assets/article-interview.jpg";
 import articleNetworking from "@/assets/article-networking.jpg";
 const tabButtons = [{
+  key: "ideas",
+  label: "Sàn Ý tưởng sáng tạo",
+  icon: Lightbulb,
+  description: "Khơi nguồn sáng tạo"
+}, {
+  key: "research",
+  label: "Đặt hàng NC & Đổi mới sáng tạo",
+  icon: FlaskConical,
+  description: "DN đề xuất bài toán"
+}, {
   key: "solutions",
   label: "Danh mục Công nghệ & Giải pháp",
   icon: Cpu,
   description: "Sẵn sàng ứng dụng"
 }, {
-  key: "research",
-  label: "Đặt hàng Nghiên cứu & Đổi mới",
-  icon: FlaskConical,
-  description: "DN đề xuất bài toán"
-}, {
   key: "transfer",
-  label: "Chuyển giao CN & Sở hữu trí tuệ",
+  label: "Tư vấn Chuyển giao CN & SHTT",
   icon: Handshake,
   description: "Hỗ trợ thương mại hóa"
+}, {
+  key: "spinoff",
+  label: "Spin-off & Quản trị DN SME",
+  icon: Briefcase,
+  description: "Khởi nghiệp & quản trị"
 }];
 const SLIDE_DURATIONS: Record<string, number> = {
   solutions: 10000,
