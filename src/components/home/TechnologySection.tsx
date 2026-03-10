@@ -119,34 +119,34 @@ const intellectualProperty = [{
   transferable: false
 }];
 const sectionContent = {
-  solutions: {
-    title: "Danh mục Công nghệ & Giải pháp",
-    subtitle: "Các công nghệ sẵn sàng ứng dụng",
-    description: "Khám phá danh mục các công nghệ, giải pháp kỹ thuật đã được nghiên cứu và phát triển bởi đội ngũ chuyên gia của trường, sẵn sàng chuyển giao và ứng dụng vào thực tiễn sản xuất.",
+  ideas: {
+    title: "Sàn Ý tưởng sáng tạo",
+    subtitle: "Khơi nguồn sáng tạo",
+    description: "Nền tảng kết nối ý tưởng sáng tạo từ sinh viên, giảng viên và doanh nghiệp. Nơi các ý tưởng đổi mới được chia sẻ, phát triển và hiện thực hóa thông qua cộng đồng tri thức.",
     image: articleCV,
     stats: [{
-      value: "50+",
-      label: "Giải pháp công nghệ"
+      value: "200+",
+      label: "Ý tưởng sáng tạo"
     }, {
-      value: "120+",
-      label: "Dự án triển khai"
+      value: "50+",
+      label: "Dự án khởi nghiệp"
     }],
     buttons: [{
-      label: "Xem danh mục",
-      href: "/cong-nghe?tab=catalog",
-      icon: BookOpen
+      label: "Khám phá ý tưởng",
+      href: "/cong-nghe?tab=y-tuong",
+      icon: Lightbulb
     }, {
-      label: "Tìm giải pháp",
-      href: "/cong-nghe?tab=catalog&action=search",
-      icon: Search
+      label: "Đăng ý tưởng",
+      href: "/cong-nghe?tab=y-tuong&action=submit",
+      icon: Send
     }, {
-      label: "Liên hệ tư vấn",
-      href: "/lien-he?subject=technology",
-      icon: Phone
+      label: "Mentoring",
+      href: "/cong-nghe?tab=y-tuong&action=mentor",
+      icon: MessageCircle
     }]
   },
   research: {
-    title: "Đặt hàng Nghiên cứu & Đổi mới",
+    title: "Đặt hàng NC & Đổi mới sáng tạo",
     subtitle: "Doanh nghiệp đề xuất bài toán",
     description: "Cầu nối giữa doanh nghiệp và đội ngũ nghiên cứu của trường. Doanh nghiệp có thể đặt hàng các dự án nghiên cứu, đổi mới sáng tạo để giải quyết các bài toán thực tiễn trong sản xuất kinh doanh.",
     image: articleInterview,
@@ -171,11 +171,37 @@ const sectionContent = {
       icon: MessageCircle
     }]
   },
+  solutions: {
+    title: "Danh mục Công nghệ & Giải pháp",
+    subtitle: "Các công nghệ sẵn sàng ứng dụng",
+    description: "Khám phá danh mục các công nghệ, giải pháp kỹ thuật đã được nghiên cứu và phát triển bởi đội ngũ chuyên gia của trường, sẵn sàng chuyển giao và ứng dụng vào thực tiễn sản xuất.",
+    image: articleNetworking,
+    stats: [{
+      value: "50+",
+      label: "Giải pháp công nghệ"
+    }, {
+      value: "120+",
+      label: "Dự án triển khai"
+    }],
+    buttons: [{
+      label: "Xem danh mục",
+      href: "/cong-nghe?tab=catalog",
+      icon: BookOpen
+    }, {
+      label: "Tìm giải pháp",
+      href: "/cong-nghe?tab=catalog&action=search",
+      icon: Search
+    }, {
+      label: "Liên hệ tư vấn",
+      href: "/lien-he?subject=technology",
+      icon: Phone
+    }]
+  },
   transfer: {
-    title: "Chuyển giao CN & Sở hữu trí tuệ",
+    title: "Tư vấn Chuyển giao CN & SHTT",
     subtitle: "Hỗ trợ thương mại hóa",
     description: "Hỗ trợ doanh nghiệp tiếp nhận công nghệ, bảo hộ quyền sở hữu trí tuệ và thương mại hóa các kết quả nghiên cứu. Đội ngũ tư vấn chuyên nghiệp đồng hành trong suốt quá trình.",
-    image: articleNetworking,
+    image: articleCV,
     stats: [{
       value: "25+",
       label: "Bằng sáng chế"
