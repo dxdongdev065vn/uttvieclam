@@ -115,7 +115,7 @@ const Header = () => {
             <img 
               src={uttLogo} 
               alt="Trường Đại học Công nghệ GTVT" 
-              className="h-12 md:h-14 w-auto"
+              className="h-8 md:h-10 w-auto"
             />
           </Link>
 
