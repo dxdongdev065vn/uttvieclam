@@ -153,16 +153,16 @@ const Technology = () => {
       <div className="bg-gradient-to-r from-secondary to-secondary/80 py-12">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-4xl font-bold text-secondary-foreground mb-4">
-            Công Nghệ & Đổi Mới
+            Hub - Đổi Mới Sáng Tạo
           </h1>
           <p className="text-secondary-foreground/80 text-lg max-w-2xl mx-auto">
-            Danh mục công nghệ, đặt hàng nghiên cứu và chuyển giao sở hữu trí tuệ
+            Sàn ý tưởng, nghiên cứu đổi mới, công nghệ & giải pháp, chuyển giao và khởi nghiệp
           </p>
         </div>
       </div>
 
       <div className="container mx-auto px-4 py-6">
-        <Breadcrumb items={[{ label: "Trang chủ", path: "/" }, { label: "Công nghệ & Đổi mới" }]} />
+        <Breadcrumb items={[{ label: "Trang chủ", path: "/" }, { label: "Hub - Đổi mới sáng tạo" }]} />
 
         <Tabs value={currentTab} onValueChange={handleTabChange} className="mt-6">
           <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:inline-grid mb-8">

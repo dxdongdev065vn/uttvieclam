@@ -52,13 +52,15 @@ const navLinks: NavItem[] = [
     ]
   },
   { 
-    name: "Công Nghệ & Đổi Mới", 
+    name: "Hub - Đổi mới sáng tạo", 
     path: "/cong-nghe", 
     icon: Cpu,
     submenu: [
-      { label: "Danh mục công nghệ & giải pháp", href: "/cong-nghe", icon: Database },
-      { label: "Đặt hàng nghiên cứu & đổi mới", href: "/cong-nghe?tab=dat-hang", icon: Lightbulb },
-      { label: "Chuyển giao công nghệ & sở hữu trí tuệ", href: "/cong-nghe?tab=chuyen-giao", icon: Shield },
+      { label: "Sàn Ý tưởng sáng tạo", href: "/cong-nghe?tab=y-tuong", icon: Lightbulb },
+      { label: "Đặt hàng nghiên cứu & Đổi mới sáng tạo", href: "/cong-nghe?tab=dat-hang", icon: Database },
+      { label: "Danh mục công nghệ & giải pháp", href: "/cong-nghe", icon: Cpu },
+      { label: "Tư vấn Chuyển giao CN & sở hữu trí tuệ", href: "/cong-nghe?tab=chuyen-giao", icon: Shield },
+      { label: "Doanh nghiệp Spin-off & quản trị DN SME", href: "/cong-nghe?tab=spin-off", icon: Building2 },
     ]
   },
   { 
