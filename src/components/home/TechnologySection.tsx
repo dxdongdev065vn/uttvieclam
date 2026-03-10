@@ -388,7 +388,7 @@ const TechnologySection = () => {
         <div className="text-center mt-12">
           <Link to="/cong-nghe">
             <Button className="utt-btn-primary">
-              Khám phá Công nghệ & Đổi mới
+              Khám phá Hub - Đổi mới sáng tạo
               <ArrowRight className="w-5 h-5" />
             </Button>
           </Link>

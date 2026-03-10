@@ -162,7 +162,7 @@ const Technology = () => {
       </div>
 
       <div className="container mx-auto px-4 py-6">
-        <Breadcrumb items={[{ label: "Trang chủ", path: "/" }, { label: "Công nghệ & Đổi mới" }]} />
+        <Breadcrumb items={[{ label: "Trang chủ", path: "/" }, { label: "Hub - Đổi mới sáng tạo" }]} />
 
         <Tabs value={currentTab} onValueChange={handleTabChange} className="mt-6">
           <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:inline-grid mb-8">
