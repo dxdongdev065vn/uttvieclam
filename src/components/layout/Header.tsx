@@ -74,7 +74,7 @@ const navLinks: NavItem[] = [
     ]
   },
   { 
-    name: "Kết Nối Cộng Đồng", 
+    name: "Kết Nối Hệ Sinh Thái", 
     path: "/cong-dong", 
     icon: Users2,
     submenu: [
