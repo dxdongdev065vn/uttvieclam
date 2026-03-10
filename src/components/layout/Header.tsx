@@ -125,7 +125,7 @@ const Header = () => {
               className="text-base xl:text-lg text-center text-foreground/80 font-medium whitespace-nowrap"
               style={{ fontFamily: "Arial, sans-serif" }}
             >
-              Hệ sinh thái Tri thức & Sự nghiệp: <span className="text-primary">Kết nối Tài năng & Công nghệ & Cộng đồng</span>
+              Hệ sinh thái Tri thức & Sự nghiệp: <span className="text-primary">Kết nối Tài năng - Công nghệ - Cộng đồng</span>
             </p>
           </div>
 

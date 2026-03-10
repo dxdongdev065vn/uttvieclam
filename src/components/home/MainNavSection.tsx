@@ -63,7 +63,7 @@ const navItems: NavItem[] = [{
     icon: Calendar
   }]
 }, {
-  label: "Kết Nối Cộng Đồng",
+  label: "Kết Nối Hệ Sinh Thái",
   href: "/cong-dong",
   icon: Users2,
   submenu: [{
