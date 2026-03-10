@@ -234,7 +234,7 @@ const Community = () => {
       </div>
 
       <div className="container mx-auto px-4 py-6">
-        <Breadcrumb items={[{ label: "Trang chủ", path: "/" }, { label: "Kết nối cộng đồng" }]} />
+        <Breadcrumb items={[{ label: "Trang chủ", path: "/" }, { label: "Kết nối Hệ Sinh Thái" }]} />
 
         <Tabs value={currentTab} onValueChange={handleTabChange} className="mt-6">
           <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:inline-grid mb-8">

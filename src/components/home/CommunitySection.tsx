@@ -97,7 +97,7 @@ const CommunitySection = () => {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-primary/10 border-primary/20 rounded-full px-6 py-2.5 mb-4 border">
             <Users className="w-5 h-5 text-primary" />
-            <span className="text-base font-semibold text-primary">Kết Nối Cộng Đồng</span>
+            <span className="text-base font-semibold text-primary">Kết Nối Hệ Sinh Thái</span>
           </div>
           
           <p className="text-muted-foreground max-w-2xl mx-auto">
