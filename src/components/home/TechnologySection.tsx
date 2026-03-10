@@ -33,9 +33,11 @@ const tabButtons = [{
   description: "Khởi nghiệp & quản trị"
 }];
 const SLIDE_DURATIONS: Record<string, number> = {
-  solutions: 10000,
+  ideas: 9000,
   research: 9000,
-  transfer: 9000
+  solutions: 10000,
+  transfer: 9000,
+  spinoff: 9000
 };
 
 // Tab 1: Danh mục công nghệ sẵn sàng
