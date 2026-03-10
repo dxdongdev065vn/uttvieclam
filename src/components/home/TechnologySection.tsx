@@ -221,7 +221,7 @@ const TechnologySection = () => {
         {/* Section Header */}
         <div className="text-center mb-10">
           <span className="inline-block bg-primary/10 text-primary py-2.5 rounded-full text-base font-semibold mb-4 px-6">
-            CÔNG NGHỆ VÀ ĐỔI MỚI
+            HUB - ĐỔI MỚI SÁNG TẠO
           </span>
           
           <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
