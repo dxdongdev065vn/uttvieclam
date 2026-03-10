@@ -122,10 +122,10 @@ const Header = () => {
           {/* Tagline - Center */}
           <div className="hidden lg:flex flex-1 justify-center px-4">
             <p 
-              className="text-sm xl:text-base text-center text-foreground/80 font-medium"
+              className="text-base xl:text-lg text-center text-foreground/80 font-medium"
               style={{ fontFamily: "Arial, sans-serif" }}
             >
-              Hệ sinh thái Tri thức & Sự nghiệp: <span className="text-primary">Kết nối Tài năng - Công nghệ - Cộng đồng</span>
+              Hệ sinh thái Tri thức & Sự nghiệp: <span className="text-primary">Kết nối Tài năng & Công nghệ & Cộng đồng</span>
             </p>
           </div>
 
