@@ -222,10 +222,36 @@ const sectionContent = {
       href: "/lien-he?subject=transfer",
       icon: Building
     }]
+  },
+  spinoff: {
+    title: "Doanh nghiệp Spin-off & Quản trị DN SME",
+    subtitle: "Khởi nghiệp & quản trị",
+    description: "Hỗ trợ thành lập doanh nghiệp spin-off từ kết quả nghiên cứu, tư vấn quản trị doanh nghiệp vừa và nhỏ (SME), kết nối nguồn vốn đầu tư và mentoring khởi nghiệp.",
+    image: articleInterview,
+    stats: [{
+      value: "15+",
+      label: "Doanh nghiệp Spin-off"
+    }, {
+      value: "100+",
+      label: "DN SME được tư vấn"
+    }],
+    buttons: [{
+      label: "Tìm hiểu Spin-off",
+      href: "/cong-nghe?tab=spin-off",
+      icon: Briefcase
+    }, {
+      label: "Tư vấn quản trị SME",
+      href: "/cong-nghe?tab=spin-off&action=consult",
+      icon: Building
+    }, {
+      label: "Kết nối đầu tư",
+      href: "/cong-nghe?tab=spin-off&action=invest",
+      icon: Award
+    }]
   }
 };
 const TechnologySection = () => {
-  const [activeTab, setActiveTab] = useState("solutions");
+  const [activeTab, setActiveTab] = useState("ideas");
   const [isPaused, setIsPaused] = useState(false);
   const goToNextSlide = useCallback(() => {
     const keys = Object.keys(sectionContent);
