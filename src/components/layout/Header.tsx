@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import uttLogo from "@/assets/utt-logo-full.png";
+import uttLogo from "/1f4fc523-160f-45c5-b707-766f7d95dc8b.png";
 
 interface NavItem {
   name: string;
@@ -74,7 +74,7 @@ const navLinks: NavItem[] = [
     ]
   },
   { 
-    name: "Kết Nối Cộng Đồng", 
+    name: "Kết Nối Hệ Sinh Thái", 
     path: "/cong-dong", 
     icon: Users2,
     submenu: [
